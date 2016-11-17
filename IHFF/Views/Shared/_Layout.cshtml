@@ -6,22 +6,15 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/seatmap")
 </head>
 <body>
     <section class="modal fade" tabindex="-1" role="dialog">
         <section class="modal-dialog" role="document">
             <section class="modal-content">
-                <section class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Modal title</h4>
-                </section>
-                <section class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </section>
-                <section class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </section>
+                
             </section><!-- /.modal-content -->
         </section><!-- /.modal-dialog -->
     </section><!-- /.modal -->
@@ -64,8 +57,17 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+   
     @RenderSection("scripts", required: false)
+    <script>
+        $.ajax('@Url.Action("AddItem", "Modal")', {
+            success: function (data) {
+                $('.modal-content').html(data);
+            },
+            error: function () {
+              
+            }
+        });
+    </script>
 </body>
 </html>

@@ -23,9 +23,14 @@ namespace IHFF
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/seatmap").Include(
+                      "~/Scripts/jquery.seat-charts.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/jquery.seat-charts.css",
+                      "~/Content/font-awesome.css"));
         }
     }
 }

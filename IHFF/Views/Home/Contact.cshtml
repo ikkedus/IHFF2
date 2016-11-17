@@ -15,3 +15,46 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+<section id="seatmap"></section>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            var sc = $('#seatmap').seatCharts({
+                map: [
+                    '__aaaaaaaaaaaaa__',
+                    '__aaaaaaaaaaaaa__',
+                    '_aaaaaaaaaaaaaaa_',
+                    '_aaaaaaaaaaaaaaa_',
+                    'aaaaaaaaaaaaaaaaa',
+                    'aaaaaaaaaaaaaaaaa',
+                ],
+                seats: {
+                    a: {
+                        classes: 'seats fa fa-2x fa-user'
+                    },
+                    c: {
+                        classes: 'seats fa fa-2x fa-user-o'
+                    }
+
+                },
+                click: function () {
+                    console.log(this);
+                    if (this.status() == 'available') {
+                        //do some stuff, i.e. add to the cart
+                        return 'selected';
+                    } else if (this.status() == 'selected') {
+                        //seat has been vacated
+                        return 'available';
+                    } else if (this.status() == 'unavailable') {
+                        //seat has been already booked
+                        return 'unavailable';
+                    } else {
+                        return this.style();
+                    }
+                }
+            });
+            sc.find('c.available').status('unavailable');
+        });
+    </script>
+    }
