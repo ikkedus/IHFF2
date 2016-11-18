@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Models\LoginVm.cs" />
     <Compile Include="Global.asax.cs">
@@ -174,6 +175,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Charts.js" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\jquery.seat-charts.css" />
@@ -226,9 +228,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Modal\additemWithSeat.cshtml" />
     <Content Include="Views\Shared\_manage.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\linkPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>

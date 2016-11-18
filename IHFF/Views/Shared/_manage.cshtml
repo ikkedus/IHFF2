@@ -3,7 +3,7 @@
 <head>
     <title>@ViewBag.Title - ihff management</title>
     @Styles.Render("~/Content/css")
-    <link rel="~/Content/management.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/management.css">
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -16,8 +16,23 @@
                     <section class="listholder collapse">
                         <ul class="nav nav-stacked">
                             <li class="navdivider">Navigation</li>
-                            <li class="">
-                                <a href="www.google.nl"><i class="glyphicon glyphicon-home"></i>Google</a>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                <a href="@Url.Action("index","Manage")"><i class="fa fa-dashboard"></i> Dashboard</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Pages" ? "active" : "")">
+                                <a href="@Url.Action("index","Manage")"><i class="fa fa-edit"></i> Pages</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Movies" ? "active" : "")">
+                                <a href="@Url.Action("index","Manage")"><i class="fa fa-video-camera"></i> Movies</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Restaurants" ? "active" : "")">
+                                <a href="@Url.Action("index","Manage")"><i class="fa fa-cutlery"></i> Restaurants</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Sales" ? "active" : "")">
+                                <a href="@Url.Action("index","Manage")"><i class="fa fa-line-chart"></i> Sales</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Highlights" ? "active" : "")">
+                                <a href="@Url.Action("index","Manage")"><i class="fa fa-lightbulb-o"></i> Highlights</a>
                             </li>
                         </ul>
                     </section>
@@ -30,7 +45,7 @@
                             IHFF management
                         </h6>
                         <h2>
-                            @ViewBag.Title
+                            @Html.Raw(ViewBag.Icon + ViewBag.Title)
                         </h2>
                     </section>
                 </section>
@@ -39,13 +54,7 @@
                     @RenderBody()
                 </section>
             </section>
-
         </section>
     </section>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
