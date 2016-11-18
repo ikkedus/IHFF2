@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - ihff management</title>
+    @Styles.Render("~/Content/css")
+    <link rel="~/Content/management.css"/>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <section class="container">
+        <section class="row">
+            <section class="col-md-3">
+                <nav class="managenavigation">
+                    <section class="listholder collapse">
+                        <ul class="nav nav-stacked">
+                            <li class="navdivider">Navigation</li>
+                            <li class="">
+                                <a href="www.google.nl"><i class="glyphicon glyphicon-home"></i>Google</a>
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </section>
+            <section class="col-md-9">
+                <section class="headerbar">
+                    <section class="title">
+                        <h6 class="">
+                            IHFF management
+                        </h6>
+                        <h2>
+                            @ViewBag.Title
+                        </h2>
+                    </section>
+                </section>
+                <hr class="divider">
+                <section class="content">
+                    @RenderBody()
+                </section>
+            </section>
+
+        </section>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
