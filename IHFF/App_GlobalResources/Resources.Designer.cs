@@ -61,6 +61,24 @@ namespace IHFF.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check Out.
+        /// </summary>
+        public static string CheckOut {
+            get {
+                return ResourceManager.GetString("CheckOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tickets.
+        /// </summary>
+        public static string CheckOutItems {
+            get {
+                return ResourceManager.GetString("CheckOutItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Culture.
         /// </summary>
         public static string culture {

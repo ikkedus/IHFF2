@@ -135,4 +135,10 @@
   <data name="Welcome" xml:space="preserve">
     <value>Welkom op het IHFF festival</value>
   </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>Kassa</value>
+  </data>
+  <data name="CheckOutItems" xml:space="preserve">
+    <value>Kaartjes</value>
+  </data>
 </root>

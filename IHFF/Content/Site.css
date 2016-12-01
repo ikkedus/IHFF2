@@ -22,3 +22,39 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.circle {
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    line-height: 200px;
+    text-align: center;
+    background: #000;
+}
+
+.circle-steps {
+    height: 60px;
+    width: 60px;
+    background-color: gray;
+    margin: 0 auto;
+}
+    .circle-steps > h1 {
+        line-height: 1.7;
+        margin-top: 13px;
+    }
+
+    .circle-steps.active {
+        background-color: dodgerblue;
+    }
+#step2{
+    display:none;
+}
+#step3{
+    display:none;
+}
+#prev{
+    display:none;
+}
+#confirm{
+    display:none;
+}

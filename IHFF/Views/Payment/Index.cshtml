@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = IHFF.App_GlobalResources.Resources.CheckOut;
+}
+
+<section class="row">
+    <section class="col-md-offset-4 col-md-4">
+        <section class="row">
+            <section class="col-md-4">
+                <section class="circle-steps circle">
+                    <h1>1</h1>
+                </section>
+            </section>
+            <section class="col-md-4">
+                <section class="circle-steps circle">
+                    <h1>2</h1>
+                </section>
+            </section>
+            <section class="col-md-4">
+                <section class="circle-steps circle">
+                    <h1>3</h1>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+<section class="row">
+    <section class="col-md-offset-1 col-md-10">
+        <section class="row">
+            <h3>@IHFF.App_GlobalResources.Resources.CheckOutItems</h3>
+        </section>
+        <section class="row">
+            @using (Html.BeginForm("ProccesPurchase", "Payment", FormMethod.Post))
+            {
+                <section id="step1">
+
+                </section>
+                <section id="step2"></section>
+                <section id="step3"></section>
+                <button id="prev" type="button" class="btn btn-primary">Prev</button>
+                <button id="next" type="button" class="btn btn-primary">Next</button>
+                <button id="confirm" type="button" class="btn btn-success">Confirm</button>
+            }
+        </section>
+    </section>
+</section>
+<script>
+    var i = 0;
+    $('.circle-steps').eq(i).addClass("active");
+    $('#prev').click(function (e) {
+        $('#step' + (i + 1)).hide();
+        $('#next').show();
+        $('#confirm').hide();
+        i--;
+        if (i == 0) {
+            $(this).hide();
+        }
+        $('#step' + (i + 1)).show();
+        $('.circle-steps').removeClass("active");
+        $('.circle-steps').eq(i).addClass("active");
+    });
+    $('#next').click(function (e) {
+        $('#step' + (i + 1)).hide();
+        $('#prev').show();
+        i++;
+        if (i == 2) {
+            $(this).hide();
+            $('#confirm').show();
+        }
+        $('#step' + (i + 1)).show();
+        $('.circle-steps').removeClass("active");
+        $('.circle-steps').eq(i).addClass("active");
+    });
+</script>
