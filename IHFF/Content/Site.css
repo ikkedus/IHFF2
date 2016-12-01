@@ -38,6 +38,7 @@ textarea {
     background-color: gray;
     margin: 0 auto;
 }
+
     .circle-steps > h1 {
         line-height: 1.7;
         margin-top: 13px;
@@ -46,15 +47,64 @@ textarea {
     .circle-steps.active {
         background-color: dodgerblue;
     }
-#step2{
-    display:none;
+
+#step2 {
+    display: none;
 }
-#step3{
-    display:none;
+
+#step3 {
+    display: none;
 }
-#prev{
-    display:none;
+
+#prev {
+    display: none;
 }
-#confirm{
-    display:none;
+
+#confirm {
+    display: none;
 }
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.paymentOption {
+}
+
+    .paymentOption > input[type=radio] {
+        display: none;
+    }
+
+    .paymentOption > label {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #D1D3D4;
+        font-weight: normal;
+        position: relative;
+        line-height: 2.5em;
+        text-indent: 1.5em;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .paymentOption > label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+
+    .paymentOption input[type="radio"]:checked ~ label:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: white;
+        background-color: #428bca;
+    }

@@ -1,4 +1,4 @@
-﻿
+﻿@model Payment
 @{
     ViewBag.Title = IHFF.App_GlobalResources.Resources.CheckOut;
 }
@@ -33,10 +33,51 @@
             @using (Html.BeginForm("ProccesPurchase", "Payment", FormMethod.Post))
             {
                 <section id="step1">
+                    <section class="row">
 
+                    </section>
                 </section>
-                <section id="step2"></section>
-                <section id="step3"></section>
+                <section id="step2">
+                    <section class="row">
+                       <section class="col-md-6">
+                           <section class="input-group">
+                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                               @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
+                           </section>
+                           <section class="input-group">
+                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                               @Html.TextBoxFor(x => x.Prefix, new { @class = "form-control", placeholder = "prefix" })
+                           </section>
+                           <section class="input-group">
+                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                               @Html.TextBoxFor(x => x.Lastname, new { @class = "form-control", placeholder = "Lastname" })
+                           </section>
+                           <section class="input-group">
+                               <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                               @Html.TextAreaFor(x => x.Lastname, new { @class = "form-control", placeholder = "" })
+                           </section>
+                       </section>
+                        <section class="col-md-6">
+                            <section class="paymentOption">
+                                @Html.RadioButtonFor(x => x.PaymentOption, "Creditcard",new { id="option1"})
+                                <label for="option1"><i class="fa fa-credit-card"></i>Creditcard</label>
+                            </section>
+                            <section class="paymentOption">
+                                @Html.RadioButtonFor(x => x.PaymentOption, "Cash", new { id = "option2" })
+                                <label for="option2"><i class="fa fa-money"></i>Cash</label>
+                            </section>
+                            <section class="paymentOption">
+                                @Html.RadioButtonFor(x => x.PaymentOption, "Bank Transfer", new { id = "option3" })
+                                <label for="option3"><i class="fa fa-bank"></i>Bank Transfer</label>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section id="step3">
+                    <section class="row">
+
+                    </section>
+                </section>
                 <button id="prev" type="button" class="btn btn-primary">Prev</button>
                 <button id="next" type="button" class="btn btn-primary">Next</button>
                 <button id="confirm" type="button" class="btn btn-success">Confirm</button>
