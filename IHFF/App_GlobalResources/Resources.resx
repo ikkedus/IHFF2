@@ -123,9 +123,6 @@
   <data name="Food" xml:space="preserve">
     <value>Food</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
-  </data>
   <data name="Movies" xml:space="preserve">
     <value>Movies</value>
   </data>
