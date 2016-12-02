@@ -108,3 +108,7 @@ textarea {
         color: white;
         background-color: #428bca;
     }
+    .footerline {
+        border-left: 1px solid #333;
+        padding-left:20px;
+    }

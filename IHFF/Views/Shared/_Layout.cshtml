@@ -54,31 +54,22 @@
         <hr />
         <footer class="footer">
             <div class="col-sm-4">
+                <img src="https://www.haarlemmarketing.nl/frontend/img/portal/HaarlemLogo.png" alt="Haarlem Logo" />
                 <p>Copyright &copy; @DateTime.Now.Year - International Haarlem Film Festival</p>
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-2">
-                <div class="footerline">
                     <p>Philharmovie<br>Pathe Haarlem<br>Toneelschuur<br>Patronaat<br></p>
-                </div>
             </div>
             <div class="col-sm-2">
-                <p>Stempels Brasserie<br>De Ark<br>Dijkers<br>De Uitkijk<br>Ratatouille Food and Wine<br>Restaurant Terra</p>
-            </div>
+                <div class="footerline">
+                    <p>Stempels Brasserie<br>De Ark<br>Dijkers<br>De Uitkijk<br>Ratatouille Food and Wine<br>Restaurant Terra</p>
+                </div>
+                </div>
         </footer>
     </div>
 
 
     @RenderSection("scripts", required: false)
-    <script>
-        $.ajax('@Url.Action("AddItem", "Modal")', {
-            success: function (data) {
-                $('.modal-content').html(data);
-            },
-            error: function () {
-
-            }
-        });
-    </script>
 </body>
 </html>
