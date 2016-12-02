@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d47eb47ef11412cbe795aa33930ddf3" Name="Diagram1">
+        <EntityTypeShape EntityType="DataModel.Culture" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Customer" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Event" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.EventTime" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.EventType" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Location" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.LocationType" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Movy" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DataModel.ProductInOrder" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DataModel.Reservation" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DataModel.Restaurant" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="8.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

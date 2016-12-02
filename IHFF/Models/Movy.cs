@@ -12,11 +12,18 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reservation
+    public partial class Movy
     {
-        public int Id { get; set; }
-        public int fk_bestelling { get; set; }
-        public System.DateTime ReservationDate { get; set; }
-        public string Comment { get; set; }
+        public int id { get; set; }
+        public string Title { get; set; }
+        public string Plot_EN { get; set; }
+        public string Plot_NL { get; set; }
+        public string Director { get; set; }
+        public string Banner { get; set; }
+        public string Actors { get; set; }
+        public System.DateTime Release { get; set; }
+        public int Duration { get; set; }
+        public string Trailer { get; set; }
+        public string poster { get; set; }
     }
 }

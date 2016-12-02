@@ -12,11 +12,13 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reservation
+    public partial class Restaurant
     {
         public int Id { get; set; }
-        public int fk_bestelling { get; set; }
-        public System.DateTime ReservationDate { get; set; }
-        public string Comment { get; set; }
+        public string Name { get; set; }
+        public string Description_EN { get; set; }
+        public string Description_NL { get; set; }
+        public string OpenHours { get; set; }
+        public string Poster { get; set; }
     }
 }

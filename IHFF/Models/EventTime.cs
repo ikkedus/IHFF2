@@ -12,11 +12,12 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reservation
+    public partial class EventTime
     {
         public int Id { get; set; }
-        public int fk_bestelling { get; set; }
-        public System.DateTime ReservationDate { get; set; }
-        public string Comment { get; set; }
+        public Nullable<System.DateTime> start_Time { get; set; }
+        public Nullable<System.DateTime> end_Time { get; set; }
+        public Nullable<int> fk_EventId { get; set; }
+        public Nullable<int> fk_Location { get; set; }
     }
 }

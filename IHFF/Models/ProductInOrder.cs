@@ -12,11 +12,10 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reservation
+    public partial class ProductInOrder
     {
         public int Id { get; set; }
-        public int fk_bestelling { get; set; }
-        public System.DateTime ReservationDate { get; set; }
-        public string Comment { get; set; }
+        public int fk_Product_id { get; set; }
+        public int fk_Bestelling_id { get; set; }
     }
 }
