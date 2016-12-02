@@ -115,6 +115,15 @@ namespace IHFF.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Personal Program.
+        /// </summary>
+        public static string PS {
+            get {
+                return ResourceManager.GetString("PS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to asfasfsfafsa.
         /// </summary>
         public static string String1 {

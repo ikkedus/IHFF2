@@ -141,4 +141,7 @@
   <data name="CheckOutItems" xml:space="preserve">
     <value>Tickets</value>
   </data>
+  <data name="PS" xml:space="preserve">
+    <value>Personal Program</value>
+  </data>
 </root>
