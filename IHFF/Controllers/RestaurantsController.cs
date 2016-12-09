@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using IHFF.Models;
+using System.Globalization;
 
 namespace IHFF.Controllers
 {
@@ -17,6 +18,23 @@ namespace IHFF.Controllers
         // GET: Restaurants
         public ActionResult Index()
         {
+            string[] userLanguages = Request.UserLanguages;
+            CultureInfo ci;
+            if(userLanguages.Count() > 0)
+            {
+                try
+                {
+                    ci = new CultureInfo(userLanguages[0]);
+                }
+                catch(CultureNotFoundException e)
+                {
+                    ci = CultureInfo.InvariantCulture;
+                }
+            }
+            else
+            {
+                ci = CultureInfo.InvariantCulture;
+            }
             return View(db.Restaurants.ToList());
         }
 
