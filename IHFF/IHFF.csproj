@@ -181,6 +181,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
@@ -332,6 +333,7 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\linkPartial.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Culture\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
