@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Models\Culture.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -233,6 +234,7 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderVm.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -240,6 +242,7 @@
     <Compile Include="Models\ProductInOrder.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReservationVm.cs" />
     <Compile Include="Models\Restaurant.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -247,6 +250,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\MovieVm.cs" />
     <Compile Include="Repositories\OMDBRepository.cs" />
     <Compile Include="Repositories\PaymentRepository.cs" />
     <Compile Include="Models\ProductItem.cs" />
@@ -333,7 +337,15 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\linkPartial.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Culture\Index.cshtml" />
+=======
+    <Content Include="Views\Restaurants\Create.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Edit.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -375,7 +387,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>8860</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

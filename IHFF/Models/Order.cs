@@ -14,10 +14,23 @@ namespace IHFF.Models
     
     public partial class Order
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Order()
+        {
+            this.ProductInOrders = new HashSet<ProductInOrder>();
+            this.Reservations = new HashSet<Reservation>();
+        }
+    
         public int Id { get; set; }
-        public Nullable<int> fk_Client { get; set; }
+        public int fk_Client { get; set; }
         public System.DateTime Date { get; set; }
-        public Nullable<int> Status { get; set; }
-        public Nullable<int> Paymentmethod { get; set; }
+        public int Status { get; set; }
+        public int Paymentmethod { get; set; }
+    
+        public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
