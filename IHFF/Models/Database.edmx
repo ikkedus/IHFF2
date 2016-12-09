@@ -9,12 +9,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Openhours" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Poster" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -32,6 +31,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event_Id" Type="int" Nullable="false" />
           <Property Name="Type_Id" Type="int" Nullable="false" />
           <Property Name="Special" Type="bit" Nullable="false" />
         </EntityType>
@@ -44,6 +44,8 @@
           <Property Name="end_Time" Type="datetime" Nullable="false" />
           <Property Name="fk_EventId" Type="int" Nullable="false" />
           <Property Name="fk_Location" Type="int" Nullable="false" />
+          <Property Name="IsContinus" Type="bit" Nullable="false" />
+          <Property Name="Day" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EventType">
           <Key>
@@ -74,7 +76,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Plot_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Plot_NL" Type="nvarchar(max)" Nullable="false" />
@@ -364,12 +366,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Openhours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -388,6 +389,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Type_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="EventType" Relationship="DataModel.FK_Events_EventType" FromRole="Event" ToRole="EventType" />
@@ -403,6 +405,8 @@
           <Property Name="end_Time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="fk_EventId" Type="Int32" Nullable="false" />
           <Property Name="fk_Location" Type="Int32" Nullable="false" />
+          <Property Name="IsContinus" Type="Boolean" Nullable="false" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Event" Relationship="DataModel.FK_EventTimes_Events" FromRole="EventTime" ToRole="Event" />
           <NavigationProperty Name="Location" Relationship="DataModel.FK_EventTimes_Locations" FromRole="EventTime" ToRole="Location" />
         </EntityType>
@@ -439,7 +443,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -635,7 +639,6 @@
             <EntityTypeMapping TypeName="DataModel.Culture">
               <MappingFragment StoreEntitySet="Cultures">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="Openhours" ColumnName="Openhours" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
                 <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -660,6 +663,7 @@
               <MappingFragment StoreEntitySet="Events">
                 <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -667,6 +671,8 @@
           <EntitySetMapping Name="EventTimes">
             <EntityTypeMapping TypeName="DataModel.EventTime">
               <MappingFragment StoreEntitySet="EventTimes">
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="IsContinus" ColumnName="IsContinus" />
                 <ScalarProperty Name="fk_Location" ColumnName="fk_Location" />
                 <ScalarProperty Name="fk_EventId" ColumnName="fk_EventId" />
                 <ScalarProperty Name="end_Time" ColumnName="end_Time" />

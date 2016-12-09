@@ -18,7 +18,6 @@ namespace IHFF.Models
         public string Title { get; set; }
         public string Description_EN { get; set; }
         public string Description_NL { get; set; }
-        public string Openhours { get; set; }
         public string Poster { get; set; }
     }
 }

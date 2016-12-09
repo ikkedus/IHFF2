@@ -16,6 +16,10 @@ namespace IHFF.Models
     {
         public int Id { get; set; }
         public int fk_Product_id { get; set; }
-        public int fk_Bestelling_id { get; set; }
+        public int fk_Order_id { get; set; }
+        public int Amount { get; set; }
+    
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

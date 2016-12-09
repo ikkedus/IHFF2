@@ -15,5 +15,24 @@ namespace IHFF.Repositories
                 context.Orders.Add(new Order());
             }
         }
+
+        internal List<object> GetOrders(List<OrderVm> orders)
+        {
+            foreach (var item in orders)
+            {
+                dynamic d = item;
+                Process(d);
+            }
+            return null;
+        }
+        public void Process(MovieVm order)
+        {
+
+        }
+        public void Process(ReservationVm order)
+        {
+
+        }
+
     }
 }
