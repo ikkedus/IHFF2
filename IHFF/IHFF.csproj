@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Models\Culture.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -335,6 +336,11 @@
     <Content Include="Views\Shared\linkPartial.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Restaurants\Create.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Edit.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -376,7 +382,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>8860</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -9,11 +9,11 @@ namespace IHFF.Controllers
 {
     public class MovieController : Controller
     {
+        private DatabaseEntities db = new DatabaseEntities();
         // GET: Movie
         public ActionResult Index()
         {
-            var entities = new DatabaseEntities();
-            return View(entities.Movies.ToList());
+            return View(db.Movies.ToList());
         }
     }
 }
