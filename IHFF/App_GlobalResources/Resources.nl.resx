@@ -123,9 +123,6 @@
   <data name="Food" xml:space="preserve">
     <value>Restaurants</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Thuis</value>
-  </data>
   <data name="Movies" xml:space="preserve">
     <value>Films</value>
   </data>
@@ -140,5 +137,8 @@
   </data>
   <data name="CheckOutItems" xml:space="preserve">
     <value>Kaartjes</value>
+  </data>
+  <data name="PS" xml:space="preserve">
+    <value>Persoonlijk Programma</value>
   </data>
 </root>

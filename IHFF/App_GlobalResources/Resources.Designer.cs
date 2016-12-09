@@ -97,20 +97,20 @@ namespace IHFF.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
-        /// </summary>
-        public static string Home {
-            get {
-                return ResourceManager.GetString("Home", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Movies.
         /// </summary>
         public static string Movies {
             get {
                 return ResourceManager.GetString("Movies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Program.
+        /// </summary>
+        public static string PS {
+            get {
+                return ResourceManager.GetString("PS", resourceCulture);
             }
         }
         
