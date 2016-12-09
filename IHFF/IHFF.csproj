@@ -184,6 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Models\Culture.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -246,6 +247,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MoviesRepository.cs" />
     <Compile Include="Repositories\OMDBRepository.cs" />
     <Compile Include="Repositories\PaymentRepository.cs" />
     <Compile Include="Models\ProductItem.cs" />
@@ -332,6 +334,7 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\linkPartial.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

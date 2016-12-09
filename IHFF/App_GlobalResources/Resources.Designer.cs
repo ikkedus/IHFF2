@@ -88,6 +88,15 @@ namespace IHFF.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thurday.
+        /// </summary>
+        public static string Donderdag {
+            get {
+                return ResourceManager.GetString("Donderdag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Food.
         /// </summary>
         public static string Food {
@@ -124,11 +133,47 @@ namespace IHFF.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friday.
+        /// </summary>
+        public static string Vrijdag {
+            get {
+                return ResourceManager.GetString("Vrijdag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to the IHFF festival.
         /// </summary>
         public static string Welcome {
             get {
                 return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wednesday.
+        /// </summary>
+        public static string Woensdag {
+            get {
+                return ResourceManager.GetString("Woensdag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saturday.
+        /// </summary>
+        public static string Zaterdag {
+            get {
+                return ResourceManager.GetString("Zaterdag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunday.
+        /// </summary>
+        public static string Zondag {
+            get {
+                return ResourceManager.GetString("Zondag", resourceCulture);
             }
         }
     }

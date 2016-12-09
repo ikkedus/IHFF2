@@ -15,8 +15,10 @@ namespace IHFF.Models
     public partial class Reservation
     {
         public int Id { get; set; }
-        public int fk_bestelling { get; set; }
+        public int fk_Order_Id { get; set; }
         public System.DateTime ReservationDate { get; set; }
         public string Comment { get; set; }
+    
+        public virtual Order Order { get; set; }
     }
 }

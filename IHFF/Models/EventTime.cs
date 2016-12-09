@@ -15,9 +15,12 @@ namespace IHFF.Models
     public partial class EventTime
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> start_Time { get; set; }
-        public Nullable<System.DateTime> end_Time { get; set; }
-        public Nullable<int> fk_EventId { get; set; }
-        public Nullable<int> fk_Location { get; set; }
+        public System.DateTime start_Time { get; set; }
+        public System.DateTime end_Time { get; set; }
+        public int fk_EventId { get; set; }
+        public int fk_Location { get; set; }
+    
+        public virtual Event Event { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

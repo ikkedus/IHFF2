@@ -141,4 +141,19 @@
   <data name="PS" xml:space="preserve">
     <value>Persoonlijk Programma</value>
   </data>
+  <data name="Donderdag" xml:space="preserve">
+    <value>Donderdag</value>
+  </data>
+  <data name="Vrijdag" xml:space="preserve">
+    <value>Vrijdag</value>
+  </data>
+  <data name="Woensdag" xml:space="preserve">
+    <value>Woensdag</value>
+  </data>
+  <data name="Zaterdag" xml:space="preserve">
+    <value>Zaterdag</value>
+  </data>
+  <data name="Zondag" xml:space="preserve">
+    <value>Zondag</value>
+  </data>
 </root>

@@ -14,8 +14,21 @@ namespace IHFF.Models
     
     public partial class Event
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Event()
+        {
+            this.EventTimes = new HashSet<EventTime>();
+            this.Products = new HashSet<Product>();
+        }
+    
         public int Id { get; set; }
         public int Type_Id { get; set; }
         public bool Special { get; set; }
+    
+        public virtual EventType EventType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EventTime> EventTimes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
