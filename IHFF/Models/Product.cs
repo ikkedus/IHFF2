@@ -14,20 +14,10 @@ namespace IHFF.Models
     
     public partial class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.ProductInOrders = new HashSet<ProductInOrder>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public int fk_EventId { get; set; }
-        public Nullable<int> Price { get; set; }
-        public Nullable<int> Discountable { get; set; }
-    
-        public virtual Event Event { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
+        public int Price { get; set; }
+        public bool Discountable { get; set; }
     }
 }

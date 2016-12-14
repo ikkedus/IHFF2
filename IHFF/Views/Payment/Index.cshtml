@@ -1,4 +1,5 @@
-﻿@model Payment
+﻿@using IHFF.Models
+@model OrderVm
 @{
     ViewBag.Title = IHFF.App_GlobalResources.Resources.CheckOut;
 }
@@ -30,53 +31,109 @@
             <h3>@IHFF.App_GlobalResources.Resources.CheckOutItems</h3>
         </section>
         <section class="row">
-            @using (Html.BeginForm("ProccesPurchase", "Payment", FormMethod.Post))
+            @using (Html.BeginForm("Process", "Payment", FormMethod.Post))
             {
                 <section id="step1">
                     <section class="row">
+                        @for (int i = 0; i < Model.products.Count; i++)
+                        {
+                            var item = Model.products[i];
+                            if (item is Ticket)
+                            {
+                                <div class="Product row col-md-12">
+                                    <div class="col-md-2">
+                                        <img src="@item.Poster" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <h2>@item.Title</h2>
+                                        </div>
+                                        <div class="row description">
+                                            @item.Description
+                                        </div>
 
+                                        <div class="row">
+                                            <div class="col-md-offset-9 col-md-3">
+                                                <i class="fa fa-minus-square-o"></i>
+                                                @item.Attendanties
+                                                <i class="fa fa-plus-square-o"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else if (item is ReservationVm)
+                            {
+                                <div class="Product row col-md-12">
+                                    <div class="col-md-2">
+                                        <img src="@item.Poster" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <h2>@item.Title</h2>
+                                        </div>
+                                        <div class="row description">
+                                            
+                                            @item.Description
+                                        </div>
+                                        <div class="row input-append date">
+                                            <input type="datetime" class="datetimepicker" value="@(((ReservationVm)item).ReservationTime)" data-format="dd/MM/yyyy hh:mm" name="products[@i].ReservationTime" />
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-offset-9 col-md-3">
+                                                <i id="minus"class="fa fa-minus-square-o"></i>
+                                                <input type="number" value="@item.Attendanties" name="products[@i].Attendanties" />
+                                                <i id="plus" class="fa fa-plus-square-o"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </section>
                 </section>
                 <section id="step2">
                     <section class="row">
-                       <section class="col-md-6">
-                           <section class="input-group">
-                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                               @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
-                           </section>
-                           <section class="input-group">
-                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                               @Html.TextBoxFor(x => x.Prefix, new { @class = "form-control", placeholder = "prefix" })
-                           </section>
-                           <section class="input-group">
-                               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                               @Html.TextBoxFor(x => x.Lastname, new { @class = "form-control", placeholder = "Lastname" })
-                           </section>
-                           <section class="input-group">
-                               <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                               @Html.TextAreaFor(x => x.Lastname, new { @class = "form-control", placeholder = "" })
-                           </section>
-                       </section>
+                        <section class="col-md-6">
+                            <section class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
+                            </section>
+                            <section class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                @Html.TextBoxFor(x => x.Prefix, new { @class = "form-control", placeholder = "prefix" })
+                            </section>
+                            <section class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                @Html.TextBoxFor(x => x.Lastname, new { @class = "form-control", placeholder = "Lastname" })
+                            </section>
+                            <section class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                @Html.TextAreaFor(x => x.Lastname, new { @class = "form-control", placeholder = "" })
+                            </section>
+                        </section>
                         <section class="col-md-6">
                             <section class="paymentOption">
-                                @Html.RadioButtonFor(x => x.PaymentOption, "Creditcard",new { id="option1"})
+                                @Html.RadioButtonFor(x => x.PayemntMethod, 1, new { id = "option1" })
                                 <label for="option1"><i class="fa fa-credit-card"></i>Creditcard</label>
                             </section>
                             <section class="paymentOption">
-                                @Html.RadioButtonFor(x => x.PaymentOption, "Cash", new { id = "option2" })
+                                @Html.RadioButtonFor(x => x.PayemntMethod, 2, new { id = "option2" })
                                 <label for="option2"><i class="fa fa-money"></i>Cash</label>
                             </section>
                             <section class="paymentOption">
-                                @Html.RadioButtonFor(x => x.PaymentOption, "Bank Transfer", new { id = "option3" })
+                                @Html.RadioButtonFor(x => x.PayemntMethod, 3, new { id = "option3" })
                                 <label for="option3"><i class="fa fa-bank"></i>Bank Transfer</label>
+                            </section>
+                            <section class="paymentOption">
+                                @Html.RadioButtonFor(x => x.PayemntMethod, 4, new { id = "option4" })
+                                <label for="option4"><img src="https://www.kaasbox.nl/images/images/Ideal_logo_grey.png" />Ideal</label>
                             </section>
                         </section>
                     </section>
                 </section>
                 <section id="step3">
-                    <section class="row">
-
-                    </section>
+                    <section class="row"></section>
                 </section>
                 <button id="prev" type="button" class="btn btn-primary">Prev</button>
                 <button id="next" type="button" class="btn btn-primary">Next</button>
@@ -86,6 +143,19 @@
     </section>
 </section>
 <script>
+
+    $('#minus').click(function (e) {
+        $(this).siblings("input").val(function (i, val) {
+            var w = parseInt(val)
+            return w-1;
+        });
+    });
+    $('#plus').click(function (e) {
+        $(this).siblings("input").val(function (i, val) {
+            var w = parseInt(val)
+            return w+1;
+        });
+    });
     var i = 0;
     $('.circle-steps').eq(i).addClass("active");
     $('#prev').click(function (e) {

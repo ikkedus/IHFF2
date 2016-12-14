@@ -9,12 +9,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Openhours" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Poster" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -25,13 +24,14 @@
           <Property Name="Prefix" Type="nvarchar" MaxLength="50" />
           <Property Name="lastName" Type="nvarchar" MaxLength="256" />
           <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="Createdon" Type="nvarchar" MaxLength="256" />
+          <Property Name="Createdon" Type="datetime" />
         </EntityType>
         <EntityType Name="Events">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event_Id" Type="int" Nullable="false" />
           <Property Name="Type_Id" Type="int" Nullable="false" />
           <Property Name="Special" Type="bit" Nullable="false" />
         </EntityType>
@@ -44,6 +44,8 @@
           <Property Name="end_Time" Type="datetime" Nullable="false" />
           <Property Name="fk_EventId" Type="int" Nullable="false" />
           <Property Name="fk_Location" Type="int" Nullable="false" />
+          <Property Name="IsContinus" Type="bit" Nullable="false" />
+          <Property Name="Day" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EventType">
           <Key>
@@ -110,10 +112,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="fk_EventId" Type="int" Nullable="false" />
-          <Property Name="Price" Type="int" />
-          <Property Name="Discountable" Type="int" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Discountable" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Reservations">
           <Key>
@@ -144,114 +146,73 @@
           <Property Name="Password" Type="nvarchar" MaxLength="512" Nullable="false" />
           <Property Name="Salt" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Events_EventType">
-          <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Events">
-              <PropertyRef Name="Type_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
-          <End Role="EventTimes" Type="Self.EventTimes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Events">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTimes">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Locations">
-          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
-          <End Role="EventTimes" Type="Self.EventTimes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTimes">
-              <PropertyRef Name="fk_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Locations_LocationType">
-          <End Role="LocationType" Type="Self.LocationType" Multiplicity="1" />
-          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LocationType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Locations">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="fk_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
-          <End Role="ProductInOrder" Type="Self.ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Products">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="ProductInOrder" Type="Self.ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Events">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservations_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
-          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reservations">
-              <PropertyRef Name="fk_Order_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iHFF1617S_B6.dbo.CultureView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CultureView">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+            <PropertyRef Name="Special" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description_EN" />
+            <PropertyRef Name="Description_NL" />
+          </Key>
+          <Property Name="Event_Id" Type="int" Nullable="false" />
+          <Property Name="Special" Type="bit" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Poster" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iHFF1617S_B6.dbo.MoviesView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MoviesView">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+            <PropertyRef Name="Special" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Plot_EN" />
+            <PropertyRef Name="Plot_NL" />
+            <PropertyRef Name="Director" />
+            <PropertyRef Name="Banner" />
+            <PropertyRef Name="Actors" />
+            <PropertyRef Name="Release" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Trailer" />
+            <PropertyRef Name="poster" />
+          </Key>
+          <Property Name="Event_Id" Type="int" Nullable="false" />
+          <Property Name="Special" Type="bit" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Plot_EN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Plot_NL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Director" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Banner" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Actors" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Release" Type="datetime" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Trailer" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="poster" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RestaurantView">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+            <PropertyRef Name="Special" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Description_EN" />
+            <PropertyRef Name="Description_NL" />
+            <PropertyRef Name="OpenHours" />
+            <PropertyRef Name="Poster" />
+          </Key>
+          <Property Name="Event_Id" Type="int" Nullable="false" />
+          <Property Name="Special" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="Cultures" EntityType="Self.Cultures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -267,42 +228,43 @@
           <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Events_EventType" Association="Self.FK_Events_EventType">
-            <End Role="EventType" EntitySet="EventType" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Events" Association="Self.FK_EventTimes_Events">
-            <End Role="Events" EntitySet="Events" />
-            <End Role="EventTimes" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Locations" Association="Self.FK_EventTimes_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="EventTimes" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Locations_LocationType" Association="Self.FK_Locations_LocationType">
-            <End Role="LocationType" EntitySet="LocationType" />
-            <End Role="Locations" EntitySet="Locations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Orders" Association="Self.FK_ProductInOrder_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Products" Association="Self.FK_ProductInOrder_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Events" Association="Self.FK_Products_Events">
-            <End Role="Events" EntitySet="Events" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservations_Orders" Association="Self.FK_Reservations_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="Reservations" EntitySet="Reservations" />
-          </AssociationSet>
+          <EntitySet Name="CultureView" EntityType="Self.CultureView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CultureView].[Event_Id] AS [Event_Id], 
+    [CultureView].[Special] AS [Special], 
+    [CultureView].[Title] AS [Title], 
+    [CultureView].[Description_EN] AS [Description_EN], 
+    [CultureView].[Description_NL] AS [Description_NL], 
+    [CultureView].[Poster] AS [Poster]
+    FROM [dbo].[CultureView] AS [CultureView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MoviesView" EntityType="Self.MoviesView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MoviesView].[Event_Id] AS [Event_Id], 
+    [MoviesView].[Special] AS [Special], 
+    [MoviesView].[Title] AS [Title], 
+    [MoviesView].[Plot_EN] AS [Plot_EN], 
+    [MoviesView].[Plot_NL] AS [Plot_NL], 
+    [MoviesView].[Director] AS [Director], 
+    [MoviesView].[Banner] AS [Banner], 
+    [MoviesView].[Actors] AS [Actors], 
+    [MoviesView].[Release] AS [Release], 
+    [MoviesView].[Duration] AS [Duration], 
+    [MoviesView].[Trailer] AS [Trailer], 
+    [MoviesView].[poster] AS [poster]
+    FROM [dbo].[MoviesView] AS [MoviesView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RestaurantView" EntityType="Self.RestaurantView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RestaurantView].[Event_Id] AS [Event_Id], 
+    [RestaurantView].[Special] AS [Special], 
+    [RestaurantView].[Name] AS [Name], 
+    [RestaurantView].[Description_EN] AS [Description_EN], 
+    [RestaurantView].[Description_NL] AS [Description_NL], 
+    [RestaurantView].[OpenHours] AS [OpenHours], 
+    [RestaurantView].[Poster] AS [Poster]
+    FROM [dbo].[RestaurantView] AS [RestaurantView]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -323,53 +285,19 @@
           <EntitySet Name="Reservations" EntityType="DataModel.Reservation" />
           <EntitySet Name="Restaurants" EntityType="DataModel.Restaurant" />
           <EntitySet Name="Users" EntityType="DataModel.User" />
-          <AssociationSet Name="FK_Orders_Customers" Association="DataModel.FK_Orders_Customers">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Events_EventType" Association="DataModel.FK_Events_EventType">
-            <End Role="EventType" EntitySet="EventTypes" />
-            <End Role="Event" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Events" Association="DataModel.FK_EventTimes_Events">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="EventTime" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Events" Association="DataModel.FK_Products_Events">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Locations" Association="DataModel.FK_EventTimes_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="EventTime" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Locations_LocationType" Association="DataModel.FK_Locations_LocationType">
-            <End Role="LocationType" EntitySet="LocationTypes" />
-            <End Role="Location" EntitySet="Locations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Orders" Association="DataModel.FK_ProductInOrder_Orders">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservations_Orders" Association="DataModel.FK_Reservations_Orders">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="Reservation" EntitySet="Reservations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Products" Association="DataModel.FK_ProductInOrder_Products">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrders" />
-          </AssociationSet>
+          <EntitySet Name="CultureViews" EntityType="DataModel.CultureView" />
+          <EntitySet Name="MoviesViews" EntityType="DataModel.MoviesView" />
+          <EntitySet Name="RestaurantViews" EntityType="DataModel.RestaurantView" />
         </EntityContainer>
         <EntityType Name="Culture">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Openhours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -380,19 +308,16 @@
           <Property Name="Prefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="lastName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Createdon" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="DataModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
+          <Property Name="Createdon" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Type_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EventType" Relationship="DataModel.FK_Events_EventType" FromRole="Event" ToRole="EventType" />
-          <NavigationProperty Name="EventTimes" Relationship="DataModel.FK_EventTimes_Events" FromRole="Event" ToRole="EventTime" />
-          <NavigationProperty Name="Products" Relationship="DataModel.FK_Products_Events" FromRole="Event" ToRole="Product" />
         </EntityType>
         <EntityType Name="EventTime">
           <Key>
@@ -403,8 +328,8 @@
           <Property Name="end_Time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="fk_EventId" Type="Int32" Nullable="false" />
           <Property Name="fk_Location" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Event" Relationship="DataModel.FK_EventTimes_Events" FromRole="EventTime" ToRole="Event" />
-          <NavigationProperty Name="Location" Relationship="DataModel.FK_EventTimes_Locations" FromRole="EventTime" ToRole="Location" />
+          <Property Name="IsContinus" Type="Boolean" Nullable="false" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="EventType">
           <Key>
@@ -412,7 +337,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Events" Relationship="DataModel.FK_Events_EventType" FromRole="EventType" ToRole="Event" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -424,8 +348,6 @@
           <Property Name="Streetnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Contact" Type="Int32" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EventTimes" Relationship="DataModel.FK_EventTimes_Locations" FromRole="Location" ToRole="EventTime" />
-          <NavigationProperty Name="LocationType" Relationship="DataModel.FK_Locations_LocationType" FromRole="Location" ToRole="LocationType" />
         </EntityType>
         <EntityType Name="LocationType">
           <Key>
@@ -433,7 +355,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Locations" Relationship="DataModel.FK_Locations_LocationType" FromRole="LocationType" ToRole="Location" />
         </EntityType>
         <EntityType Name="Movy">
           <Key>
@@ -460,9 +381,6 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Paymentmethod" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="DataModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="ProductInOrders" Relationship="DataModel.FK_ProductInOrder_Orders" FromRole="Order" ToRole="ProductInOrder" />
-          <NavigationProperty Name="Reservations" Relationship="DataModel.FK_Reservations_Orders" FromRole="Order" ToRole="Reservation" />
         </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
@@ -472,20 +390,16 @@
           <Property Name="fk_Product_id" Type="Int32" Nullable="false" />
           <Property Name="fk_Order_id" Type="Int32" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="DataModel.FK_ProductInOrder_Orders" FromRole="ProductInOrder" ToRole="Order" />
-          <NavigationProperty Name="Product" Relationship="DataModel.FK_ProductInOrder_Products" FromRole="ProductInOrder" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="fk_EventId" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" />
-          <Property Name="Discountable" Type="Int32" />
-          <NavigationProperty Name="Event" Relationship="DataModel.FK_Products_Events" FromRole="Product" ToRole="Event" />
-          <NavigationProperty Name="ProductInOrders" Relationship="DataModel.FK_ProductInOrder_Products" FromRole="Product" ToRole="ProductInOrder" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Discountable" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
@@ -495,7 +409,6 @@
           <Property Name="fk_Order_Id" Type="Int32" Nullable="false" />
           <Property Name="ReservationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comment" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="DataModel.FK_Reservations_Orders" FromRole="Reservation" ToRole="Order" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -517,114 +430,67 @@
           <Property Name="Password" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
           <Property Name="Salt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_Orders_Customers">
-          <End Type="DataModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="fk_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Events_EventType">
-          <End Type="DataModel.EventType" Role="EventType" Multiplicity="1" />
-          <End Type="DataModel.Event" Role="Event" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Event">
-              <PropertyRef Name="Type_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Events">
-          <End Type="DataModel.Event" Role="Event" Multiplicity="1" />
-          <End Type="DataModel.EventTime" Role="EventTime" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTime">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Events">
-          <End Type="DataModel.Event" Role="Event" Multiplicity="1" />
-          <End Type="DataModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Locations">
-          <End Type="DataModel.Location" Role="Location" Multiplicity="1" />
-          <End Type="DataModel.EventTime" Role="EventTime" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTime">
-              <PropertyRef Name="fk_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Locations_LocationType">
-          <End Type="DataModel.LocationType" Role="LocationType" Multiplicity="1" />
-          <End Type="DataModel.Location" Role="Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LocationType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Location">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Orders">
-          <End Type="DataModel.Order" Role="Order" Multiplicity="1" />
-          <End Type="DataModel.ProductInOrder" Role="ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservations_Orders">
-          <End Type="DataModel.Order" Role="Order" Multiplicity="1" />
-          <End Type="DataModel.Reservation" Role="Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="fk_Order_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Products">
-          <End Type="DataModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DataModel.ProductInOrder" Role="ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="CultureView">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+            <PropertyRef Name="Special" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description_EN" />
+            <PropertyRef Name="Description_NL" />
+          </Key>
+          <Property Name="Event_Id" Type="Int32" Nullable="false" />
+          <Property Name="Special" Type="Boolean" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MoviesView">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+            <PropertyRef Name="Special" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Plot_EN" />
+            <PropertyRef Name="Plot_NL" />
+            <PropertyRef Name="Director" />
+            <PropertyRef Name="Banner" />
+            <PropertyRef Name="Actors" />
+            <PropertyRef Name="Release" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Trailer" />
+            <PropertyRef Name="poster" />
+          </Key>
+          <Property Name="Event_Id" Type="Int32" Nullable="false" />
+          <Property Name="Special" Type="Boolean" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Director" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Banner" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Actors" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Release" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Trailer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="poster" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RestaurantView">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+            <PropertyRef Name="Special" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Description_EN" />
+            <PropertyRef Name="Description_NL" />
+            <PropertyRef Name="OpenHours" />
+            <PropertyRef Name="Poster" />
+          </Key>
+          <Property Name="Event_Id" Type="Int32" Nullable="false" />
+          <Property Name="Special" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -635,7 +501,6 @@
             <EntityTypeMapping TypeName="DataModel.Culture">
               <MappingFragment StoreEntitySet="Cultures">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="Openhours" ColumnName="Openhours" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
                 <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -660,6 +525,7 @@
               <MappingFragment StoreEntitySet="Events">
                 <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -667,6 +533,8 @@
           <EntitySetMapping Name="EventTimes">
             <EntityTypeMapping TypeName="DataModel.EventTime">
               <MappingFragment StoreEntitySet="EventTimes">
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="IsContinus" ColumnName="IsContinus" />
                 <ScalarProperty Name="fk_Location" ColumnName="fk_Location" />
                 <ScalarProperty Name="fk_EventId" ColumnName="fk_EventId" />
                 <ScalarProperty Name="end_Time" ColumnName="end_Time" />
@@ -781,6 +649,49 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CultureViews">
+            <EntityTypeMapping TypeName="DataModel.CultureView">
+              <MappingFragment StoreEntitySet="CultureView">
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoviesViews">
+            <EntityTypeMapping TypeName="DataModel.MoviesView">
+              <MappingFragment StoreEntitySet="MoviesView">
+                <ScalarProperty Name="poster" ColumnName="poster" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Actors" ColumnName="Actors" />
+                <ScalarProperty Name="Banner" ColumnName="Banner" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
+                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RestaurantViews">
+            <EntityTypeMapping TypeName="DataModel.RestaurantView">
+              <MappingFragment StoreEntitySet="RestaurantView">
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

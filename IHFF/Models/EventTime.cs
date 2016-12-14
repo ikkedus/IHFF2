@@ -19,8 +19,7 @@ namespace IHFF.Models
         public System.DateTime end_Time { get; set; }
         public int fk_EventId { get; set; }
         public int fk_Location { get; set; }
-    
-        public virtual Event Event { get; set; }
-        public virtual Location Location { get; set; }
+        public bool IsContinus { get; set; }
+        public int Day { get; set; }
     }
 }
