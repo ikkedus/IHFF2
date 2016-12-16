@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Sales";
+    Layout = "~/Views/Shared/_manage.cshtml";
+    Random rnd = new Random();
+}
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Status</th>
+        <th>PaymentMethod</th>
+        <th>Products</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    @for (int i = 0; i < 15; i++)
+    {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                Completed
+            </td>
+            <td>
+                @IHFF.App_GlobalResources.Resources.Creditcard
+            </td>
+            <td>
+                @rnd.Next(1,30)
+            </td>
+            <td>
+                @rnd.Next(1, 30)
+            </td>
+            <td>
+                <a href="#"><i class="fa fa-pencil"></i>Edit</a>
+                <a href="#"><i class="fa fa-trash"></i>Remove</a>
+            </td>
+        </tr>
+    }
+</table>

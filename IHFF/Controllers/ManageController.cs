@@ -13,5 +13,9 @@ namespace IHFF.Controllers
         {
             return View();
         }
+        public ActionResult Sales()
+        {
+            return View();
+        }
     }
 }

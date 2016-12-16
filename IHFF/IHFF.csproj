@@ -270,6 +270,7 @@
     <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\ReservationVm.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -460,6 +461,7 @@
     <Content Include="Views\Payment\Succes.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Manage\Sales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
