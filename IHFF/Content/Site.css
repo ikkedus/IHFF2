@@ -146,4 +146,19 @@ textarea {
 .container body-content {
     background-color: #f5f3f3;
 }
+.movies{
+       background-color: rgba(242, 242, 242, 1);
+       border-radius: 10px;
+}
+.m-image img {
+
+    height: 300px;
+    width: 200px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
 
