@@ -1,12 +1,14 @@
 ﻿@model IEnumerable<IHFF.Models.Movy>
-    <br />
-    <ul>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Woensdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Donderdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Vrijdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Zaterdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Zondag</a></li>
-    </ul>
+
+<header class="row header">
+    <h1 class="text-center">
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Woensdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Donderdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Vrijdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Zaterdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Zondag</button>
+    </h1>
+</header>
 
 @foreach (var item in Model)
 {
@@ -17,13 +19,13 @@
                     <img src="@Html.DisplayFor(modelItem => item.poster)" />
                 </div>
             </div>
-            <div>
+            <div class="titlefont">
                 @Html.DisplayFor(modelItem => item.Title)
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 @Html.DisplayFor(modelItem => item.Plot_EN)
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 @Html.ActionLink("More", "More", new { id = item.id }) |
                 @Html.ActionLink("Order Now", "Order Now", new { id = item.id }) |
                 @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id })

@@ -151,14 +151,22 @@ textarea {
 
     height: 300px;
     width: 200px;
-    padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 0px;
 }
-
-
-
-
+.header
+{
+    padding-bottom: 5px;
+}
+.titlefont{
+    font-size: 20px;
+    font-weight: bold;
+}
+.buttonfont{
+    font-size: 22px;
+    color: black;
+}
 .restaurant {
     background-color: rgba(242, 242, 242, 1);
 }
@@ -189,5 +197,4 @@ textarea {
 }
 .spacer{
 }
-
 
