@@ -11,28 +11,54 @@
 
 @foreach (var item in Model)
 {
-    <div class="row box">
-        <div class="col-md-2">
-            <img class="mainRestaurantImage" src="~/img/p20.jpg" />
-        </div>
+    <div class="container-fluid">
+        <div class="row box">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img class="boxMainImage" src="~/img/p20.jpg" />
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </h3>
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Description_EN)
 
-        <div class="col-md-6">
-            @Html.DisplayFor(modelItem => item.Name)
-            <p>
-                @Html.DisplayFor(modelItem => item.Description_EN)
-
-                @Html.DisplayFor(modelItem => item.Description_NL)
-
-                @Html.DisplayFor(modelItem => item.OpenHours)
-                @Html.DisplayFor(modelItem => item.Poster)
-            </p>
-        </div>
-        <div class="col-md-4 ">
-
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    @Html.DisplayFor(modelItem => item.Description_NL)
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                dit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekst
+                            </div>
+                            <div class="col-md-4 alignbottom">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
