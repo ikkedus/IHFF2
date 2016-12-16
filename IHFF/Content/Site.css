@@ -175,10 +175,14 @@ textarea {
     font-size: 16px;
     margin-top: 10px;
 }
-.mainRestaurantImage{
+.boxMainImage{
     width: 150px;
     height: 200px;
     margin: 10px;
+}
+.boxSubImage{
+    width: 150px;
+    height: 100px;
 }
 .restaurantTop{
     display: inline-block;
@@ -195,6 +199,6 @@ textarea {
     margin-bottom:10px;
     border-radius: 10px;
 }
-.spacer{
+.alignbottom{
 }
 
