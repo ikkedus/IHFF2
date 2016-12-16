@@ -26,9 +26,12 @@ namespace IHFF.Models
         public string Streetnumber { get; set; }
         public int Contact { get; set; }
         public int Type { get; set; }
+<<<<<<< HEAD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventTime> EventTimes { get; set; }
         public virtual LocationType LocationType { get; set; }
+=======
+>>>>>>> refs/remotes/origin/master
     }
 }

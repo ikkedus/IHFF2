@@ -23,11 +23,16 @@ namespace IHFF.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int fk_EventId { get; set; }
+<<<<<<< HEAD
         public Nullable<int> Price { get; set; }
         public Nullable<int> Discountable { get; set; }
     
         public virtual Event Event { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
+=======
+        public int Price { get; set; }
+        public bool Discountable { get; set; }
+>>>>>>> refs/remotes/origin/master
     }
 }

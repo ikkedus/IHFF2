@@ -141,4 +141,49 @@
   <data name="PS" xml:space="preserve">
     <value>Persoonlijk Programma</value>
   </data>
+  <data name="Donderdag" xml:space="preserve">
+    <value>Donderdag</value>
+  </data>
+  <data name="Vrijdag" xml:space="preserve">
+    <value>Vrijdag</value>
+  </data>
+  <data name="Woensdag" xml:space="preserve">
+    <value>Woensdag</value>
+  </data>
+  <data name="Zaterdag" xml:space="preserve">
+    <value>Zaterdag</value>
+  </data>
+  <data name="Zondag" xml:space="preserve">
+    <value>Zondag</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank overschrift</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Contant</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>opmerking</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Bevestigen</value>
+  </data>
+  <data name="Creditcard" xml:space="preserve">
+    <value>Creditcard</value>
+  </data>
+  <data name="Lastname" xml:space="preserve">
+    <value>Achternaam</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Voornaam</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Volgende</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>tussenvoegsel</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Vorige</value>
+  </data>
 </root>

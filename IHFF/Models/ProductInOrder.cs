@@ -18,8 +18,11 @@ namespace IHFF.Models
         public int fk_Product_id { get; set; }
         public int fk_Order_id { get; set; }
         public int Amount { get; set; }
+<<<<<<< HEAD
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
+=======
+>>>>>>> refs/remotes/origin/master
     }
 }

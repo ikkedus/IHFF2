@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
       <Diagram DiagramId="9d47eb47ef11412cbe795aa33930ddf3" Name="Diagram1" ZoomLevel="47">
         <EntityTypeShape EntityType="DataModel.Culture" Width="1.5" PointX="7.75" PointY="4.75" />
         <EntityTypeShape EntityType="DataModel.Customer" Width="1.5" PointX="0.75" PointY="2.375" />
@@ -28,6 +29,26 @@
         <AssociationConnector Association="DataModel.FK_ProductInOrder_Orders" />
         <AssociationConnector Association="DataModel.FK_Reservations_Orders" />
         <AssociationConnector Association="DataModel.FK_ProductInOrder_Products" />
+=======
+      <Diagram DiagramId="9d47eb47ef11412cbe795aa33930ddf3" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="DataModel.Culture" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Customer" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Event" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.EventTime" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.EventType" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Location" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.LocationType" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Movy" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DataModel.ProductInOrder" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DataModel.Reservation" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DataModel.Restaurant" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.CultureView" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DataModel.MoviesView" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DataModel.RestaurantView" Width="1.5" PointX="10.75" PointY="0.75" />
+>>>>>>> refs/remotes/origin/master
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

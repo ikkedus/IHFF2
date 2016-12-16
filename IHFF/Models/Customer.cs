@@ -25,9 +25,13 @@ namespace IHFF.Models
         public string Prefix { get; set; }
         public string lastName { get; set; }
         public string Email { get; set; }
+<<<<<<< HEAD
         public string Createdon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+=======
+        public Nullable<System.DateTime> Createdon { get; set; }
+>>>>>>> refs/remotes/origin/master
     }
 }

@@ -4,10 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+        
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datepicker")
     @Scripts.Render("~/bundles/seatmap")
 </head>
 <body>
@@ -30,7 +32,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies, "Index", "Movies")</li>
+                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies, "Index", "Movie/index")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.culture, "Index", "Culture")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Food, "Index", "Restaurants")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.PS, "Index", "PS")</li>
@@ -73,5 +75,6 @@
 
 
     @RenderSection("scripts", required: false)
+   
 </body>
 </html>

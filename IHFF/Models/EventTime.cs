@@ -21,8 +21,11 @@ namespace IHFF.Models
         public int fk_Location { get; set; }
         public bool IsContinus { get; set; }
         public int Day { get; set; }
+<<<<<<< HEAD
     
         public virtual Event Event { get; set; }
         public virtual Location Location { get; set; }
+=======
+>>>>>>> refs/remotes/origin/master
     }
 }
