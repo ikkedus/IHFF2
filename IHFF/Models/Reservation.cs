@@ -18,7 +18,5 @@ namespace IHFF.Models
         public int fk_Order_Id { get; set; }
         public System.DateTime ReservationDate { get; set; }
         public string Comment { get; set; }
-    
-        public virtual Order Order { get; set; }
     }
 }

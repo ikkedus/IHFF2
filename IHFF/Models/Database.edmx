@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cultures">
           <Key>
             <PropertyRef Name="Id" />
@@ -146,116 +146,6 @@
           <Property Name="Password" Type="nvarchar" MaxLength="512" Nullable="false" />
           <Property Name="Salt" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-<<<<<<< HEAD
-        <Association Name="FK_Events_EventType">
-          <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Events">
-              <PropertyRef Name="Type_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
-          <End Role="EventTimes" Type="Self.EventTimes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Events">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTimes">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Locations">
-          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
-          <End Role="EventTimes" Type="Self.EventTimes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTimes">
-              <PropertyRef Name="fk_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Locations_LocationType">
-          <End Role="LocationType" Type="Self.LocationType" Multiplicity="1" />
-          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LocationType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Locations">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="fk_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
-          <End Role="ProductInOrder" Type="Self.ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Products">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="ProductInOrder" Type="Self.ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Events">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservations_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
-          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reservations">
-              <PropertyRef Name="fk_Order_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-=======
         <!--Errors Found During Generation:
 warning 6002: The table/view 'iHFF1617S_B6.dbo.CultureView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CultureView">
@@ -323,8 +213,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
->>>>>>> refs/remotes/origin/master
-        <EntityContainer Name="DataModelStoreContainer">
+        <EntityContainer Name="ModelsStoreContainer">
           <EntitySet Name="Cultures" EntityType="Self.Cultures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
@@ -339,44 +228,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-<<<<<<< HEAD
-          <AssociationSet Name="FK_Events_EventType" Association="Self.FK_Events_EventType">
-            <End Role="EventType" EntitySet="EventType" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Events" Association="Self.FK_EventTimes_Events">
-            <End Role="Events" EntitySet="Events" />
-            <End Role="EventTimes" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Locations" Association="Self.FK_EventTimes_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="EventTimes" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Locations_LocationType" Association="Self.FK_Locations_LocationType">
-            <End Role="LocationType" EntitySet="LocationType" />
-            <End Role="Locations" EntitySet="Locations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Orders" Association="Self.FK_ProductInOrder_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Products" Association="Self.FK_ProductInOrder_Products">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Events" Association="Self.FK_Products_Events">
-            <End Role="Events" EntitySet="Events" />
-            <End Role="Products" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservations_Orders" Association="Self.FK_Reservations_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="Reservations" EntitySet="Reservations" />
-          </AssociationSet>
-=======
           <EntitySet Name="CultureView" EntityType="Self.CultureView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CultureView].[Event_Id] AS [Event_Id], 
@@ -414,69 +265,29 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
     [RestaurantView].[Poster] AS [Poster]
     FROM [dbo].[RestaurantView] AS [RestaurantView]</DefiningQuery>
           </EntitySet>
->>>>>>> refs/remotes/origin/master
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cultures" EntityType="DataModel.Culture" />
-          <EntitySet Name="Customers" EntityType="DataModel.Customer" />
-          <EntitySet Name="Events" EntityType="DataModel.Event" />
-          <EntitySet Name="EventTimes" EntityType="DataModel.EventTime" />
-          <EntitySet Name="EventTypes" EntityType="DataModel.EventType" />
-          <EntitySet Name="Locations" EntityType="DataModel.Location" />
-          <EntitySet Name="LocationTypes" EntityType="DataModel.LocationType" />
-          <EntitySet Name="Movies" EntityType="DataModel.Movy" />
-          <EntitySet Name="Orders" EntityType="DataModel.Order" />
-          <EntitySet Name="ProductInOrders" EntityType="DataModel.ProductInOrder" />
-          <EntitySet Name="Products" EntityType="DataModel.Product" />
-          <EntitySet Name="Reservations" EntityType="DataModel.Reservation" />
-          <EntitySet Name="Restaurants" EntityType="DataModel.Restaurant" />
-          <EntitySet Name="Users" EntityType="DataModel.User" />
-<<<<<<< HEAD
-          <AssociationSet Name="FK_Orders_Customers" Association="DataModel.FK_Orders_Customers">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Events_EventType" Association="DataModel.FK_Events_EventType">
-            <End Role="EventType" EntitySet="EventTypes" />
-            <End Role="Event" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Events" Association="DataModel.FK_EventTimes_Events">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="EventTime" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Products_Events" Association="DataModel.FK_Products_Events">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EventTimes_Locations" Association="DataModel.FK_EventTimes_Locations">
-            <End Role="Location" EntitySet="Locations" />
-            <End Role="EventTime" EntitySet="EventTimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Locations_LocationType" Association="DataModel.FK_Locations_LocationType">
-            <End Role="LocationType" EntitySet="LocationTypes" />
-            <End Role="Location" EntitySet="Locations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Orders" Association="DataModel.FK_ProductInOrder_Orders">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservations_Orders" Association="DataModel.FK_Reservations_Orders">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="Reservation" EntitySet="Reservations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductInOrder_Products" Association="DataModel.FK_ProductInOrder_Products">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductInOrder" EntitySet="ProductInOrders" />
-          </AssociationSet>
-=======
-          <EntitySet Name="CultureViews" EntityType="DataModel.CultureView" />
-          <EntitySet Name="MoviesViews" EntityType="DataModel.MoviesView" />
-          <EntitySet Name="RestaurantViews" EntityType="DataModel.RestaurantView" />
->>>>>>> refs/remotes/origin/master
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cultures" EntityType="Models.Culture" />
+          <EntitySet Name="Customers" EntityType="Models.Customer" />
+          <EntitySet Name="Events" EntityType="Models.Event" />
+          <EntitySet Name="EventTimes" EntityType="Models.EventTime" />
+          <EntitySet Name="EventTypes" EntityType="Models.EventType" />
+          <EntitySet Name="Locations" EntityType="Models.Location" />
+          <EntitySet Name="LocationTypes" EntityType="Models.LocationType" />
+          <EntitySet Name="Movies" EntityType="Models.Movy" />
+          <EntitySet Name="Orders" EntityType="Models.Order" />
+          <EntitySet Name="ProductInOrders" EntityType="Models.ProductInOrder" />
+          <EntitySet Name="Products" EntityType="Models.Product" />
+          <EntitySet Name="Reservations" EntityType="Models.Reservation" />
+          <EntitySet Name="Restaurants" EntityType="Models.Restaurant" />
+          <EntitySet Name="Users" EntityType="Models.User" />
+          <EntitySet Name="CultureViews" EntityType="Models.CultureView" />
+          <EntitySet Name="MoviesViews" EntityType="Models.MoviesView" />
+          <EntitySet Name="RestaurantViews" EntityType="Models.RestaurantView" />
         </EntityContainer>
         <EntityType Name="Culture">
           <Key>
@@ -497,12 +308,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Prefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="lastName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-<<<<<<< HEAD
-          <Property Name="Createdon" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="DataModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
-=======
           <Property Name="Createdon" Type="DateTime" Precision="3" />
->>>>>>> refs/remotes/origin/master
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -512,9 +318,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Type_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EventType" Relationship="DataModel.FK_Events_EventType" FromRole="Event" ToRole="EventType" />
-          <NavigationProperty Name="EventTimes" Relationship="DataModel.FK_EventTimes_Events" FromRole="Event" ToRole="EventTime" />
-          <NavigationProperty Name="Products" Relationship="DataModel.FK_Products_Events" FromRole="Event" ToRole="Product" />
         </EntityType>
         <EntityType Name="EventTime">
           <Key>
@@ -527,11 +330,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="fk_Location" Type="Int32" Nullable="false" />
           <Property Name="IsContinus" Type="Boolean" Nullable="false" />
           <Property Name="Day" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-          <NavigationProperty Name="Event" Relationship="DataModel.FK_EventTimes_Events" FromRole="EventTime" ToRole="Event" />
-          <NavigationProperty Name="Location" Relationship="DataModel.FK_EventTimes_Locations" FromRole="EventTime" ToRole="Location" />
-=======
->>>>>>> refs/remotes/origin/master
         </EntityType>
         <EntityType Name="EventType">
           <Key>
@@ -539,7 +337,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Events" Relationship="DataModel.FK_Events_EventType" FromRole="EventType" ToRole="Event" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -551,11 +348,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Streetnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Contact" Type="Int32" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-          <NavigationProperty Name="EventTimes" Relationship="DataModel.FK_EventTimes_Locations" FromRole="Location" ToRole="EventTime" />
-          <NavigationProperty Name="LocationType" Relationship="DataModel.FK_Locations_LocationType" FromRole="Location" ToRole="LocationType" />
-=======
->>>>>>> refs/remotes/origin/master
         </EntityType>
         <EntityType Name="LocationType">
           <Key>
@@ -563,7 +355,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Locations" Relationship="DataModel.FK_Locations_LocationType" FromRole="LocationType" ToRole="Location" />
         </EntityType>
         <EntityType Name="Movy">
           <Key>
@@ -590,12 +381,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Paymentmethod" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-          <NavigationProperty Name="Customer" Relationship="DataModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="ProductInOrders" Relationship="DataModel.FK_ProductInOrder_Orders" FromRole="Order" ToRole="ProductInOrder" />
-          <NavigationProperty Name="Reservations" Relationship="DataModel.FK_Reservations_Orders" FromRole="Order" ToRole="Reservation" />
-=======
->>>>>>> refs/remotes/origin/master
         </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
@@ -605,11 +390,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="fk_Product_id" Type="Int32" Nullable="false" />
           <Property Name="fk_Order_id" Type="Int32" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-          <NavigationProperty Name="Order" Relationship="DataModel.FK_ProductInOrder_Orders" FromRole="ProductInOrder" ToRole="Order" />
-          <NavigationProperty Name="Product" Relationship="DataModel.FK_ProductInOrder_Products" FromRole="ProductInOrder" ToRole="Product" />
-=======
->>>>>>> refs/remotes/origin/master
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -618,15 +398,8 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="fk_EventId" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-          <Property Name="Price" Type="Int32" />
-          <Property Name="Discountable" Type="Int32" />
-          <NavigationProperty Name="Event" Relationship="DataModel.FK_Products_Events" FromRole="Product" ToRole="Event" />
-          <NavigationProperty Name="ProductInOrders" Relationship="DataModel.FK_ProductInOrder_Products" FromRole="Product" ToRole="ProductInOrder" />
-=======
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Discountable" Type="Boolean" Nullable="false" />
->>>>>>> refs/remotes/origin/master
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
@@ -636,7 +409,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="fk_Order_Id" Type="Int32" Nullable="false" />
           <Property Name="ReservationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comment" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="DataModel.FK_Reservations_Orders" FromRole="Reservation" ToRole="Order" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -658,116 +430,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Password" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
           <Property Name="Salt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-<<<<<<< HEAD
-        <Association Name="FK_Orders_Customers">
-          <End Type="DataModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="fk_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Events_EventType">
-          <End Type="DataModel.EventType" Role="EventType" Multiplicity="1" />
-          <End Type="DataModel.Event" Role="Event" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Event">
-              <PropertyRef Name="Type_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Events">
-          <End Type="DataModel.Event" Role="Event" Multiplicity="1" />
-          <End Type="DataModel.EventTime" Role="EventTime" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTime">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Products_Events">
-          <End Type="DataModel.Event" Role="Event" Multiplicity="1" />
-          <End Type="DataModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="fk_EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EventTimes_Locations">
-          <End Type="DataModel.Location" Role="Location" Multiplicity="1" />
-          <End Type="DataModel.EventTime" Role="EventTime" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Location">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EventTime">
-              <PropertyRef Name="fk_Location" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Locations_LocationType">
-          <End Type="DataModel.LocationType" Role="LocationType" Multiplicity="1" />
-          <End Type="DataModel.Location" Role="Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LocationType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Location">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Orders">
-          <End Type="DataModel.Order" Role="Order" Multiplicity="1" />
-          <End Type="DataModel.ProductInOrder" Role="ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Order_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservations_Orders">
-          <End Type="DataModel.Order" Role="Order" Multiplicity="1" />
-          <End Type="DataModel.Reservation" Role="Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="fk_Order_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductInOrder_Products">
-          <End Type="DataModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="DataModel.ProductInOrder" Role="ProductInOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductInOrder">
-              <PropertyRef Name="fk_Product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-=======
         <EntityType Name="CultureView">
           <Key>
             <PropertyRef Name="Event_Id" />
@@ -829,15 +491,14 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
->>>>>>> refs/remotes/origin/master
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Cultures">
-            <EntityTypeMapping TypeName="DataModel.Culture">
+            <EntityTypeMapping TypeName="Models.Culture">
               <MappingFragment StoreEntitySet="Cultures">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
@@ -848,7 +509,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="DataModel.Customer">
+            <EntityTypeMapping TypeName="Models.Customer">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="Createdon" ColumnName="Createdon" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -860,7 +521,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Events">
-            <EntityTypeMapping TypeName="DataModel.Event">
+            <EntityTypeMapping TypeName="Models.Event">
               <MappingFragment StoreEntitySet="Events">
                 <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
@@ -870,7 +531,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTimes">
-            <EntityTypeMapping TypeName="DataModel.EventTime">
+            <EntityTypeMapping TypeName="Models.EventTime">
               <MappingFragment StoreEntitySet="EventTimes">
                 <ScalarProperty Name="Day" ColumnName="Day" />
                 <ScalarProperty Name="IsContinus" ColumnName="IsContinus" />
@@ -883,7 +544,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTypes">
-            <EntityTypeMapping TypeName="DataModel.EventType">
+            <EntityTypeMapping TypeName="Models.EventType">
               <MappingFragment StoreEntitySet="EventType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -891,7 +552,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="DataModel.Location">
+            <EntityTypeMapping TypeName="Models.Location">
               <MappingFragment StoreEntitySet="Locations">
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Contact" ColumnName="Contact" />
@@ -903,7 +564,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LocationTypes">
-            <EntityTypeMapping TypeName="DataModel.LocationType">
+            <EntityTypeMapping TypeName="Models.LocationType">
               <MappingFragment StoreEntitySet="LocationType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -911,7 +572,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Movies">
-            <EntityTypeMapping TypeName="DataModel.Movy">
+            <EntityTypeMapping TypeName="Models.Movy">
               <MappingFragment StoreEntitySet="Movies">
                 <ScalarProperty Name="poster" ColumnName="poster" />
                 <ScalarProperty Name="Trailer" ColumnName="Trailer" />
@@ -928,7 +589,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="DataModel.Order">
+            <EntityTypeMapping TypeName="Models.Order">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="Paymentmethod" ColumnName="Paymentmethod" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -939,7 +600,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductInOrders">
-            <EntityTypeMapping TypeName="DataModel.ProductInOrder">
+            <EntityTypeMapping TypeName="Models.ProductInOrder">
               <MappingFragment StoreEntitySet="ProductInOrder">
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="fk_Order_id" ColumnName="fk_Order_id" />
@@ -949,7 +610,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="DataModel.Product">
+            <EntityTypeMapping TypeName="Models.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Discountable" ColumnName="Discountable" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
@@ -960,7 +621,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="DataModel.Reservation">
+            <EntityTypeMapping TypeName="Models.Reservation">
               <MappingFragment StoreEntitySet="Reservations">
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
@@ -970,7 +631,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Restaurants">
-            <EntityTypeMapping TypeName="DataModel.Restaurant">
+            <EntityTypeMapping TypeName="Models.Restaurant">
               <MappingFragment StoreEntitySet="Restaurants">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
@@ -982,7 +643,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DataModel.User">
+            <EntityTypeMapping TypeName="Models.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Salt" ColumnName="Salt" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -992,7 +653,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CultureViews">
-            <EntityTypeMapping TypeName="DataModel.CultureView">
+            <EntityTypeMapping TypeName="Models.CultureView">
               <MappingFragment StoreEntitySet="CultureView">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
@@ -1004,7 +665,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MoviesViews">
-            <EntityTypeMapping TypeName="DataModel.MoviesView">
+            <EntityTypeMapping TypeName="Models.MoviesView">
               <MappingFragment StoreEntitySet="MoviesView">
                 <ScalarProperty Name="poster" ColumnName="poster" />
                 <ScalarProperty Name="Trailer" ColumnName="Trailer" />
@@ -1022,7 +683,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RestaurantViews">
-            <EntityTypeMapping TypeName="DataModel.RestaurantView">
+            <EntityTypeMapping TypeName="Models.RestaurantView">
               <MappingFragment StoreEntitySet="RestaurantView">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
@@ -1048,7 +709,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

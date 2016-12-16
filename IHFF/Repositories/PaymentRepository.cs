@@ -15,27 +15,7 @@ namespace IHFF.Repositories
 
             }
         }
-<<<<<<< HEAD
 
-        internal List<object> GetOrders(List<OrderVm> orders)
-        {
-            foreach (var item in orders)
-            {
-                dynamic d = item;
-                Process(d);
-            }
-            return null;
-        }
-        public void Process(MovieVm order)
-        {
-
-        }
-        public void Process(ReservationVm order)
-        {
-
-        }
-
-=======
         public bool ProccessOrder(OrderVm order)
         {
             using (DatabaseEntities context = new DatabaseEntities())
@@ -99,6 +79,6 @@ namespace IHFF.Repositories
                 Createdon = DateTime.Now
             };
         }
->>>>>>> refs/remotes/origin/master
+ 
     }
 }

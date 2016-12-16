@@ -242,7 +242,6 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderVm.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -250,8 +249,10 @@
     <Compile Include="Models\ProductInOrder.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReservationVm.cs" />
     <Compile Include="Models\ProductVm.cs" />
+    <Compile Include="Models\Reservation.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Restaurant.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -268,11 +269,7 @@
     <Compile Include="Models\OrderVm.cs" />
     <Compile Include="Repositories\PaymentRepository.cs" />
     <Compile Include="Models\ProductItem.cs" />
-    <Compile Include="Models\Reservation.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\PaymentDetails.cs" />
-    <Compile Include="Models\ReservationVm.cs" />
     <Compile Include="Models\Ticket.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -316,13 +313,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\Database.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Database.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Database.edmx.diagram">
-      <DependentUpon>Database.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -406,6 +396,13 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <EntityDeploy Include="Models\Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Database.edmx.diagram">
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

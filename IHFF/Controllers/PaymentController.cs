@@ -10,23 +10,10 @@ namespace IHFF.Controllers
 {
     public class PaymentController : Controller
     {
-<<<<<<< HEAD
+ 
         private PaymentRepository pr = new PaymentRepository();
         // GET: Payment
-        public ActionResult Index()
-        {
-            //List<OrderVm> orders = (List<OrderVm>)Session["Orders"];
-            List<OrderVm> orders = new List<OrderVm>();
-            orders.Add(new ReservationVm()
-            {
-                Date = DateTime.Now,
-                Count = 5,
-                ProductId = 6
-            });
-             pr.GetOrders(orders);
-=======
-        PaymentRepository pr = new PaymentRepository();
-        // GET: Payment
+        
         public ActionResult Index()
         {
 
@@ -64,7 +51,7 @@ namespace IHFF.Controllers
         }
         public ActionResult Succes()
         {
->>>>>>> refs/remotes/origin/master
+ 
             return View();
         }
 

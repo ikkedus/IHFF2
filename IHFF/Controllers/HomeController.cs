@@ -11,8 +11,6 @@ namespace IHFF.Controllers
     {
         public ActionResult Index()
         {
-            MovieRepository r = new MovieRepository();
-            //r.AddMovies();
             return View();
         }
 
