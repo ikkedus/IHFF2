@@ -147,3 +147,34 @@ textarea {
     background-color: #f5f3f3;
 }
 
+.restaurant {
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.restaurant h2{
+    font-size: 16px;
+    margin-top: 10px;
+}
+.mainRestaurantImage{
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+}
+.restaurantTop{
+    display: inline-block;
+    vertical-align:top;
+    margin-top: 10px;
+}
+
+.restaurantDescription{
+    display: inline-block;
+}
+
+.box{
+    background-color: rgba(242, 242, 242, 1);
+    margin-bottom:10px;
+}
+.spacer{
+}
+
+
