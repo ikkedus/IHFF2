@@ -12,7 +12,15 @@ namespace IHFF.Repositories
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
-                context.Movies.Add(new Movy());
+                //context.Movies;
+                var movies = (from m in context.Movies
+                              join e in context.Events on m.id equals e.Event_Id
+                              join t in context.EventTimes on e.Id equals t.fk_EventId
+                              select new ProductVm() {
+                                  Description = m.Plot_EN,
+                                 Time = t.start_Time,
+
+                              });
             }
         }
     }

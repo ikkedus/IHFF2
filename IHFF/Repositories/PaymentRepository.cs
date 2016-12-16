@@ -12,51 +12,17 @@ namespace IHFF.Repositories
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
+
             }
         }
         public bool ProccessOrder(OrderVm order)
         {
-            //OrderVm order = new OrderVm()
-            //{
-            //    Email = "matvandergragt@gmail.com",
-            //    Lastname = "Gragt",
-            //    Name = "Martin",
-            //    PayemntMethod = 1,
-            //    Prefix = "van der",
-            //    products = new List<ProductVm>()
-            //};
-            //order.products.Add(new ReservationVm()
-            //{
-            //    Attendanties = 4,
-            //    Comment = "Pinda Allergie",
-            //    ProductId = 1,
-            //    ReservationTime = DateTime.Now.AddHours(7),
-            //});
-            //order.products.Add(new Ticket()
-            //{
-            //    Attendanties = 3,
-            //    ProductId = 2,
-            //});
-            List<ReservationVm> reservations = new List<ReservationVm>();
-            List<Ticket> tickets = new List<Ticket>();
-
-            foreach (var product in order.products)
-            {
-                if (product is Ticket)
-                {
-                    tickets.Add((Ticket)product);
-                }
-                else if (product is ReservationVm)
-                {
-                    reservations.Add((ReservationVm)product);
-                }
-            }
             using (DatabaseEntities context = new DatabaseEntities())
             {
                 Customer cus = createCustomer(order);
                 Order ord = createOrder(order, cus);
-                List<Reservation> res = createListReservation(reservations, ord);
-                List<ProductInOrder> proInOrd = createListProductInOrder(tickets, ord);
+                List<Reservation> res = createListReservation(order.products, ord);
+                List<ProductInOrder> proInOrd = createListProductInOrder(order.products, ord);
 
                 context.Customers.Add(cus);
                 context.Orders.Add(ord);
@@ -68,7 +34,7 @@ namespace IHFF.Repositories
             return false;
         }
 
-        private static List<ProductInOrder> createListProductInOrder(List<Ticket> tickets, Order ord)
+        private static List<ProductInOrder> createListProductInOrder(List<ProductVm> tickets, Order ord)
         {
             return (from t in tickets
                     select new ProductInOrder()
@@ -79,13 +45,13 @@ namespace IHFF.Repositories
                     }).ToList();
         }
 
-        private static List<Reservation> createListReservation(List<ReservationVm> reservations, Order ord)
+        private static List<Reservation> createListReservation(List<ProductVm> reservations, Order ord)
         {
             return (from r in reservations
                     select new Reservation()
                     {
                         Comment = r.Comment,
-                        ReservationDate = r.ReservationTime,
+                        ReservationDate = r.Time,
                         fk_Order_Id = ord.Id,
                     }).ToList();
         }
