@@ -250,11 +250,8 @@
     <Compile Include="Models\ProductInOrder.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Models\ReservationVm.cs" />
-=======
     <Compile Include="Models\ProductVm.cs" />
->>>>>>> refs/remotes/origin/master
     <Compile Include="Models\Restaurant.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -265,11 +262,8 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\MovieVm.cs" />
-=======
     <Compile Include="Repositories\MoviesRepository.cs" />
->>>>>>> refs/remotes/origin/master
     <Compile Include="Repositories\OMDBRepository.cs" />
     <Compile Include="Models\OrderVm.cs" />
     <Compile Include="Repositories\PaymentRepository.cs" />
@@ -461,25 +455,16 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\linkPartial.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
     <Content Include="Views\Culture\Index.cshtml" />
-=======
-=======
     <Content Include="Views\Movie\Index.cshtml" />
->>>>>>> refs/remotes/origin/master
     <Content Include="Views\Restaurants\Create.cshtml" />
     <Content Include="Views\Restaurants\Delete.cshtml" />
     <Content Include="Views\Restaurants\Details.cshtml" />
     <Content Include="Views\Restaurants\Edit.cshtml" />
     <Content Include="Views\Restaurants\Index.cshtml" />
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
     <Content Include="Views\Payment\Succes.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
->>>>>>> refs/remotes/origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
