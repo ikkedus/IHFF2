@@ -37,8 +37,10 @@
                     <section class="row">
                         @for (int i = 0; i < Model.products.Count; i++)
                         {
+                            @Html.HiddenFor(x => x.products[i].ProductId)
+                            @Html.HiddenFor(x=>x.products[i].IsRestaurant)
                             var item = Model.products[i];
-                            if (item is Ticket)
+                            if (!item.IsRestaurant)
                             {
                                 <div class="Product row col-md-12">
                                     <div class="col-md-2">
@@ -54,15 +56,15 @@
 
                                         <div class="row">
                                             <div class="col-md-offset-9 col-md-3">
-                                                <i class="fa fa-minus-square-o"></i>
-                                                @item.Attendanties
-                                                <i class="fa fa-plus-square-o"></i>
+                                                <i id="" class=" minus fa fa-minus-square-o"></i>
+                                                @Html.TextBoxFor(x => x.products[i].Attendanties, new { @class = "attendents", type = "number" })
+                                                <i id="" class=" plus fa fa-plus-square-o"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             }
-                            else if (item is ReservationVm)
+                            else if (item.IsRestaurant)
                             {
                                 <div class="Product row col-md-12">
                                     <div class="col-md-2">
@@ -73,17 +75,16 @@
                                             <h2>@item.Title</h2>
                                         </div>
                                         <div class="row description">
-                                            
                                             @item.Description
                                         </div>
                                         <div class="row input-append date">
-                                            <input type="datetime" class="datetimepicker" value="@(((ReservationVm)item).ReservationTime)" data-format="dd/MM/yyyy hh:mm" name="products[@i].ReservationTime" />
+                                            @Html.TextBoxFor(x => x.products[i].Time, new { @class="datetimepicker", data_format= "dd/MM/yyyy hh:mm" })
                                         </div>
                                         <div class="row">
                                             <div class="col-md-offset-9 col-md-3">
-                                                <i id="minus"class="fa fa-minus-square-o"></i>
-                                                <input type="number" value="@item.Attendanties" name="products[@i].Attendanties" />
-                                                <i id="plus" class="fa fa-plus-square-o"></i>
+                                                <i id=""class="minus fa fa-minus-square-o"></i>
+                                                @Html.TextBoxFor(x => x.products[i].Attendanties,new {@class= "attendents", type="number" })
+                                                <i id="" class="plus fa fa-plus-square-o"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -97,33 +98,33 @@
                         <section class="col-md-6">
                             <section class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = IHFF.App_GlobalResources.Resources.Name })
                             </section>
                             <section class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                @Html.TextBoxFor(x => x.Prefix, new { @class = "form-control", placeholder = "prefix" })
+                                @Html.TextBoxFor(x => x.Prefix, new { @class = "form-control", placeholder = IHFF.App_GlobalResources.Resources.Prefix })
                             </section>
                             <section class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                @Html.TextBoxFor(x => x.Lastname, new { @class = "form-control", placeholder = "Lastname" })
+                                @Html.TextBoxFor(x => x.Lastname, new { @class = "form-control", placeholder = IHFF.App_GlobalResources.Resources.Lastname })
                             </section>
                             <section class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                @Html.TextAreaFor(x => x.Lastname, new { @class = "form-control", placeholder = "" })
+                                @Html.TextAreaFor(x => x.Lastname, new { @class = "form-control", placeholder = IHFF.App_GlobalResources.Resources.Comment })
                             </section>
                         </section>
                         <section class="col-md-6">
                             <section class="paymentOption">
                                 @Html.RadioButtonFor(x => x.PayemntMethod, 1, new { id = "option1" })
-                                <label for="option1"><i class="fa fa-credit-card"></i>Creditcard</label>
+                                <label for="option1"><i class="fa fa-credit-card"></i>@IHFF.App_GlobalResources.Resources.Creditcard</label>
                             </section>
                             <section class="paymentOption">
                                 @Html.RadioButtonFor(x => x.PayemntMethod, 2, new { id = "option2" })
-                                <label for="option2"><i class="fa fa-money"></i>Cash</label>
+                                <label for="option2"><i class="fa fa-money"></i>@IHFF.App_GlobalResources.Resources.Cash</label>
                             </section>
                             <section class="paymentOption">
                                 @Html.RadioButtonFor(x => x.PayemntMethod, 3, new { id = "option3" })
-                                <label for="option3"><i class="fa fa-bank"></i>Bank Transfer</label>
+                                <label for="option3"><i class="fa fa-bank"></i>@IHFF.App_GlobalResources.Resources.Bank</label>
                             </section>
                             <section class="paymentOption">
                                 @Html.RadioButtonFor(x => x.PayemntMethod, 4, new { id = "option4" })
@@ -135,22 +136,21 @@
                 <section id="step3">
                     <section class="row"></section>
                 </section>
-                <button id="prev" type="button" class="btn btn-primary">Prev</button>
-                <button id="next" type="button" class="btn btn-primary">Next</button>
-                <button id="confirm" type="button" class="btn btn-success">Confirm</button>
+                <button id="prev" type="button" class="btn btn-primary">@IHFF.App_GlobalResources.Resources.Prev</button>
+                <button id="next" type="button" class="btn btn-primary">@IHFF.App_GlobalResources.Resources.Next</button>
+                <button id="confirm" type="submit" class="btn btn-success">@IHFF.App_GlobalResources.Resources.Confirm</button>
             }
         </section>
     </section>
 </section>
 <script>
-
-    $('#minus').click(function (e) {
+    $('.minus').click(function (e) {
         $(this).siblings("input").val(function (i, val) {
             var w = parseInt(val)
             return w-1;
         });
     });
-    $('#plus').click(function (e) {
+    $('.plus').click(function (e) {
         $(this).siblings("input").val(function (i, val) {
             var w = parseInt(val)
             return w+1;
@@ -162,6 +162,7 @@
         $('#step' + (i + 1)).hide();
         $('#next').show();
         $('#confirm').hide();
+        $('#step1').hide();
         i--;
         if (i == 0) {
             $(this).hide();
@@ -176,6 +177,7 @@
         i++;
         if (i == 2) {
             $(this).hide();
+            $('#step1').show();
             $('#confirm').show();
         }
         $('#step' + (i + 1)).show();

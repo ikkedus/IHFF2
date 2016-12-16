@@ -139,6 +139,9 @@ textarea {
     .description {
         min-height: 60px;
     }
+.attendents {
+    width: 32px;
+}
 
 .container body-content {
     background-color: #f5f3f3;

@@ -17,17 +17,18 @@ namespace IHFF.Controllers
 
             //Get products
             List<ProductVm> pro = new List<ProductVm>();
-            pro.Add(new ReservationVm()
+            pro.Add(new ProductVm()
             {
                 Attendanties = 4,
                 Comment = "Pinda Allergie",
                 ProductId = 1,
-                ReservationTime = DateTime.Now.AddHours(7),
+                Time = DateTime.Now.AddHours(7),
                 Poster = "https://s-media-cache-ak0.pinimg.com/564x/e0/65/ec/e065ecda517b1efe0e3034ec17bcc4b8.jpg",
                 Title = "The Pop Up kitchen",
+                IsRestaurant = true,
                 Description = "The Pop Up Kitchen is a revolutionarie idee created by the sisters Amber Lee and Ashtley Lee. together the bring exotic dishes to festivals over the content"
             });
-            pro.Add(new Ticket()
+            pro.Add(new ProductVm()
             {
                 Title = "Tron",
                 Poster = "https://s-media-cache-ak0.pinimg.com/originals/0c/2d/bd/0c2dbd1bc5f6e4ba2e519d43c1613484.jpg",
@@ -40,7 +41,6 @@ namespace IHFF.Controllers
         [HttpPost]
         public ActionResult Process(OrderVm order)
         {
-
             if (ModelState.IsValid && pr.ProccessOrder(order))
             {
                 return RedirectToAction("Succes");

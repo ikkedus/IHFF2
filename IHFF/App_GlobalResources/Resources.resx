@@ -156,4 +156,34 @@
   <data name="Zondag" xml:space="preserve">
     <value>Sunday</value>
   </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank Transfer</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Creditcard" xml:space="preserve">
+    <value>Creditcard</value>
+  </data>
+  <data name="Lastname" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>Prefix</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Previous</value>
+  </data>
 </root>
