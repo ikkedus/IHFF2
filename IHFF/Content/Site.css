@@ -146,10 +146,7 @@ textarea {
 .container body-content {
     background-color: #f5f3f3;
 }
-.movies{
-       background-color: rgba(242, 242, 242, 1);
-       border-radius: 10px;
-}
+
 .m-image img {
 
     height: 300px;
@@ -188,6 +185,7 @@ textarea {
 .box{
     background-color: rgba(242, 242, 242, 1);
     margin-bottom:10px;
+    border-radius: 10px;
 }
 .spacer{
 }
