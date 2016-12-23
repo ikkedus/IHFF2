@@ -21,7 +21,9 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </div>
             <div class="col-md-6">
-                @Html.DisplayFor(modelItem => item.Plot_EN)
+               
+                    @Html.CustomDisplayFor(item.Plot_EN)
+                
             </div>
             <div class="col-md-3">
                 @Html.ActionLink("More", "More", new { id = item.id }) |
