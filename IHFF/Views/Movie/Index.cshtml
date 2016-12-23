@@ -12,24 +12,45 @@
 
 @foreach (var item in Model)
 {
-    <section class="movies">
+    <div class="container-fluid">
         <div class="row box">
-            <div class="col-md-3">
-                <div class="m-image">
-                    <img src="@Html.DisplayFor(modelItem => item.poster)" />
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2 m-image">
+                        <img src="@Html.DisplayFor(modelItem => item.poster)" />
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </h3>
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Plot_EN)
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                dit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekst
+                            </div>
+                            <div class="col-md-4 alignbottom">
+                                <button class="btn btn-large b-om " href="">
+                                    @Html.ActionLink("More", "More", new { id = item.id })
+                                </button>
+                                <button class="btn btn-large b-om" href="">
+                                    @Html.ActionLink("Order Now", "Order Now", new { id = item.id })
+                                </button>
+                                <button class="btn btn-large b-atp" href="">
+                                    @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id })
+                                </button>
+</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="titlefont">
-                @Html.DisplayFor(modelItem => item.Title)
-            </div>
-            <div class="col-md-7">
-                @Html.DisplayFor(modelItem => item.Plot_EN)
-            </div>
-            <div class="col-md-2">
-                @Html.ActionLink("More", "More", new { id = item.id }) |
-                @Html.ActionLink("Order Now", "Order Now", new { id = item.id }) |
-                @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id })
-            </div>
         </div>
-    </section>
+    </div>
 }

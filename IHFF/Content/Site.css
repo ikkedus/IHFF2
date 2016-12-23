@@ -149,9 +149,10 @@ textarea {
 
 .m-image img {
 
-    height: 300px;
-    width: 200px;
-    padding-top: 10px;
+    height: 280px;
+    width: 180px;
+    padding-top: 15px;
+    padding-left: 10px;
     padding-bottom: 10px;
     padding-right: 0px;
 }
@@ -166,6 +167,12 @@ textarea {
 .buttonfont{
     font-size: 22px;
     color: black;
+}
+.b-om{
+    background-color: steelblue;
+}
+.b-atp{
+    background-color: yellow;
 }
 .restaurant {
     background-color: rgba(242, 242, 242, 1);
@@ -200,5 +207,10 @@ textarea {
     border-radius: 10px;
 }
 .alignbottom{
+}
+
+.slider{
+    height: 400px;
+    width: 100%;
 }
 
