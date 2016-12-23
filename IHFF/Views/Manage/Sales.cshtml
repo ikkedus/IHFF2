@@ -1,4 +1,5 @@
-﻿
+﻿@using IHFF.Models
+@model List<Payment>
 @{
     ViewBag.Title = "Sales";
     Layout = "~/Views/Shared/_manage.cshtml";
@@ -14,27 +15,27 @@
         <th>Total</th>
         <th></th>
     </tr>
-    @for (int i = 0; i < 15; i++)
+    @for (int i = 0; i < Model.Count; i++)
     {
         <tr>
             <td>
-                @i
+                @Model[i].Id
             </td>
             <td>
-                Completed
+                @Model[i].Id
             </td>
             <td>
-                @IHFF.App_GlobalResources.Resources.Creditcard
+                @Model[i].PaymentOption
             </td>
             <td>
-                @rnd.Next(1,30)
+                @Model[i].products
             </td>
             <td>
-                @rnd.Next(1, 30)
+                @Model[i].total
             </td>
             <td>
-                <a href="#"><i class="fa fa-pencil"></i>Edit</a>
-                <a href="#"><i class="fa fa-trash"></i>Remove</a>
+                <a href="#" data-id="@Model[i].Id"><i class="fa fa-pencil"></i>Edit</a>
+                <a href="#" data-id="@Model[i].Id"><i class="fa fa-trash"></i>Remove</a>
             </td>
         </tr>
     }

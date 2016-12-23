@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IHFF.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace IHFF.Controllers
 {
     public class ManageController : Controller
     {
+        private PaymentRepository pr = new PaymentRepository();
         // GET: Manage
         public ActionResult Index()
         {
@@ -15,7 +17,7 @@ namespace IHFF.Controllers
         }
         public ActionResult Sales()
         {
-            return View();
+            return View(pr.getPayments());
         }
     }
 }

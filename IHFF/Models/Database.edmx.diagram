@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="DataModel.Location" Width="1.5" PointX="4.75" PointY="3.75" />
         <EntityTypeShape EntityType="DataModel.LocationType" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="DataModel.Movy" Width="1.5" PointX="6.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="DataModel.ProductInOrder" Width="1.5" PointX="2.75" PointY="7.75" />
         <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="4.75" PointY="7.75" />
         <EntityTypeShape EntityType="DataModel.Reservation" Width="1.5" PointX="6.75" PointY="7.75" />
@@ -22,6 +21,7 @@
         <EntityTypeShape EntityType="DataModel.CultureView" Width="1.5" PointX="8.75" PointY="6.75" />
         <EntityTypeShape EntityType="DataModel.MoviesView" Width="1.5" PointX="8.75" PointY="9.75" />
         <EntityTypeShape EntityType="DataModel.RestaurantView" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="0.75" PointY="7.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

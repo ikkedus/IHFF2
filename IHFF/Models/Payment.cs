@@ -7,9 +7,10 @@ namespace IHFF
 {
     public class Payment
     {
-        public string Name { get; set; }
-        public string Prefix { get; set; }
-        public string Lastname { get; set; }
+        public  int Id { get; set; }
         public string PaymentOption { get; set; }
+        public int products { get; set; }
+        public int status { get; set; }
+        public float total { get; set; }
     }
 }
