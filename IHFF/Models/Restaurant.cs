@@ -24,5 +24,8 @@ namespace IHFF.Models
         [DisplayName("Tijden")]
         public string OpenHours { get; set; }
         public string Poster { get; set; }
+        public string Address { get; set; }
+        public string SmallimageOne { get; set; }
+        public string SmallimageTwo { get; set; }
     }
 }

@@ -17,7 +17,10 @@ namespace IHFF.Controllers
         // GET: Restaurants
         public ActionResult Index()
         {
-            return View(db.Restaurants.ToList());
+            using (DatabaseEntities dbs = new DatabaseEntities())
+            {
+                return View(dbs.Restaurants.ToList());
+            }
         }
 
         // GET: Restaurants/Details/5

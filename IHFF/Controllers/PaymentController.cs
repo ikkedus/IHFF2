@@ -10,8 +10,10 @@ namespace IHFF.Controllers
 {
     public class PaymentController : Controller
     {
-        PaymentRepository pr = new PaymentRepository();
+ 
+        private PaymentRepository pr = new PaymentRepository();
         // GET: Payment
+        
         public ActionResult Index()
         {
 
@@ -49,6 +51,7 @@ namespace IHFF.Controllers
         }
         public ActionResult Succes()
         {
+ 
             return View();
         }
 

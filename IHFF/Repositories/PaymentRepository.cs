@@ -15,6 +15,7 @@ namespace IHFF.Repositories
 
             }
         }
+
         public bool ProccessOrder(OrderVm order)
         {
             using (DatabaseEntities context = new DatabaseEntities())
@@ -78,5 +79,6 @@ namespace IHFF.Repositories
                 Createdon = DateTime.Now
             };
         }
+ 
     }
 }
