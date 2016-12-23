@@ -20,5 +20,8 @@ namespace IHFF.Models
         public string Description_NL { get; set; }
         public string OpenHours { get; set; }
         public string Poster { get; set; }
+        public string Address { get; set; }
+        public string SmallimageOne { get; set; }
+        public string SmallimageTwo { get; set; }
     }
 }

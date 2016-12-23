@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="287ebd5a91a7497b83d1bc9281c8f708" Name="Diagram1" ZoomLevel="64">
-        <EntityTypeShape EntityType="Models.Culture" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Models.Customer" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Models.Event" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="Models.EventTime" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="Models.EventType" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Models.Location" Width="1.5" PointX="4.75" PointY="3.75" />
-        <EntityTypeShape EntityType="Models.LocationType" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Models.Movy" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="Models.Order" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="Models.ProductInOrder" Width="1.5" PointX="6.75" PointY="3.75" />
-        <EntityTypeShape EntityType="Models.Product" Width="1.5" PointX="4.75" PointY="6.75" />
-        <EntityTypeShape EntityType="Models.Reservation" Width="1.5" PointX="6.75" PointY="6.75" />
-        <EntityTypeShape EntityType="Models.Restaurant" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Models.User" Width="1.5" PointX="8.75" PointY="3.75" />
-        <EntityTypeShape EntityType="Models.CultureView" Width="1.5" PointX="8.75" PointY="6.75" />
-        <EntityTypeShape EntityType="Models.MoviesView" Width="1.5" PointX="2.75" PointY="9.75" />
-        <EntityTypeShape EntityType="Models.RestaurantView" Width="1.5" PointX="4.75" PointY="9.75" />
+      <Diagram DiagramId="e3ed7fba1373409498e2423f227706a7" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseEntitities.Culture" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Customer" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Event" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.EventTime" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.EventType" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Location" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.LocationType" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Movy" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Order" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.ProductInOrder" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Product" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Reservation" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Restaurant" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.User" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.CultureView" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.MoviesView" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.RestaurantView" Width="1.5" PointX="6.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

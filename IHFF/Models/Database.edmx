@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseEntitities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cultures">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,6 +14,10 @@
           <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" />
+          <Property Name="Openinghours1_EN" Type="nvarchar(max)" />
+          <Property Name="Openinghours2_EN" Type="nvarchar(max)" />
+          <Property Name="Openinghours1_NL" Type="nvarchar(max)" />
+          <Property Name="Openinghours2_NL" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -62,8 +66,9 @@
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Street" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Streetnumber" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Contact" Type="int" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Maps" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="LocationType">
           <Key>
@@ -97,6 +102,7 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Paymentmethod" Type="int" Nullable="false" />
+          <Property Name="TotalCost" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
@@ -124,18 +130,21 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="fk_Order_Id" Type="int" Nullable="false" />
           <Property Name="ReservationDate" Type="datetime" Nullable="false" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="512" />
         </EntityType>
         <EntityType Name="Restaurants">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
           <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SmallimageOne" Type="nvarchar(max)" />
+          <Property Name="SmallimageTwo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -213,7 +222,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="ModelsStoreContainer">
+        <EntityContainer Name="DatabaseEntititiesStoreContainer">
           <EntitySet Name="Cultures" EntityType="Self.Cultures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
@@ -269,25 +278,25 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DatabaseEntitities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cultures" EntityType="Models.Culture" />
-          <EntitySet Name="Customers" EntityType="Models.Customer" />
-          <EntitySet Name="Events" EntityType="Models.Event" />
-          <EntitySet Name="EventTimes" EntityType="Models.EventTime" />
-          <EntitySet Name="EventTypes" EntityType="Models.EventType" />
-          <EntitySet Name="Locations" EntityType="Models.Location" />
-          <EntitySet Name="LocationTypes" EntityType="Models.LocationType" />
-          <EntitySet Name="Movies" EntityType="Models.Movy" />
-          <EntitySet Name="Orders" EntityType="Models.Order" />
-          <EntitySet Name="ProductInOrders" EntityType="Models.ProductInOrder" />
-          <EntitySet Name="Products" EntityType="Models.Product" />
-          <EntitySet Name="Reservations" EntityType="Models.Reservation" />
-          <EntitySet Name="Restaurants" EntityType="Models.Restaurant" />
-          <EntitySet Name="Users" EntityType="Models.User" />
-          <EntitySet Name="CultureViews" EntityType="Models.CultureView" />
-          <EntitySet Name="MoviesViews" EntityType="Models.MoviesView" />
-          <EntitySet Name="RestaurantViews" EntityType="Models.RestaurantView" />
+          <EntitySet Name="Cultures" EntityType="DatabaseEntitities.Culture" />
+          <EntitySet Name="Customers" EntityType="DatabaseEntitities.Customer" />
+          <EntitySet Name="Events" EntityType="DatabaseEntitities.Event" />
+          <EntitySet Name="EventTimes" EntityType="DatabaseEntitities.EventTime" />
+          <EntitySet Name="EventTypes" EntityType="DatabaseEntitities.EventType" />
+          <EntitySet Name="Locations" EntityType="DatabaseEntitities.Location" />
+          <EntitySet Name="LocationTypes" EntityType="DatabaseEntitities.LocationType" />
+          <EntitySet Name="Movies" EntityType="DatabaseEntitities.Movy" />
+          <EntitySet Name="Orders" EntityType="DatabaseEntitities.Order" />
+          <EntitySet Name="ProductInOrders" EntityType="DatabaseEntitities.ProductInOrder" />
+          <EntitySet Name="Products" EntityType="DatabaseEntitities.Product" />
+          <EntitySet Name="Reservations" EntityType="DatabaseEntitities.Reservation" />
+          <EntitySet Name="Restaurants" EntityType="DatabaseEntitities.Restaurant" />
+          <EntitySet Name="Users" EntityType="DatabaseEntitities.User" />
+          <EntitySet Name="CultureViews" EntityType="DatabaseEntitities.CultureView" />
+          <EntitySet Name="MoviesViews" EntityType="DatabaseEntitities.MoviesView" />
+          <EntitySet Name="RestaurantViews" EntityType="DatabaseEntitities.RestaurantView" />
         </EntityContainer>
         <EntityType Name="Culture">
           <Key>
@@ -298,6 +307,10 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Openinghours1_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Openinghours2_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Openinghours1_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Openinghours2_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -346,8 +359,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Street" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Streetnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contact" Type="Int32" Nullable="false" />
+          <Property Name="Contact" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Maps" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LocationType">
           <Key>
@@ -381,6 +395,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Paymentmethod" Type="Int32" Nullable="false" />
+          <Property Name="TotalCost" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
@@ -408,18 +423,21 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="fk_Order_Id" Type="Int32" Nullable="false" />
           <Property Name="ReservationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -491,15 +509,19 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="DatabaseEntititiesStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Cultures">
-            <EntityTypeMapping TypeName="Models.Culture">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Culture">
               <MappingFragment StoreEntitySet="Cultures">
+                <ScalarProperty Name="Openinghours2_NL" ColumnName="Openinghours2_NL" />
+                <ScalarProperty Name="Openinghours1_NL" ColumnName="Openinghours1_NL" />
+                <ScalarProperty Name="Openinghours2_EN" ColumnName="Openinghours2_EN" />
+                <ScalarProperty Name="Openinghours1_EN" ColumnName="Openinghours1_EN" />
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
                 <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
@@ -509,7 +531,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="Models.Customer">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Customer">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="Createdon" ColumnName="Createdon" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -521,7 +543,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Events">
-            <EntityTypeMapping TypeName="Models.Event">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Event">
               <MappingFragment StoreEntitySet="Events">
                 <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
@@ -531,7 +553,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTimes">
-            <EntityTypeMapping TypeName="Models.EventTime">
+            <EntityTypeMapping TypeName="DatabaseEntitities.EventTime">
               <MappingFragment StoreEntitySet="EventTimes">
                 <ScalarProperty Name="Day" ColumnName="Day" />
                 <ScalarProperty Name="IsContinus" ColumnName="IsContinus" />
@@ -544,7 +566,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTypes">
-            <EntityTypeMapping TypeName="Models.EventType">
+            <EntityTypeMapping TypeName="DatabaseEntitities.EventType">
               <MappingFragment StoreEntitySet="EventType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -552,8 +574,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="Models.Location">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Location">
               <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="Maps" ColumnName="Maps" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Contact" ColumnName="Contact" />
                 <ScalarProperty Name="Streetnumber" ColumnName="Streetnumber" />
@@ -564,7 +587,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LocationTypes">
-            <EntityTypeMapping TypeName="Models.LocationType">
+            <EntityTypeMapping TypeName="DatabaseEntitities.LocationType">
               <MappingFragment StoreEntitySet="LocationType">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -572,7 +595,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Movies">
-            <EntityTypeMapping TypeName="Models.Movy">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Movy">
               <MappingFragment StoreEntitySet="Movies">
                 <ScalarProperty Name="poster" ColumnName="poster" />
                 <ScalarProperty Name="Trailer" ColumnName="Trailer" />
@@ -589,8 +612,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="Models.Order">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="Paymentmethod" ColumnName="Paymentmethod" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -600,7 +624,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductInOrders">
-            <EntityTypeMapping TypeName="Models.ProductInOrder">
+            <EntityTypeMapping TypeName="DatabaseEntitities.ProductInOrder">
               <MappingFragment StoreEntitySet="ProductInOrder">
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="fk_Order_id" ColumnName="fk_Order_id" />
@@ -610,7 +634,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Models.Product">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Discountable" ColumnName="Discountable" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
@@ -621,7 +645,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="Models.Reservation">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Reservation">
               <MappingFragment StoreEntitySet="Reservations">
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
@@ -631,8 +655,11 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Restaurants">
-            <EntityTypeMapping TypeName="Models.Restaurant">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Restaurant">
               <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
+                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
@@ -643,7 +670,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="Models.User">
+            <EntityTypeMapping TypeName="DatabaseEntitities.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Salt" ColumnName="Salt" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -653,7 +680,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CultureViews">
-            <EntityTypeMapping TypeName="Models.CultureView">
+            <EntityTypeMapping TypeName="DatabaseEntitities.CultureView">
               <MappingFragment StoreEntitySet="CultureView">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
@@ -665,7 +692,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MoviesViews">
-            <EntityTypeMapping TypeName="Models.MoviesView">
+            <EntityTypeMapping TypeName="DatabaseEntitities.MoviesView">
               <MappingFragment StoreEntitySet="MoviesView">
                 <ScalarProperty Name="poster" ColumnName="poster" />
                 <ScalarProperty Name="Trailer" ColumnName="Trailer" />
@@ -683,7 +710,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RestaurantViews">
-            <EntityTypeMapping TypeName="Models.RestaurantView">
+            <EntityTypeMapping TypeName="DatabaseEntitities.RestaurantView">
               <MappingFragment StoreEntitySet="RestaurantView">
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
@@ -709,7 +736,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
