@@ -234,7 +234,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\MoviesItem.cs" />
     <Compile Include="Models\MoviesView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -262,6 +262,7 @@
     <Compile Include="Models\RestaurantView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Times.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -470,6 +471,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Culture\Index.cshtml" />
+    <Content Include="Views\Movie\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

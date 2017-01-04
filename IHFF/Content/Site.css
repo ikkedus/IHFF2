@@ -151,10 +151,8 @@ textarea {
 
     height: 280px;
     width: 180px;
-    padding-top: 15px;
-    padding-left: 10px;
+    padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 0px;
 }
 .header
 {
@@ -168,12 +166,6 @@ textarea {
     font-size: 22px;
     color: black;
 }
-.b-om{
-    background-color: steelblue;
-}
-.b-atp{
-    background-color: yellow;
-}
 .restaurant {
     background-color: rgba(242, 242, 242, 1);
 }
@@ -183,9 +175,10 @@ textarea {
     margin-top: 10px;
 }
 .boxMainImage{
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 150px;
     margin: 10px;
+    margin-top: 25px;
 }
 .boxSubImage{
     width: 150px;
@@ -209,8 +202,29 @@ textarea {
 .alignbottom{
 }
 
-.slider{
+.pointer {
+    cursor: pointer;
+}
+
+
+.title {
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    color: black;
+    }
+.title:hover{
+    cursor: pointer;
+    color:aqua;
+
+}
+
+#ihff > a {
+    color:red;
+}
+.carousel-inner
+{
     height: 400px;
-    width: 100%;
 }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IHFF.Models.Movy>
+﻿@model IEnumerable<IHFF.Models.MoviesItem>
 
 <header class="row header">
     <h1 class="text-center">
@@ -17,16 +17,16 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-2 m-image">
-                        <img src="@Html.DisplayFor(modelItem => item.poster)" />
+                        <img src="@item.poster" />
                     </div>
                     <div class="col-md-10">
                         <div class="row">
                             <div class="col-md-8">
                                 <h3>
-                                    @Html.DisplayFor(modelItem => item.Title)
+                                    @item.title
                                 </h3>
                                 <p>
-                                    @Html.DisplayFor(modelItem => item.Plot_EN)
+                                    @item.plot_EN                          
                                 </p>
                             </div>
                             <div class="col-md-4">
@@ -34,7 +34,6 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                dit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekst
                             </div>
                             <div class="col-md-4 alignbottom">
                                 <button class="btn btn-large b-om " href="">
