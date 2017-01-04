@@ -39,6 +39,11 @@
                         {
                             @Html.HiddenFor(x => x.products[i].ProductId)
                             @Html.HiddenFor(x=>x.products[i].IsRestaurant)
+                            @Html.HiddenFor(x => x.products[i].Poster)
+                            @Html.HiddenFor(x => x.products[i].Comment)
+                            @Html.HiddenFor(x => x.products[i].Description)
+                            @Html.HiddenFor(x=>x.products[i].Time)
+                            @Html.HiddenFor(x => x.products[i].Title)
                             var item = Model.products[i];
                             if (!item.IsRestaurant)
                             {
@@ -144,12 +149,21 @@
     </section>
 </section>
 <script>
+    $(document).ready(function () {
+        $(window).keydown(function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+            }
+        });
+    });
     $('.minus').click(function (e) {
         $(this).siblings("input").val(function (i, val) {
             var w = parseInt(val)
             return w-1;
         });
     });
+
     $('.plus').click(function (e) {
         $(this).siblings("input").val(function (i, val) {
             var w = parseInt(val)
