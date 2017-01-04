@@ -14,17 +14,15 @@ namespace IHFF.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-<<<<<<< HEAD
 
+        }
         public ActionResult Culture()
         {
             return View();
-=======
+        }
         public ActionResult Sales()
         {
             return View(pr.GetPayments());
->>>>>>> refs/remotes/origin/master
         }
     }
 }
