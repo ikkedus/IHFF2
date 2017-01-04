@@ -213,4 +213,21 @@ textarea {
 
 }
 
+.moreBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #169bd5;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+.moreBtn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
 
