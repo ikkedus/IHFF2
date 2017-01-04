@@ -17,3 +17,4 @@
 /// <reference path="moment-with-locales.js" />
 /// <reference path="respond.js" />
 /// <reference path="respond.matchmedia.addListener.js" />
+/// <reference path="addtocart.js" />

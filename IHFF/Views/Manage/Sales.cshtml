@@ -1,0 +1,42 @@
+﻿@using IHFF.Models
+@model List<Payment>
+@{
+    ViewBag.Title = "Sales";
+    Layout = "~/Views/Shared/_manage.cshtml";
+    Random rnd = new Random();
+}
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Status</th>
+        <th>PaymentMethod</th>
+        <th>Products</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>
+                @Model[i].Id
+            </td>
+            <td>
+                @Model[i].Id
+            </td>
+            <td>
+                @Model[i].PaymentOption
+            </td>
+            <td>
+                @Model[i].products
+            </td>
+            <td>
+                @Model[i].total
+            </td>
+            <td>
+                <a href="#" data-id="@Model[i].Id"><i class="fa fa-pencil"></i>Edit</a>
+                <a href="#" data-id="@Model[i].Id"><i class="fa fa-trash"></i>Remove</a>
+            </td>
+        </tr>
+    }
+</table>

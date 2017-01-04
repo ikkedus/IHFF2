@@ -23,6 +23,17 @@ namespace IHFF.Controllers
             }
         }
 
+        public ActionResult AddToProgram()
+        {
+            return View("Index"); 
+        }
+
+        public ActionResult OrderNow()
+        {
+            // ProductVm reservering = new ProductVm();
+            return View();
+        }
+
         // GET: Restaurants/Details/5
         public ActionResult Details(int? id)
         {
