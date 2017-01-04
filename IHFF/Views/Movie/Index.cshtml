@@ -6,33 +6,30 @@
         <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Vrijdag</a></li>
         <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Zaterdag</a></li>
         <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Zondag</a></li>
-</ul>
+    </ul>
 
-<table class="table">
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img src="@Html.DisplayFor(modelItem => item.poster)"/>
-            
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Plot_EN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.ActionLink("More", "More", new { id=item.id }) |
-            @Html.ActionLink("Order Now", "Order Now", new { id=item.id }) |
-            @Html.ActionLink("Add to Program", "Add to Program", new { id=item.id })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <section class="movies">
+        <div class="row box">
+            <div class="col-md-3">
+                <div class="m-image">
+                    <img src="@Html.DisplayFor(modelItem => item.poster)" />
+                </div>
+            </div>
+            <div>
+                @Html.DisplayFor(modelItem => item.Title)
+            </div>
+            <div class="col-md-6">
+               
+                    @Html.CustomDisplayFor(item.Plot_EN)
+                
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("More", "More", new { id = item.id }) |
+                @Html.ActionLink("Order Now", "Order Now", new { id = item.id }) |
+                @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id })
+            </div>
+        </div>
+    </section>
 }
-
-</table>
