@@ -189,6 +189,7 @@
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
+    <Compile Include="Helpers\CustomHelpers.cs" />
     <Compile Include="Models\Culture.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -471,7 +472,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>

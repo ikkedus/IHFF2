@@ -11,17 +11,13 @@ namespace IHFF.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
+    
     public partial class Restaurant
     {
         public int Id { get; set; }
-        [DisplayName("Naam")]
         public string Name { get; set; }
-        [DisplayName("Description")]
         public string Description_EN { get; set; }
-        [DisplayName("Beschrijving")]
         public string Description_NL { get; set; }
-        [DisplayName("Tijden")]
         public string OpenHours { get; set; }
         public string Poster { get; set; }
         public string Address { get; set; }
