@@ -18,7 +18,8 @@ namespace IHFF.Models
         public string Name { get; set; }
         public string Street { get; set; }
         public string Streetnumber { get; set; }
-        public int Contact { get; set; }
+        public string Contact { get; set; }
         public int Type { get; set; }
+        public string Maps { get; set; }
     }
 }

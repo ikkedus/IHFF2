@@ -5,60 +5,75 @@
 }
 
 
+<script>
+    function MapsLocation(location) {
+        var str1 = "https://maps.google.com/maps?q=";
+        var str2 = "&t=&z=14&ie=UTF8&iwloc=&output=embed";
+        document.getElementById('maps').src = str1 + location + str2;
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-9">
 
 
-
-
-@foreach (var item in Model)
-{
-    <div class="container-fluid">
-        <div class="row box">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img class="boxMainImage" src="~/img/p20.jpg" />
-                    </div>
-                    <div class="col-md-10">
+        @foreach (var item in Model)
+        {
+            <div class="container-fluid">
+                <div class="row box">
+                    <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-8">
-                                <h3>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </h3>
-                                <p>
-                                    @Html.DisplayFor(modelItem => item.Description_EN)
-
-                                    @Html.DisplayFor(modelItem => item.Description_NL)
-                                </p>
-                            </div>
                             <div class="col-md-4">
+                                <img style="width: 230px;height: 150px;margin: 10px;margin-top: 25px;" src="@Html.DisplayFor(modelItem => item.Poster)" />
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-8">
-                                dit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekst
-                            </div>
-                            <div class="col-md-4 alignbottom">
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h3>
+                                            <div class="title" onclick="MapsLocation('@item.Address')">
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </div>
+                                        </h3>
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.Description_EN)
+
+                                            @Html.DisplayFor(modelItem => item.Description_NL)
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                        <br />
+                                        Openingstijden:
+
+                                        @Html.DisplayFor(modelItem => item.OpenHours)
+                                    </div>
+                                    <div class="col-md-4 alignbottom">
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
+    <div class="col-md-3">
+        <iframe id="maps" width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" src="https://maps.google.com/maps?q=Hoorn&t=&z=14&ie=UTF8&iwloc=&output=embed" marginwidth="0"><a class="addmaps" href="http://www.webdesign-muenchen.me" id="get-map-data" mce_href="http://maps.google.com/maps/">webdesign münchen</a>
+        <style>
+            #gmap_canvas img {
+                max-width: none !important;
+                background: none !important;
+            }
+        </style></iframe>
+    </div>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-
-}
 
