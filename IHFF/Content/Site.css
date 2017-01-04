@@ -149,16 +149,31 @@ textarea {
 
 .m-image img {
 
-    height: 300px;
-    width: 200px;
+    height: 280px;
+    width: 180px;
+    padding-top: 15px;
     padding-left: 10px;
-    padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 0px;
 }
-
-
-
-
+.header
+{
+    padding-bottom: 5px;
+}
+.titlefont{
+    font-size: 20px;
+    font-weight: bold;
+}
+.buttonfont{
+    font-size: 22px;
+    color: black;
+}
+.b-om{
+    background-color: steelblue;
+}
+.b-atp{
+    background-color: yellow;
+}
 .restaurant {
     background-color: rgba(242, 242, 242, 1);
 }
@@ -168,10 +183,9 @@ textarea {
     margin-top: 10px;
 }
 .boxMainImage{
-    width: 230px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     margin: 10px;
-    margin-top: 25px;
 }
 .boxSubImage{
     width: 150px;
@@ -211,6 +225,9 @@ textarea {
     cursor: pointer;
     color:aqua;
 
+.slider{
+    height: 400px;
+    width: 100%;
 }
 
 .blueBtn {

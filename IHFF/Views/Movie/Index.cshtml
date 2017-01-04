@@ -1,35 +1,56 @@
 ﻿@model IEnumerable<IHFF.Models.Movy>
-    <br />
-    <ul>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Woensdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Donderdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Vrijdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Zaterdag</a></li>
-        <li><a class="btn btn-default" href="">@IHFF.App_GlobalResources.Resources.Zondag</a></li>
-    </ul>
+
+<header class="row header">
+    <h1 class="text-center">
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Woensdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Donderdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Vrijdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Zaterdag</button>
+        <button class="btn btn-large btn-primary buttonfont" href="">@IHFF.App_GlobalResources.Resources.Zondag</button>
+    </h1>
+</header>
 
 @foreach (var item in Model)
 {
-    <section class="movies">
+    <div class="container-fluid">
         <div class="row box">
-            <div class="col-md-3">
-                <div class="m-image">
-                    <img src="@Html.DisplayFor(modelItem => item.poster)" />
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2 m-image">
+                        <img src="@Html.DisplayFor(modelItem => item.poster)" />
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </h3>
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Plot_EN)
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                dit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekstdit is test tekst
+                            </div>
+                            <div class="col-md-4 alignbottom">
+                                <button class="btn btn-large b-om " href="">
+                                    @Html.ActionLink("More", "More", new { id = item.id })
+                                </button>
+                                <button class="btn btn-large b-om" href="">
+                                    @Html.ActionLink("Order Now", "Order Now", new { id = item.id })
+                                </button>
+                                <button class="btn btn-large b-atp" href="">
+                                    @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id })
+                                </button>
+</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                @Html.DisplayFor(modelItem => item.Title)
-            </div>
-            <div class="col-md-6">
-               
-                    @Html.CustomDisplayFor(item.Plot_EN)
-                
-            </div>
-            <div class="col-md-3">
-                @Html.ActionLink("More", "More", new { id = item.id }) |
-                @Html.ActionLink("Order Now", "Order Now", new { id = item.id }) |
-                @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id })
-            </div>
         </div>
-    </section>
+    </div>
 }
