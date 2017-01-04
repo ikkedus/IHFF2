@@ -10,11 +10,33 @@
         var str1 = "https://maps.google.com/maps?q=";
         var str2 = "&t=&z=14&ie=UTF8&iwloc=&output=embed";
         document.getElementById('maps').src = str1 + location + str2;
+
+
     }
+
+        $(document).ready(function () {
+            $("#result").dialog({
+                autoOpen: false,
+                title: 'Title',
+                width: 500,
+                height: 'auto',
+                modal: true
+            });
+        });
+    
+function openPopup() {
+    $("#result").dialog("open");
+}
+
+$(function () {
+    $("#dialog").dialog();
+});
+
 </script>
 
 <div class="row">
     <div class="col-md-9">
+        <div id="result" style="display:none;"></div>
 
 
         @foreach (var item in Model)
@@ -32,6 +54,7 @@
                                         <h3>
                                             <div class="title" onclick="MapsLocation('@item.Address')">
                                                 @Html.DisplayFor(modelItem => item.Name)
+                                               
                                             </div>
                                         </h3>
                                         <p>
