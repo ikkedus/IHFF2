@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace IHFF
@@ -9,13 +12,14 @@ namespace IHFF
         {
             int maxLength = 600;
 
+
             if (source.Length > maxLength)
             {
-                while (source[maxLength] != ' ')
+                while(source[maxLength] != ' ')
                 {
                     maxLength++;
                 }
-
+                
                 string str = (source.Substring(0, maxLength));
 
                 Guid guid = Guid.NewGuid();
@@ -27,6 +31,7 @@ namespace IHFF
                 str += "</div>";
                 return new MvcHtmlString(str);
             }
+
             else
             {
                 return new MvcHtmlString(source);

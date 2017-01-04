@@ -293,7 +293,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\site.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="img\p20.jpg" />
     <Content Include="img\p21.jpg" />
     <Content Include="img\p22.jpg" />
