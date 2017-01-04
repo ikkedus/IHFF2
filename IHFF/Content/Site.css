@@ -213,4 +213,10 @@ textarea {
 
 }
 
+#ihff > a {
+    color:red;
+}
 
+#ihff > a:hover{
+    color: crimson !important;
+}
