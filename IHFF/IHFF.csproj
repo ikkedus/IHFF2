@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
@@ -244,6 +245,9 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Page.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -270,6 +274,7 @@
     <Compile Include="Repositories\MoviesRepository.cs" />
     <Compile Include="Repositories\OMDBRepository.cs" />
     <Compile Include="Models\OrderVm.cs" />
+    <Compile Include="Repositories\PageRepository.cs" />
     <Compile Include="Repositories\PaymentRepository.cs" />
     <Compile Include="Models\ProductItem.cs" />
     <Compile Include="Models\PaymentDetails.cs" />
@@ -469,6 +474,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Culture\Index.cshtml" />
+    <Content Include="Views\Page\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -220,3 +220,19 @@ textarea {
 #ihff > a:hover{
     color: crimson !important;
 }
+
+#pager > p {
+    font-size:110% !important;
+}
+
+#pagetitle > h1 {
+    text-align:center;
+}
+
+.contacttext {
+    text-align:center;
+}
+
+#small > p{
+    font-size:110%;
+}

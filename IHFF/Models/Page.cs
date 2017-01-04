@@ -12,16 +12,11 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Culture
+    public partial class Page
     {
-        public int Id { get; set; }
         public string Title { get; set; }
-        public string Description_EN { get; set; }
-        public string Description_NL { get; set; }
-        public string Poster { get; set; }
-        public string Openinghours1_NL { get; set; }
-        public string Openinghours2_NL { get; set; }
-        public string Openinghours1_EN { get; set; }
-        public string Openinghours2_EN { get; set; }
+        public string Infor_NL { get; set; }
+        public string Infor_EN { get; set; }
+        public string Contact { get; set; }
     }
 }

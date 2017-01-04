@@ -19,8 +19,9 @@
         <EntityTypeShape EntityType="DatabaseEntitities.Reservation" Width="1.5" PointX="4.75" PointY="8.75" />
         <EntityTypeShape EntityType="DatabaseEntitities.Restaurant" Width="1.5" PointX="8.75" PointY="6.75" />
         <EntityTypeShape EntityType="DatabaseEntitities.User" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.CultureView" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.MoviesView" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Page" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.CultureView" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.MoviesView" Width="1.5" PointX="10.75" PointY="6.75" />
         <EntityTypeShape EntityType="DatabaseEntitities.RestaurantView" Width="1.5" PointX="6.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
