@@ -19,5 +19,6 @@ namespace IHFF.Models
         public System.DateTime Date { get; set; }
         public int Status { get; set; }
         public int Paymentmethod { get; set; }
+        public double TotalCost { get; set; }
     }
 }

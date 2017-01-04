@@ -97,6 +97,7 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Paymentmethod" Type="int" Nullable="false" />
+          <Property Name="TotalCost" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
@@ -124,18 +125,21 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="fk_Order_Id" Type="int" Nullable="false" />
           <Property Name="ReservationDate" Type="datetime" Nullable="false" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="512" />
         </EntityType>
         <EntityType Name="Restaurants">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
           <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SmallimageOne" Type="nvarchar(max)" />
+          <Property Name="SmallimageTwo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -381,6 +385,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Paymentmethod" Type="Int32" Nullable="false" />
+          <Property Name="TotalCost" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
@@ -408,7 +413,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="fk_Order_Id" Type="Int32" Nullable="false" />
           <Property Name="ReservationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -420,6 +425,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -591,6 +599,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="DataModel.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="Paymentmethod" ColumnName="Paymentmethod" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -633,6 +642,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySetMapping Name="Restaurants">
             <EntityTypeMapping TypeName="DataModel.Restaurant">
               <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
+                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
                 <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />

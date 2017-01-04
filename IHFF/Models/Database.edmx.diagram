@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="DataModel.ProductInOrder" Width="1.5" PointX="2.75" PointY="7.75" />
         <EntityTypeShape EntityType="DataModel.Product" Width="1.5" PointX="4.75" PointY="7.75" />
         <EntityTypeShape EntityType="DataModel.Reservation" Width="1.5" PointX="6.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DataModel.Restaurant" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Restaurant" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="8.75" PointY="3.75" />
         <EntityTypeShape EntityType="DataModel.CultureView" Width="1.5" PointX="8.75" PointY="6.75" />
         <EntityTypeShape EntityType="DataModel.MoviesView" Width="1.5" PointX="8.75" PointY="9.75" />

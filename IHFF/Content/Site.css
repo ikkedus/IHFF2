@@ -168,9 +168,10 @@ textarea {
     margin-top: 10px;
 }
 .boxMainImage{
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 150px;
     margin: 10px;
+    margin-top: 25px;
 }
 .boxSubImage{
     width: 150px;
@@ -196,6 +197,20 @@ textarea {
 
 .pointer {
     cursor: pointer;
+}
+
+
+.title {
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    color: black;
+    }
+.title:hover{
+    cursor: pointer;
+    color:aqua;
+
 }
 
 
