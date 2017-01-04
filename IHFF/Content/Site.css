@@ -3,6 +3,13 @@
     padding-bottom: 20px;
 }
 
+
+
+.yellowBtn:hover {
+  background: #ffff5f;
+  text-decoration: none;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -207,6 +214,7 @@ textarea {
     border-radius: 10px;
 }
 .alignbottom{
+
 }
 
 .pointer {
@@ -221,9 +229,10 @@ textarea {
     transition: all .2s ease-in;
     color: black;
     }
-.title:hover{
-    cursor: pointer;
-    color:aqua;
+    .title:hover {
+        cursor: pointer;
+        color: aqua;
+    }
 
 .slider{
     height: 400px;
@@ -236,9 +245,9 @@ textarea {
   border-radius: 5px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 12px;
   background: #169bd5;
-  padding: 5px 10px 5px 10px;
+  padding: 2px 5px 2px 5px;
   text-decoration: none;
 }
 
@@ -252,17 +261,14 @@ textarea {
   -moz-border-radius: 5;
   border-radius: 5px;
   font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
+  color: #000;
+  font-size: 12px;
   background: #ffff00;
-  padding: 5px 10px 5px 10px;
+  padding: 2px 5px 2px 5px;
   text-decoration: none;
 }
 
-.yellowBtn:hover {
-  background: #ffff5f;
-  text-decoration: none;
-}
+
 
 
 
