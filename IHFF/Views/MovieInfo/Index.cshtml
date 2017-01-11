@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IHFF.Models.MovieInfoItem>
+
+@foreach (var item in Model)
+{
+    <div class="container-fluid moviecollum">
+        <div class="row">
+            <div class="col-md-12 banner">
+                    <img src="@item.banner" />
+                <div class="row">
+                    <div class="col-md-9 sidebarmovies">
+                        <h1> @item.title</h1>
+                        <p> @item.plot_EN</p>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h2>Trailer</h2>
+                                <iframe class ="trailer "src= "@item.trailer"></iframe>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Actors</h3>
+                        <p>@item.actor</p>
+                        <h3>Directors</h3>
+                        <p>@item.director</p>
+                        <h3>Release Date</h3>
+                        <p>@item.releasedate</p>
+                        <h3>Duration</h3>
+                        <p>@item.duration Minutes</p>
+                        <h3>Showtimes</h3>
+                        <p>@item.times</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
