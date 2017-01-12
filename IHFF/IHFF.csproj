@@ -191,6 +191,7 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Helpers\CustomHelpers.cs" />
+    <Compile Include="Helpers\ViewHelper.cs" />
     <Compile Include="Models\Culture.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -353,6 +354,7 @@
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\AddToCart.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -520,6 +522,7 @@
     <Content Include="Views\Page\Info.cshtml" />
     <Content Include="Views\Manage\Sales.cshtml" />
     <Content Include="Views\Shared\someAction.cshtml" />
+    <Content Include="Views\Payment\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

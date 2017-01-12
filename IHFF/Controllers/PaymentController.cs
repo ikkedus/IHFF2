@@ -1,4 +1,5 @@
-﻿using IHFF.Models;
+﻿using IHFF.Helpers;
+using IHFF.Models;
 using IHFF.Repositories;
 using System;
 using System.Collections.Generic;
@@ -49,20 +50,28 @@ namespace IHFF.Controllers
                 Attendanties = amount
             });
             Session["Cart"] = cart;
-            return "kaboom";
+            return cart.Count().ToString();
         }
         [HttpPost]
         public string AddReservationToCart(int id,int amount,DateTime date)
         {
             var cart = (List<ProductVm>) Session["Cart"] ?? new List<ProductVm>();
-            cart.Add(item: new ProductVm()
+            if (cart.Any(x=>x.ProductId  == id && x.Time == date))
             {
-                ProductId = id,
-                Attendanties = amount,
-                Time = date
-            });
+                cart.SingleOrDefault(x=>x.ProductId == id && x.Time == date).Attendanties += amount;
+            }
+            else
+            {
+                cart.Add(item: new ProductVm()
+                {
+                    ProductId = id,
+                    Attendanties = amount,
+                    Time = date
+                });
+            }
+            
             Session["Cart"] = cart;
-            return "kaboom";
+            return cart.Count().ToString();
         }
 
         [HttpPost]
@@ -73,6 +82,20 @@ namespace IHFF.Controllers
                 return RedirectToAction("Succes");
             }
             return View("Index", order);
+        }
+        public string GetCart()
+        {
+            var cart = (List<ProductVm>)Session["Cart"];
+            List<ProductVm> pro = null;
+            if (cart != null)
+            {
+                pro = pr.GetProductsForCart(cart); 
+            }
+            return ViewHelper.RenderPartialToString(this, "Cart", pro);
+            //return "Hello world";
+        }
+        public void DeleteCart() {
+            Session["Cart"] = null;
         }
         public ActionResult Succes()
         {

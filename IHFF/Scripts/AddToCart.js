@@ -16,3 +16,22 @@ function AddReservationToCart(id, amount, date) {
     alert("Data Saved: " + msg);
 });
 }
+function Explosion() {
+    $.ajax({
+        method: "POST",
+        url: "/payment/DeleteCart",
+        data: {}
+    }).done(function () {
+        $('.modal').modal('hide')
+    });
+}
+function ShowShoppingCart(){
+    $.ajax({
+        method: "POST",
+        url: "/payment/GetCart",
+        data: {}
+    }).done(function (msg) {
+        $('.modal-content').html(msg);
+        $('.modal').modal();
+    });
+};

@@ -41,6 +41,11 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a href="#" id="openCart" class="fa fa-2x fa-shopping-cart">
+
+                        </a>
+                    </li>
+                    <li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             @Html.ActionLink("logout", "Logout", "Account")
@@ -76,6 +81,13 @@
 
 
     @RenderSection("scripts", required: false)
-   
+   <script>
+       $(document).ready(function () {
+           $('#openCart').click(function (e) {
+               e.preventDefault();
+               ShowShoppingCart();
+           });
+       });
+   </script>
 </body>
 </html>
