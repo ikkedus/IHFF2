@@ -1,0 +1,28 @@
+﻿@model IHFF.Models.Page
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="pagetitle">
+    <h1>@Model.Title</h1>
+</div>
+
+<div class="jumbotron container-fluid">
+    <div id="pager">
+        @if (Culture.ToUpper().Contains("NL"))
+        {
+            @Html.Raw(Model.Infor_NL);
+        }
+        else
+        {
+            @Html.Raw(Model.Infor_EN);
+        }
+
+        <div class="contacttext">
+            <h4>Contact</h4>
+            <div id="small">
+                <p><i>@Model.Contact</i></p>
+            </div>
+        </div>
+    </div>
+</div>

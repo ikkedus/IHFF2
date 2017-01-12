@@ -256,6 +256,27 @@ textarea {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+#ihff > a:hover{
+    color: crimson !important;
+}
+
+#pager > p {
+    font-size:110% !important;
+}
+
+#pagetitle > h1 {
+    text-align:center;
+}
+
+.contacttext {
+    text-align:center;
+}
+
+#small > p{
+    font-size:110%;
+}
+=======
 .yellowBtn {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
@@ -279,3 +300,4 @@ textarea {
 
 
 
+>>>>>>> refs/remotes/origin/master
