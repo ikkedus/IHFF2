@@ -20,7 +20,7 @@
                                 <a href="@Url.Action("index","Manage")"><i class="fa fa-dashboard"></i> Dashboard</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Pages" ? "active" : "")">
-                                <a href="@Url.Action("index","Manage")"><i class="fa fa-edit"></i> Pages</a>
+                                <a href="@Url.Action("Pages","Manage")"><i class="fa fa-edit"></i> Pages</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Movies" ? "active" : "")">
                                 <a href="@Url.Action("index","Manage")"><i class="fa fa-video-camera"></i> Movies</a>

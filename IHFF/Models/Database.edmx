@@ -104,13 +104,9 @@
           <Property Name="Paymentmethod" Type="int" Nullable="false" />
           <Property Name="TotalCost" Type="float" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'iHFF1617S_B6.dbo.Page' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Page">
           <Key>
             <PropertyRef Name="Title" />
-            <PropertyRef Name="Infor_NL" />
-            <PropertyRef Name="Infor_EN" />
           </Key>
           <Property Name="Title" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Infor_NL" Type="nvarchar(max)" Nullable="false" />
@@ -121,7 +117,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.Page' does not have a primary key
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fk_Product_id" Type="int" Nullable="false" />
           <Property Name="fk_Order_id" Type="int" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
@@ -245,19 +241,12 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySet Name="LocationType" EntityType="Self.LocationType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductInOrder" EntityType="Self.ProductInOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Page" EntityType="Self.Page" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Page].[Title] AS [Title], 
-    [Page].[Infor_NL] AS [Infor_NL], 
-    [Page].[Infor_EN] AS [Infor_EN], 
-    [Page].[Contact] AS [Contact]
-    FROM [dbo].[Page] AS [Page]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="CultureView" EntityType="Self.CultureView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CultureView].[Event_Id] AS [Event_Id], 
@@ -310,12 +299,12 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySet Name="LocationTypes" EntityType="DatabaseEntitities.LocationType" />
           <EntitySet Name="Movies" EntityType="DatabaseEntitities.Movy" />
           <EntitySet Name="Orders" EntityType="DatabaseEntitities.Order" />
+          <EntitySet Name="Pages" EntityType="DatabaseEntitities.Page" />
           <EntitySet Name="ProductInOrders" EntityType="DatabaseEntitities.ProductInOrder" />
           <EntitySet Name="Products" EntityType="DatabaseEntitities.Product" />
           <EntitySet Name="Reservations" EntityType="DatabaseEntitities.Reservation" />
           <EntitySet Name="Restaurants" EntityType="DatabaseEntitities.Restaurant" />
           <EntitySet Name="Users" EntityType="DatabaseEntitities.User" />
-          <EntitySet Name="Pages" EntityType="DatabaseEntitities.Page" />
           <EntitySet Name="CultureViews" EntityType="DatabaseEntitities.CultureView" />
           <EntitySet Name="MoviesViews" EntityType="DatabaseEntitities.MoviesView" />
           <EntitySet Name="RestaurantViews" EntityType="DatabaseEntitities.RestaurantView" />
@@ -419,11 +408,20 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Paymentmethod" Type="Int32" Nullable="false" />
           <Property Name="TotalCost" Type="Double" Nullable="false" />
         </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Title" />
+          </Key>
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Infor_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Infor_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="ProductInOrder">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fk_Product_id" Type="Int32" Nullable="false" />
           <Property Name="fk_Order_id" Type="Int32" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
@@ -469,17 +467,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
           <Property Name="Salt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Page">
-          <Key>
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Infor_NL" />
-            <PropertyRef Name="Infor_EN" />
-          </Key>
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Infor_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Infor_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CultureView">
           <Key>
@@ -656,6 +643,16 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="DatabaseEntitities.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Infor_EN" ColumnName="Infor_EN" />
+                <ScalarProperty Name="Infor_NL" ColumnName="Infor_NL" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ProductInOrders">
             <EntityTypeMapping TypeName="DatabaseEntitities.ProductInOrder">
               <MappingFragment StoreEntitySet="ProductInOrder">
@@ -709,16 +706,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pages">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Page">
-              <MappingFragment StoreEntitySet="Page">
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Infor_EN" ColumnName="Infor_EN" />
-                <ScalarProperty Name="Infor_NL" ColumnName="Infor_NL" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

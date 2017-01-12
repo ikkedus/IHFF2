@@ -186,4 +186,16 @@
   <data name="Prev" xml:space="preserve">
     <value>Previous</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>Cart is Empty</value>
+  </data>
+  <data name="RemoveAll" xml:space="preserve">
+    <value>Remove All</value>
+  </data>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>ShoppingCart</value>
+  </data>
 </root>

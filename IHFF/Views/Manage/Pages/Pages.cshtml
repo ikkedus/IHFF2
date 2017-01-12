@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IHFF.Models.Page>
+
+@{
+    ViewBag.Title = "A Generic Page Generator";
+    Layout = "~/Views/Shared/_manage.cshtml";
+}
+
+<h2>Page Generator</h2>
+
+<p>
+    @Html.ActionLink("Create New Generic Page", "CreatePage")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Infor_EN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Infor_NL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Infor_EN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Infor_NL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditPage", new { id=item.Title }) |
+            @Html.ActionLink("Delete", "DeletePage", new { id=item.Title })
+        </td>
+    </tr>
+}
+
+</table>

@@ -12,15 +12,24 @@ namespace IHFF.Repositories
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
-                return (from ord in context.Orders
+                var payments = (from ord in context.Orders
                         select new Payment()
                         {
                             PaymentOption = ord.Paymentmethod.ToString(),
-                            products = (from pio in context.ProductInOrders
-                                        where pio.fk_Order_id == ord.Id
-                                        select pio.Amount).Sum(x => x),
                             status = ord.Status,
+                            OrderId = ord.Id,
+                            Total = ord.TotalCost
                         }).ToList();
+
+                foreach (var item in payments)
+                {
+                    var i = (from pio in context.ProductInOrders
+                             where pio.fk_Order_id == item.OrderId
+                             select pio.Amount).DefaultIfEmpty();
+
+                    item.products = i != null ? i.Sum(x=> x) : 0 ;
+                }
+                return payments;
             }
         }
         public bool ProccessOrder(OrderVm order)
@@ -48,7 +57,7 @@ namespace IHFF.Repositories
             return false;
         }
 
-        private static List<ProductInOrder> CreateListProductInOrder(List<ProductVm> tickets, Order ord)
+        private List<ProductInOrder> CreateListProductInOrder(List<ProductVm> tickets, Order ord)
         {
             return (from t in tickets
                     select new ProductInOrder()
@@ -59,7 +68,7 @@ namespace IHFF.Repositories
                     }).ToList();
         }
 
-        private static List<Reservation> CreateListReservation(List<ProductVm> reservations, Order ord)
+        private List<Reservation> CreateListReservation(List<ProductVm> reservations, Order ord)
         {
             return (from r in reservations
                     select new Reservation()
@@ -70,7 +79,7 @@ namespace IHFF.Repositories
                     }).ToList();
         }
 
-        private static Order CreateOrder(OrderVm order, Customer cus)
+        private Order CreateOrder(OrderVm order, Customer cus)
         {
             return new Order()
             {
@@ -81,7 +90,7 @@ namespace IHFF.Repositories
             };
         }
 
-        private static Customer CreateCustomer(OrderVm order)
+        private Customer CreateCustomer(OrderVm order)
         {
             return new Customer()
             {
