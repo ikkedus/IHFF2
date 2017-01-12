@@ -56,11 +56,9 @@ namespace IHFF.Controllers
             });
             }
             Session["Cart"] = cart;
-<<<<<<< HEAD
+ 
             return cart.Count().ToString();
-=======
-            return cart.Count.ToString();
->>>>>>> origin/master
+ 
         }
         [HttpPost]
         public string AddReservationToCart(int id,int amount,DateTime date)

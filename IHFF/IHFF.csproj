@@ -525,15 +525,15 @@
     <Content Include="Views\Page\Info.cshtml" />
     <Content Include="Views\Manage\Sales.cshtml" />
     <Content Include="Views\Shared\someAction.cshtml" />
-<<<<<<< HEAD
+ 
     <Content Include="Views\Payment\Cart.cshtml" />
-=======
+ 
     <Content Include="Views\Manage\Culture\AddCulture.cshtml" />
     <Content Include="Views\Manage\Locations\AddLocation.cshtml" />
     <Content Include="Views\Manage\Culture\Culture.cshtml" />
     <Content Include="Views\Manage\Culture\EditCulture.cshtml" />
     <Content Include="Views\Manage\Locations\Locations.cshtml" />
->>>>>>> origin/master
+ 
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
