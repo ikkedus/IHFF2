@@ -1,0 +1,69 @@
+﻿@model IEnumerable<IHFF.Models.Culture>
+
+@{
+    ViewBag.Title = "Culture";
+    Layout = "~/Views/Shared/_manage.cshtml";
+}
+
+<h2>Culture</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddCulture")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_EN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_NL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Openinghours1_NL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Openinghours2_NL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Openinghours1_EN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Openinghours2_EN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_EN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_NL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Openinghours1_NL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Openinghours2_NL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Openinghours1_EN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Openinghours2_EN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditCulture", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteCulture", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

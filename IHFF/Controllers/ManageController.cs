@@ -20,7 +20,7 @@ namespace IHFF.Controllers
         }
         public ActionResult Culture()
         {
-            return View();
+            return View("Culture/Culture", mr.GetCultureItems());
         }
         public ActionResult Sales()
         {
@@ -29,31 +29,42 @@ namespace IHFF.Controllers
 
         public ActionResult AddCulture()
         {
-            return View();
+            return View("Culture/AddCulture");
         }
 
         [HttpPost]
         public ActionResult AddCulture(Culture culture)
         {
             mr.SaveNewCulture(culture);
-            return View("Culture");
+            return View("Culture/Culture");
+        }
+
+        public ActionResult EditCulture(Culture culture)
+        {
+            return View("Culture/EditCulture");
+        }
+
+        [HttpPost]
+        public ActionResult EditCulture()
+        {
+            return View("Culture/Culture");
         }
 
         public ActionResult Locations()
         {
-            return View();
+            return View("Locations/Locations", mr.GetLocationItems());
         }
 
         public ActionResult AddLocation()
         {
-            return View();
+            return View("Locations/AddLocation");
         }
 
         [HttpPost]
         public ActionResult AddLocation(Location location)
         {
             mr.SaveNewLocation(location);
-            return View("Location");
+            return View("Locations/Locations");
         }
     }
 }

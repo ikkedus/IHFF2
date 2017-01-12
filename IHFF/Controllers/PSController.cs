@@ -19,19 +19,19 @@ namespace IHFF.Controllers
             return View(programlist);
         }
 
-        [HttpPost]
-        public string AddReservationToProgram(int id)
-        {
-            var program = (List<ProductVm>)Session["PS"] ?? new List<ProductVm>();
-            program.Add(item: new ProductVm()
-                {
-                ProductId = id,
-                Attendanties = amount,
-                Time = date
-            } );
-            Session["PS"] = program;
-            return "Added";
-        }
+        //[HttpPost]
+        //public string AddReservationToProgram(int id)
+        //{
+        //    var program = (List<ProductVm>)Session["PS"] ?? new List<ProductVm>();
+        //    program.Add(item: new ProductVm()
+        //        {
+        //        ProductId = id,
+        //        Attendanties = amount,
+        //        Time = date
+        //    } );
+        //    Session["PS"] = program;
+        //    return "Added";
+        //}
 
         [HttpPost]
         public string AddProductToCart(int id, int amount)

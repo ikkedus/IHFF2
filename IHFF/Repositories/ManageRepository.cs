@@ -21,5 +21,15 @@ namespace IHFF.Repositories
             db.Cultures.Add(culture);
             db.SaveChanges();
         }
+
+        public List<Culture> GetCultureItems()
+        {
+            return db.Cultures.ToList();
+        }
+
+        public List<Location> GetLocationItems()
+        {
+            return db.Locations.ToList();
+        }
     }
 }

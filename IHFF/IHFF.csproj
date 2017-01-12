@@ -281,6 +281,7 @@
     <Compile Include="Models\ProductItem.cs" />
     <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Repositories\PSRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -522,7 +523,11 @@
     <Content Include="Views\Page\Info.cshtml" />
     <Content Include="Views\Manage\Sales.cshtml" />
     <Content Include="Views\Shared\someAction.cshtml" />
-    <Content Include="Views\Manage\Culture.cshtml" />
+    <Content Include="Views\Manage\Culture\AddCulture.cshtml" />
+    <Content Include="Views\Manage\Locations\AddLocation.cshtml" />
+    <Content Include="Views\Manage\Culture\Culture.cshtml" />
+    <Content Include="Views\Manage\Culture\EditCulture.cshtml" />
+    <Content Include="Views\Manage\Locations\Locations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
