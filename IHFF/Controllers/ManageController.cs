@@ -14,6 +14,11 @@ namespace IHFF.Controllers
         public ActionResult Index()
         {
             return View();
+
+        }
+        public ActionResult Culture()
+        {
+            return View();
         }
         public ActionResult Sales()
         {

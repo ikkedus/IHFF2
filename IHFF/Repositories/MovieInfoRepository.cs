@@ -8,14 +8,14 @@ namespace IHFF.Repositories
 {
     public class MovieInfoRepository
     {
-        public List<MovieInfoItem> getInfoMovies()
+        public List<MovieInfoItem> getInfoMovies(int id)
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
                 List<MovieInfoItem> items = (from m in context.Movies
                                              join e in context.Events on m.id equals e.Event_Id
                                              where e.Type_Id == 2
-                                             where m.id == 6
+                                             where m.id == id
                                              select new MovieInfoItem()
                                              {
                                                  id = m.id,

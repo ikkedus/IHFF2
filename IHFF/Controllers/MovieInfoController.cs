@@ -11,9 +11,9 @@ namespace IHFF.Controllers
     {
         private MovieInfoRepository repo = new MovieInfoRepository();
         // GET: MovieInfo
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View(repo.getInfoMovies());
+            return View(repo.getInfoMovies(id));
         }
     }
 }

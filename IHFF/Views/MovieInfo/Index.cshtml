@@ -29,7 +29,13 @@
                         <h3>Duration</h3>
                         <p>@item.duration Minutes</p>
                         <h3>Showtimes</h3>
-                        <p>@item.times</p>
+                        <p>@foreach (var time in item.times)
+                        {
+                            @time.Start
+                            @time.End
+                            @time.Location
+                            @time.day
+                        }</p>
                     </div>
                 </div>
             </div>

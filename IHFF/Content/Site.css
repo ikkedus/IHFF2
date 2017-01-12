@@ -3,6 +3,13 @@
     padding-bottom: 20px;
 }
 
+
+
+.yellowBtn:hover {
+  background: #ffff5f;
+  text-decoration: none;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -151,8 +158,10 @@ textarea {
 
     height: 280px;
     width: 180px;
-    padding-top: 10px;
+    padding-top: 15px;
+    padding-left: 10px;
     padding-bottom: 10px;
+    padding-right: 0px;
 }
 .header
 {
@@ -166,6 +175,12 @@ textarea {
     font-size: 22px;
     color: black;
 }
+.b-om{
+    background-color: steelblue;
+}
+.b-atp{
+    background-color: yellow;
+}
 .restaurant {
     background-color: rgba(242, 242, 242, 1);
 }
@@ -175,10 +190,9 @@ textarea {
     margin-top: 10px;
 }
 .boxMainImage{
-    width: 230px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     margin: 10px;
-    margin-top: 25px;
 }
 .boxSubImage{
     width: 150px;
@@ -200,6 +214,7 @@ textarea {
     border-radius: 10px;
 }
 .alignbottom{
+
 }
 
 .pointer {
@@ -214,33 +229,68 @@ textarea {
     transition: all .2s ease-in;
     color: black;
     }
-.title:hover{
-    cursor: pointer;
-    color:aqua;
+    .title:hover {
+        cursor: pointer;
+        color: aqua;
+    }
 
-}
-
-#ihff > a {
-    color:red;
-}
-.carousel-inner
-{
+.slider{
     height: 400px;
-}
-.banner img
-{
     width: 100%;
 }
-.trailer
-{
-    height: 300px;
-    width: 500px;
-    border: 0;
-}
-.moviecollum{
-    border: solid 2px;
-}
-.sidebarmovies{
-    border-right: solid 2px;
+
+.blueBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #169bd5;
+  padding: 2px 5px 2px 5px;
+  text-decoration: none;
 }
 
+.blueBtn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+<<<<<<< HEAD
+#ihff > a:hover{
+    color: crimson !important;
+}
+
+#pager > p {
+    font-size:110% !important;
+}
+
+#pagetitle > h1 {
+    text-align:center;
+}
+
+.contacttext {
+    text-align:center;
+}
+
+#small > p{
+    font-size:110%;
+}
+=======
+.yellowBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #000;
+  font-size: 12px;
+  background: #ffff00;
+  padding: 2px 5px 2px 5px;
+  text-decoration: none;
+}
+
+
+
+
+
+>>>>>>> refs/remotes/origin/master

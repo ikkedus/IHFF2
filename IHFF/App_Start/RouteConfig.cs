@@ -13,6 +13,13 @@ namespace IHFF
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //met de pagecontroller
+            routes.MapRoute(
+                name: "Page",
+                url: "page/{title}",
+                defaults: new { controller = "Page", action = "Index", title = UrlParameter.Optional }
+            );
+            //defaultroute
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
