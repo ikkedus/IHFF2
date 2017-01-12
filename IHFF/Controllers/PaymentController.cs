@@ -17,7 +17,7 @@ namespace IHFF.Controllers
         {
             var cart = (List<ProductVm>) Session["Cart"];
             List<ProductVm> pro = pr.GetProductsForCart(cart);
-            //Get products
+            //Get p8roducts
             //List<ProductVm> pro = new List<ProductVm>();
             //pro.Add(new ProductVm()
             //{
@@ -44,13 +44,23 @@ namespace IHFF.Controllers
         public string AddProductToCart(int id, int amount)
         {
             var cart = (List<ProductVm>)Session["Cart"] ?? new List<ProductVm>();
+            if (cart.Any(x => x.ProductId == id))
+            {
+                cart.SingleOrDefault(x => x.ProductId == id).Attendanties += amount;
+            }
+            else { 
             cart.Add(item: new ProductVm()
             {
                 ProductId = id,
                 Attendanties = amount
             });
+            }
             Session["Cart"] = cart;
+<<<<<<< HEAD
             return cart.Count().ToString();
+=======
+            return cart.Count.ToString();
+>>>>>>> origin/master
         }
         [HttpPost]
         public string AddReservationToCart(int id,int amount,DateTime date)

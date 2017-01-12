@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<IHFF.Models.Restaurant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Restaurants";
 }
 
 
@@ -16,11 +16,13 @@
 
         $(document).ready(function () {
             $("#result").dialog({
-                autoOpen: false,
-                title: 'Title',
+                autoOpen: true,
+                title: 'Persoonlijk Programma',
                 width: 500,
                 height: 'auto',
-                modal: true
+                modal: true,
+                
+                
             });
         });
     
@@ -36,7 +38,9 @@ $(function () {
 
 <div class="row">
     <div class="col-md-9">
-        <div id="result" style="display:none;"></div>
+        <div id="result" style="display:none;">
+            Dit is het persoonlijke programma
+        </div>
 
 
         @foreach (var item in Model)

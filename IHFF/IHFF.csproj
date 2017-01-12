@@ -189,6 +189,7 @@
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PSController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Helpers\CustomHelpers.cs" />
     <Compile Include="Helpers\ViewHelper.cs" />
@@ -272,6 +273,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\MovieVm.cs" />
     <Compile Include="Repositories\CultureRepository.cs" />
+    <Compile Include="Repositories\ManageRepository.cs" />
     <Compile Include="Repositories\MoviesRepository.cs" />
     <Compile Include="Repositories\OMDBRepository.cs" />
     <Compile Include="Models\OrderVm.cs" />
@@ -280,6 +282,7 @@
     <Compile Include="Models\ProductItem.cs" />
     <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Repositories\PSRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -522,11 +525,20 @@
     <Content Include="Views\Page\Info.cshtml" />
     <Content Include="Views\Manage\Sales.cshtml" />
     <Content Include="Views\Shared\someAction.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Payment\Cart.cshtml" />
+=======
+    <Content Include="Views\Manage\Culture\AddCulture.cshtml" />
+    <Content Include="Views\Manage\Locations\AddLocation.cshtml" />
+    <Content Include="Views\Manage\Culture\Culture.cshtml" />
+    <Content Include="Views\Manage\Culture\EditCulture.cshtml" />
+    <Content Include="Views\Manage\Locations\Locations.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\PS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
