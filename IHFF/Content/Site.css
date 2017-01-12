@@ -227,4 +227,20 @@ textarea {
 {
     height: 400px;
 }
+.banner img
+{
+    width: 100%;
+}
+.trailer
+{
+    height: 300px;
+    width: 500px;
+    border: 0;
+}
+.moviecollum{
+    border: solid 2px;
+}
+.sidebarmovies{
+    border-right: solid 2px;
+}
 
