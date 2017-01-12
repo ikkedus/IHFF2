@@ -4,7 +4,7 @@
         url: "/payment/AddProductToCart",
         data: { id: id, amount: amount}
     }).done(function (msg) {
-        alert("Data Saved: " + msg);
+        ShowShoppingCart();
     });
 }
 function AddReservationToCart(id, amount, date) {
@@ -13,7 +13,7 @@ function AddReservationToCart(id, amount, date) {
         url: "/payment/AddReservationToCart",
         data: { id: id, amount: amount, date: date}
     }).done(function (msg) {
-    alert("Data Saved: " + msg);
+        ShowShoppingCart();
 });
 }
 function Explosion() {
