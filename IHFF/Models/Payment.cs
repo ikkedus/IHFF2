@@ -11,5 +11,9 @@ namespace IHFF
         public string Prefix { get; set; }
         public string Lastname { get; set; }
         public string PaymentOption { get; set; }
+
+        public int products { get; set; }
+
+        public int status { get; set; }
     }
 }
