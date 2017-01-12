@@ -31,7 +31,6 @@ namespace IHFF.Controllers
 
         public ActionResult OrderNow()
         {
-            // ProductVm reservering = new ProductVm();
             return View();
         }
 

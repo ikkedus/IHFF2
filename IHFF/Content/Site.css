@@ -276,7 +276,7 @@ textarea {
 #small > p{
     font-size:110%;
 }
-=======
+
 .yellowBtn {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
@@ -296,8 +296,15 @@ textarea {
     background-color: blue;
 }
 
+.posterImage{
+    width: 230px;
+    height: 150px;
+    margin: 10px;
+    margin-top: 25px;
+}
 
 
 
 
->>>>>>> refs/remotes/origin/master
+
+
