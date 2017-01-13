@@ -19,5 +19,7 @@ namespace IHFF.Models
         public DateTime Time { get; set; }
         public bool IsRestaurant { get; set; }
         public string Comment { get; internal set; }
+        public bool IsDiscountable { get; internal set; }
+        public int Price { get; internal set; }
     }
 }

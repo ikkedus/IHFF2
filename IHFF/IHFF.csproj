@@ -267,6 +267,9 @@
     <Compile Include="Models\RestaurantView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -525,15 +528,12 @@
     <Content Include="Views\Page\Info.cshtml" />
     <Content Include="Views\Manage\Sales.cshtml" />
     <Content Include="Views\Shared\someAction.cshtml" />
- 
     <Content Include="Views\Payment\Cart.cshtml" />
- 
     <Content Include="Views\Manage\Culture\AddCulture.cshtml" />
     <Content Include="Views\Manage\Locations\AddLocation.cshtml" />
     <Content Include="Views\Manage\Culture\Culture.cshtml" />
     <Content Include="Views\Manage\Culture\EditCulture.cshtml" />
     <Content Include="Views\Manage\Locations\Locations.cshtml" />
- 
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

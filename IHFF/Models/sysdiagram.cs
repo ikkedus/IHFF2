@@ -12,15 +12,12 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class RestaurantView
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        public int Event_Id { get; set; }
-        public bool Special { get; set; }
-        public string Name { get; set; }
-        public string Description_EN { get; set; }
-        public string Description_NL { get; set; }
-        public string OpenHours { get; set; }
-        public string Poster { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

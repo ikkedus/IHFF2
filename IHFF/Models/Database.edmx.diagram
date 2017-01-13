@@ -14,15 +14,18 @@
         <EntityTypeShape EntityType="DatabaseEntitities.LocationType" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="DatabaseEntitities.Movy" Width="1.5" PointX="6.75" PointY="4.75" />
         <EntityTypeShape EntityType="DatabaseEntitities.Order" Width="1.5" PointX="2.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.ProductInOrder" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.Product" Width="1.5" PointX="8.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.Reservation" Width="1.5" PointX="4.75" PointY="8.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.Restaurant" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Page" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.ProductInOrder" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Product" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Reservation" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.Restaurant" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.sysdiagram" Width="1.5" PointX="8.75" PointY="9.75" />
         <EntityTypeShape EntityType="DatabaseEntitities.User" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.Page" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.CultureView" Width="1.5" PointX="10.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.MoviesView" Width="1.5" PointX="10.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DatabaseEntitities.RestaurantView" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.CultureView" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.MoviesView" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.RestaurantView" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.MoviesMetProductid" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="DatabaseEntitities.RestaurantsMetProductId" Width="1.5" PointX="9.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
