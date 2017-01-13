@@ -18,6 +18,7 @@
     <section class="modal fade" tabindex="-1" role="dialog">
         <section class="modal-dialog" role="document">
             <section class="modal-content"></section><!-- /.modal-content -->
+            <a href="~/Views/Shared/_Layout.cshtml">~/Views/Shared/_Layout.cshtml</a>
         </section><!-- /.modal-dialog -->
     </section><!-- /.modal -->
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,7 +35,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies, "Index", "Movie/index")</li>
+                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies,"index", "Movie/index")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.culture, "Index", "Culture")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Food, "Index", "Restaurants")</li>
                     <li><a id="openProgram">Persoonlijk Programma</a></li>
