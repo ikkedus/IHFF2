@@ -1,0 +1,27 @@
+﻿@model IEnumerable<IHFF.Models.Movy>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_manage.cshtml";
+}
+
+<h2>Movies</h2>
+
+<p>
+    <a class="fa fa-plus">@Html.ActionLink(" Add New", "AddMovies")</a>
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            <a class="fa fa-pencil"> @Html.ActionLink("Edit", "EditMovie", new { id=item.id })</a> |
+            <a class="fa fa-trash-o">@Html.ActionLink("Delete", "DeleteMovie", new { id=item.id })</a>
+        </td>
+    </tr>
+}
+
+</table>
