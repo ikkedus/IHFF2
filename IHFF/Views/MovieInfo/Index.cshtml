@@ -1,19 +1,18 @@
-﻿@model IEnumerable<IHFF.Models.MovieInfoItem>
+﻿@model IHFF.Models.MovieInfoItem
 
-@foreach (var item in Model)
-{
+
     <div class="container-fluid moviecollum">
         <div class="row">
             <div class="col-md-12 banner">
-                    <img src="@item.banner" />
+                    <img src="@Model.banner" />
                 <div class="row">
                     <div class="col-md-9 sidebarmovies">
-                        <h1> @item.title</h1>
-                        <p> @item.plot_EN</p>
+                        <h1> @Model.title</h1>
+                        <p> @Model.plot_EN</p>
                         <div class="row">
                             <div class="col-md-10">
                                 <h2>Trailer</h2>
-                                <iframe class ="trailer "src= "@item.trailer"></iframe>
+                                <iframe class ="trailer "src= "@Model.trailer"></iframe>
                             </div>
                             <div class="col-md-2">
                             </div>
@@ -21,32 +20,34 @@
                     </div>
                     <div class="col-md-3">
                         <h3>Actors</h3>
-                        <p>@item.actor</p>
+                        <p>@Model.actor</p>
                         <h3>Directors</h3>
-                        <p>@item.director</p>
+                        <p>@Model.director</p>
                         <h3>Release Date</h3>
-                        <p>@item.releasedate</p>
+                        <p>@Model.releasedate</p>
                         <h3>Duration</h3>
-                        <p>@item.duration Minutes</p>
+                        <p>@Model.duration Minutes</p>
+                        <h3>Price</h3>
+                        <p>€@Model.Price</p>
                         <h3>Showtimes</h3>
-                        <p>@foreach (var time in item.times)
+                        <p>@foreach (var time in Model.times)
                         {
                             @time.Start
                             @time.End
                             @time.Location
                             @time.day
                         }</p>
-                        @Html.ActionLink("Back", "index", "Movie", new { id = item.id }, new { @class = "blueBtn" })
+                        @Html.ActionLink("Back", "index", "Movie", new { id = Model.id }, new { @class = "blueBtn" })
 
-                        <a href="#" data-id="@item.id" class="orderNow yellowBtn">Order now</a>
+                        <a href="#" data-id="@Model.ProductId" class="orderNow yellowBtn">Order now</a>
 
-                        @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id }, new { @class = "blueBtn" })
+                        @Html.ActionLink("Add to Program", "Add to Program", new { id = Model.id }, new { @class = "blueBtn" })
                     </div>
                 </div>
             </div>
         </div>
     </div>
-}
+
 <script>
     $(document).ready(function () {
         $('.orderNow').click(function (e) {

@@ -22,5 +22,7 @@ namespace IHFF.Models
         public int Eventid { get; set; }
         public string name { get; set; }
         public List<Times> times { get; set; }
+        public int ProductId { get; internal set; }
+        public int Price { get; internal set; }
     }
 }

@@ -7,6 +7,8 @@ namespace IHFF.Models
 {
     public class MoviesItem
     {
+        public int productId { get; set; }
+
         public int id { get; set; }
         public string title { get; set; }
         public string plot_EN { get; set; }
@@ -18,5 +20,6 @@ namespace IHFF.Models
         public int day { get; set; }
         public string name { get; set; }
         public List<Times> times { get; set; }
+        public int Price { get; internal set; }
     }
 }

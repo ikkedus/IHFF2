@@ -31,8 +31,12 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
+                                <h4>Price</h4>
+                                €@item.Price
                                 <br />
+
                                 <br />
+                                <h4>Eventimes</h4>
                                 @foreach (var time in item.times)
                                 {
                                     @time.Start
@@ -40,6 +44,7 @@
                                     @time.Location
                                     @time.day
                                 }
+                                <br />
                             </div>
                         </div>
                         <div class="row">
@@ -49,7 +54,7 @@
                                
                                     @Html.ActionLink("More...", "index","MovieInfo", new { id = item.id }, new { @class = "blueBtn"})
 
-                                    <a href="#"  data-id="@item.id" class = "orderNow yellowBtn">Order now</a>
+                                    <a href="#"  data-id="@item.productId" class = "orderNow yellowBtn">Order now</a>
 
                                     @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id }, new { @class = "blueBtn" })
                             </div>

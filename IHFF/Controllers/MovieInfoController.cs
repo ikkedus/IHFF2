@@ -13,7 +13,7 @@ namespace IHFF.Controllers
         // GET: MovieInfo
         public ActionResult Index(int id)
         {
-            return View(repo.getInfoMovies(id));
+            return View(repo.getInfoMovie(id));
         }
     }
 }

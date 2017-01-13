@@ -8,11 +8,11 @@ namespace IHFF.Repositories
 {
     public class MovieInfoRepository
     {
-        public List<MovieInfoItem> getInfoMovies(int id)
+        public MovieInfoItem getInfoMovie(int id)
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
-                List<MovieInfoItem> items = (from m in context.Movies
+                MovieInfoItem item = (from m in context.MoviesMetProductids
                                              join e in context.Events on m.id equals e.Event_Id
                                              where e.Type_Id == 2
                                              where m.id == id
@@ -29,6 +29,8 @@ namespace IHFF.Repositories
                                                  releasedate = m.Release,
                                                  actor = m.Actors,
                                                  Eventid = e.Id,
+                                                 ProductId = m.productId,
+                                                 Price = m.Price,
                                                  times = (from t in context.EventTimes
                                                           join l in context.Locations on t.fk_Location equals l.Id
                                                           where t.fk_EventId == e.Id
@@ -39,8 +41,8 @@ namespace IHFF.Repositories
                                                               Start = t.start_Time,
                                                               Location = l.Name,
                                                           }).ToList()
-                                             }).ToList();
-                return items;
+                                             }).SingleOrDefault();
+                return item;
             }
         }
     }

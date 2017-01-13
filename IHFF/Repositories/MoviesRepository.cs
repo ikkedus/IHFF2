@@ -12,7 +12,7 @@ namespace IHFF.Repositories
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
-                List<MoviesItem> items = (from m in context.Movies
+                List<MoviesItem> items = (from m in context.MoviesMetProductids
                                           join e in context.Events on m.id equals e.Event_Id
                                           where e.Type_Id == 2
                                           select new MoviesItem()
@@ -23,6 +23,8 @@ namespace IHFF.Repositories
                                               plot_NL = m.Plot_NL,
                                               poster = m.poster,
                                               Eventid = e.Id,
+                                              productId= m.productId,
+                                              Price = m.Price,
                                               times = (from t in context.EventTimes
                                                        join l in context.Locations on t.fk_Location equals l.Id
                                                        where t.fk_EventId == e.Id
