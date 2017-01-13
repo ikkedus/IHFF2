@@ -35,3 +35,52 @@ function ShowShoppingCart(){
         $('.modal').modal();
     });
 };
+
+
+function AddProductToProgram(id, amount) {
+    $.ajax({
+        method: "POST",
+        url: "/program/AddProductToProgram",
+        data: { id: id, amount: amount }
+    }).done(function (msg) {
+        ShowShoppingCart();
+    });
+}
+
+function AddProgramToCart(){
+    $.ajax({
+        method: "POST",
+        url: "/program/AddProgramToCart",
+    }).done(function () {
+        ShowShoppingCart();
+    });
+}
+
+function AddReservationToProgram(id, amount, date) {
+    $.ajax({
+        method: "POST",
+        url: "/program/AddReservationToProgram",
+        data: { id: id, amount: amount, date: date }
+    }).done(function (msg) {
+        ShowProgram();
+    });
+}
+function DeleteProgram() {
+    $.ajax({
+        method: "POST",
+        url: "/program/DeleteProgram",
+        data: {}
+    }).done(function () {
+        $('.modal').modal('hide')
+    });
+}
+function ShowProgram() {
+    $.ajax({
+        method: "POST",
+        url: "/program/GetProgram",
+        data: {}
+    }).done(function (msg) {
+        $('.modal-content').html(msg);
+        $('.modal').modal();
+    });
+};

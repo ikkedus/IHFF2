@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - IHFF</title>
         
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/themes/base/css")
@@ -18,6 +18,7 @@
     <section class="modal fade" tabindex="-1" role="dialog">
         <section class="modal-dialog" role="document">
             <section class="modal-content"></section><!-- /.modal-content -->
+            <a href="~/Views/Shared/_Layout.cshtml">~/Views/Shared/_Layout.cshtml</a>
         </section><!-- /.modal-dialog -->
     </section><!-- /.modal -->
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,10 +35,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies, "Index", "Movie/index")</li>
+                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies,"index", "Movie/index")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.culture, "Index", "Culture")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Food, "Index", "Restaurants")</li>
-                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.PS, "Index", "PS")</li>
+                    <li><a id="openProgram">Persoonlijk Programma</a></li>
+
                     <li>@Html.ActionLink("Info", "Info", "Page")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -46,6 +48,7 @@
 
                         </a>
                     </li>
+
                     <li>
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -87,6 +90,10 @@
            $('#openCart').click(function (e) {
                e.preventDefault();
                ShowShoppingCart();
+           });
+           $('#openProgram').click(function (e) {
+               e.preventDefault();
+               ShowProgram();
            });
        });
    </script>
