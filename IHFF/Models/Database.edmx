@@ -155,6 +155,16 @@
           <Property Name="SmallimageOne" Type="nvarchar(max)" />
           <Property Name="SmallimageTwo" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -180,6 +190,38 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.CultureView' does not have a prim
           <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iHFF1617S_B6.dbo.MoviesMetProductid' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MoviesMetProductid">
+          <Key>
+            <PropertyRef Name="productId" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Plot_EN" />
+            <PropertyRef Name="Plot_NL" />
+            <PropertyRef Name="Director" />
+            <PropertyRef Name="Banner" />
+            <PropertyRef Name="Actors" />
+            <PropertyRef Name="Release" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Trailer" />
+            <PropertyRef Name="poster" />
+          </Key>
+          <Property Name="productId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Plot_EN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Plot_NL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Director" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Banner" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Actors" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Release" Type="datetime" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Trailer" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="poster" Type="nvarchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'iHFF1617S_B6.dbo.MoviesView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -212,9 +254,36 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.MoviesView' does not have a prima
           <Property Name="poster" Type="nvarchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantsMetProductId' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RestaurantsMetProductId">
+          <Key>
+            <PropertyRef Name="productId" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Description_EN" />
+            <PropertyRef Name="Description_NL" />
+            <PropertyRef Name="OpenHours" />
+            <PropertyRef Name="Poster" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="productId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description_EN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description_NL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SmallimageOne" Type="nvarchar(max)" />
+          <Property Name="SmallimageTwo" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RestaurantView">
           <Key>
+            <PropertyRef Name="Id" />
             <PropertyRef Name="Event_Id" />
             <PropertyRef Name="Special" />
             <PropertyRef Name="Name" />
@@ -223,6 +292,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             <PropertyRef Name="OpenHours" />
             <PropertyRef Name="Poster" />
           </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Event_Id" Type="int" Nullable="false" />
           <Property Name="Special" Type="bit" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -246,6 +316,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CultureView" EntityType="Self.CultureView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -256,6 +327,23 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
     [CultureView].[Description_NL] AS [Description_NL], 
     [CultureView].[Poster] AS [Poster]
     FROM [dbo].[CultureView] AS [CultureView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MoviesMetProductid" EntityType="Self.MoviesMetProductid" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MoviesMetProductid].[productId] AS [productId], 
+    [MoviesMetProductid].[Price] AS [Price], 
+    [MoviesMetProductid].[id] AS [id], 
+    [MoviesMetProductid].[Title] AS [Title], 
+    [MoviesMetProductid].[Plot_EN] AS [Plot_EN], 
+    [MoviesMetProductid].[Plot_NL] AS [Plot_NL], 
+    [MoviesMetProductid].[Director] AS [Director], 
+    [MoviesMetProductid].[Banner] AS [Banner], 
+    [MoviesMetProductid].[Actors] AS [Actors], 
+    [MoviesMetProductid].[Release] AS [Release], 
+    [MoviesMetProductid].[Duration] AS [Duration], 
+    [MoviesMetProductid].[Trailer] AS [Trailer], 
+    [MoviesMetProductid].[poster] AS [poster]
+    FROM [dbo].[MoviesMetProductid] AS [MoviesMetProductid]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="MoviesView" EntityType="Self.MoviesView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -273,8 +361,24 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
     [MoviesView].[poster] AS [poster]
     FROM [dbo].[MoviesView] AS [MoviesView]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="RestaurantsMetProductId" EntityType="Self.RestaurantsMetProductId" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RestaurantsMetProductId].[productId] AS [productId], 
+    [RestaurantsMetProductId].[Price] AS [Price], 
+    [RestaurantsMetProductId].[Id] AS [Id], 
+    [RestaurantsMetProductId].[Name] AS [Name], 
+    [RestaurantsMetProductId].[Description_EN] AS [Description_EN], 
+    [RestaurantsMetProductId].[Description_NL] AS [Description_NL], 
+    [RestaurantsMetProductId].[OpenHours] AS [OpenHours], 
+    [RestaurantsMetProductId].[Poster] AS [Poster], 
+    [RestaurantsMetProductId].[Address] AS [Address], 
+    [RestaurantsMetProductId].[SmallimageOne] AS [SmallimageOne], 
+    [RestaurantsMetProductId].[SmallimageTwo] AS [SmallimageTwo]
+    FROM [dbo].[RestaurantsMetProductId] AS [RestaurantsMetProductId]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="RestaurantView" EntityType="Self.RestaurantView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [RestaurantView].[Id] AS [Id], 
     [RestaurantView].[Event_Id] AS [Event_Id], 
     [RestaurantView].[Special] AS [Special], 
     [RestaurantView].[Name] AS [Name], 
@@ -304,10 +408,13 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySet Name="Products" EntityType="DatabaseEntitities.Product" />
           <EntitySet Name="Reservations" EntityType="DatabaseEntitities.Reservation" />
           <EntitySet Name="Restaurants" EntityType="DatabaseEntitities.Restaurant" />
+          <EntitySet Name="sysdiagrams" EntityType="DatabaseEntitities.sysdiagram" />
           <EntitySet Name="Users" EntityType="DatabaseEntitities.User" />
           <EntitySet Name="CultureViews" EntityType="DatabaseEntitities.CultureView" />
           <EntitySet Name="MoviesViews" EntityType="DatabaseEntitities.MoviesView" />
           <EntitySet Name="RestaurantViews" EntityType="DatabaseEntitities.RestaurantView" />
+          <EntitySet Name="MoviesMetProductids" EntityType="DatabaseEntitities.MoviesMetProductid" />
+          <EntitySet Name="RestaurantsMetProductIds" EntityType="DatabaseEntitities.RestaurantsMetProductId" />
         </EntityContainer>
         <EntityType Name="Culture">
           <Key>
@@ -459,6 +566,16 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -513,6 +630,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
         </EntityType>
         <EntityType Name="RestaurantView">
           <Key>
+            <PropertyRef Name="Id" />
             <PropertyRef Name="Event_Id" />
             <PropertyRef Name="Special" />
             <PropertyRef Name="Name" />
@@ -521,6 +639,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             <PropertyRef Name="OpenHours" />
             <PropertyRef Name="Poster" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
@@ -528,6 +647,60 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MoviesMetProductid">
+          <Key>
+            <PropertyRef Name="productId" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Plot_EN" />
+            <PropertyRef Name="Plot_NL" />
+            <PropertyRef Name="Director" />
+            <PropertyRef Name="Banner" />
+            <PropertyRef Name="Actors" />
+            <PropertyRef Name="Release" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Trailer" />
+            <PropertyRef Name="poster" />
+          </Key>
+          <Property Name="productId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Director" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Banner" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Actors" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Release" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Trailer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="poster" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RestaurantsMetProductId">
+          <Key>
+            <PropertyRef Name="productId" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Description_EN" />
+            <PropertyRef Name="Description_NL" />
+            <PropertyRef Name="OpenHours" />
+            <PropertyRef Name="Poster" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="productId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -699,6 +872,17 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DatabaseEntitities.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DatabaseEntitities.User">
               <MappingFragment StoreEntitySet="Users">
@@ -749,6 +933,43 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoviesMetProductids">
+            <EntityTypeMapping TypeName="DatabaseEntitities.MoviesMetProductid">
+              <MappingFragment StoreEntitySet="MoviesMetProductid">
+                <ScalarProperty Name="poster" ColumnName="poster" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Actors" ColumnName="Actors" />
+                <ScalarProperty Name="Banner" ColumnName="Banner" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
+                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RestaurantsMetProductIds">
+            <EntityTypeMapping TypeName="DatabaseEntitities.RestaurantsMetProductId">
+              <MappingFragment StoreEntitySet="RestaurantsMetProductId">
+                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
+                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

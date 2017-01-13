@@ -4,7 +4,6 @@ using IHFF.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace IHFF.Controllers
@@ -16,8 +15,7 @@ namespace IHFF.Controllers
         public ActionResult Index()
         {
             var cart = (List<ProductVm>) Session["Cart"];
-            List<ProductVm> pro = pr.GetProductsForCart(cart);
-            return View(new OrderVm() { products = pro });
+            return View(pr.GetOrder(cart));
         }
         [HttpPost]
         public string AddProductToCart(int id, int amount)
@@ -56,7 +54,6 @@ namespace IHFF.Controllers
                     Time = date
                 });
             }
-            
             Session["Cart"] = cart;
             return cart.Count().ToString();
         }
@@ -64,8 +61,9 @@ namespace IHFF.Controllers
         [HttpPost]
         public ActionResult Process(OrderVm order)
         {
-            if (ModelState.IsValid && pr.ProccessOrder(order))
+            if (ModelState.IsValid)
             {
+                pr.ProccessOrder(order);
                 return RedirectToAction("Succes");
             }
             return View("Index", order);

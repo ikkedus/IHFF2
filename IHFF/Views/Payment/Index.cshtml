@@ -35,7 +35,8 @@
             {
                 <section id="step1">
                     <section class="row">
-                        @for (int i = 0; i < Model.products.Count; i++)
+                        @if(Model != null && Model.products != null) { 
+                        for (int i = 0; i < Model.products.Count; i++)
                         {
                             @Html.HiddenFor(x => x.products[i].ProductId)
                             @Html.HiddenFor(x=>x.products[i].IsRestaurant)
@@ -94,6 +95,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                }
                             }
                         }
                     </section>
@@ -115,7 +117,7 @@
                             </section>
                             <section class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                @Html.TextAreaFor(x => x.Lastname, new { @class = "form-control", placeholder = IHFF.App_GlobalResources.Resources.Comment })
+                                @Html.TextAreaFor(x => x.Comment, new { @class = "form-control", placeholder = IHFF.App_GlobalResources.Resources.Comment })
                             </section>
                         </section>
                         <section class="col-md-6">
@@ -140,6 +142,11 @@
                 </section>
                 <section id="step3">
                     <section class="row"></section>
+                </section>
+                <section class="row">
+                    <h2>Totaal @if (Model != null)
+                    { @Model.Total.ToString("0.00")}
+                    </h2>
                 </section>
                 <button id="prev" type="button" class="btn btn-primary">@IHFF.App_GlobalResources.Resources.Prev</button>
                 <button id="next" type="button" class="btn btn-primary">@IHFF.App_GlobalResources.Resources.Next</button>
@@ -177,10 +184,17 @@
         $('#next').show();
         $('#confirm').hide();
         $('#step1').hide();
+        if (i == 2) {
+            $('#step2 input').removeAttr("Style");
+            $('#step2 label').removeAttr("Style");
+            $('#confirm').hide();
+            $('#step1').hide();
+        }
         i--;
         if (i == 0) {
             $(this).hide();
         }
+
         $('#step' + (i + 1)).show();
         $('.circle-steps').removeClass("active");
         $('.circle-steps').eq(i).addClass("active");
@@ -190,12 +204,18 @@
         $('#prev').show();
         i++;
         if (i == 2) {
-            $(this).hide();
-            $('#step1').show();
-            $('#confirm').show();
+            lastStep();
         }
         $('#step' + (i + 1)).show();
         $('.circle-steps').removeClass("active");
         $('.circle-steps').eq(i).addClass("active");
     });
+    function lastStep() {
+        $('#next').hide();
+        $('#step1').show();
+        $('#step2 input').css("pointer-events", "none");
+        $('#step2 label').css("pointer-events", "none");
+        $('#step2').show();
+        $('#confirm').show();
+    }
 </script>

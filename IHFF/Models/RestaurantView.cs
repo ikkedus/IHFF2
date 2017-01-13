@@ -14,6 +14,7 @@ namespace IHFF.Models
     
     public partial class RestaurantView
     {
+        public int Id { get; set; }
         public int Event_Id { get; set; }
         public bool Special { get; set; }
         public string Name { get; set; }

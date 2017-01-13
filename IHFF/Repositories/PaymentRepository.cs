@@ -8,18 +8,43 @@ namespace IHFF.Repositories
 {
     public class PaymentRepository
     {
+        public OrderVm GetOrder(List<ProductVm> cart)
+        {
+            if (cart == null)
+                return null;
+
+            var ord = new OrderVm();
+            ord.Total = 0;
+            ord.products = GetProductsForCart(cart);
+            var discountable = ord.products.Where(x => x.IsDiscountable);
+            foreach (var item in discountable)
+            {
+                if (discountable.Count() > 1)
+                {
+                    ord.Total += ((item.Price * 0.95) * item.Attendanties);
+                }
+                else {
+                    ord.Total += (item.Price * item.Attendanties);
+                }
+            }
+            foreach (var item in ord.products.Where(x => !x.IsDiscountable))
+            {
+                ord.Total += (item.Price);
+            }
+            return ord;
+        }
         public List<Payment> GetPayments()
         {
             using (DatabaseEntities context = new DatabaseEntities())
             {
                 var payments = (from ord in context.Orders
-                        select new Payment()
-                        {
-                            PaymentOption = ord.Paymentmethod.ToString(),
-                            status = ord.Status,
-                            OrderId = ord.Id,
-                            Total = ord.TotalCost
-                        }).ToList();
+                                select new Payment()
+                                {
+                                    PaymentOption = ord.Paymentmethod.ToString(),
+                                    status = ord.Status,
+                                    OrderId = ord.Id,
+                                    Total = ord.TotalCost
+                                }).ToList();
 
                 foreach (var item in payments)
                 {
@@ -27,7 +52,7 @@ namespace IHFF.Repositories
                              where pio.fk_Order_id == item.OrderId
                              select pio.Amount).DefaultIfEmpty();
 
-                    item.products = i != null ? i.Sum(x=> x) : 0 ;
+                    item.products = i != null ? i.Sum(x => x) : 0;
                 }
                 return payments;
             }
@@ -38,18 +63,19 @@ namespace IHFF.Repositories
             {
                 Customer cus = CreateCustomer(order);
                 Order ord = CreateOrder(order, cus);
-                List<Reservation> res = CreateListReservation(order.products.Where(x=>x.IsRestaurant).ToList(), ord);
+                List<Reservation> res = CreateListReservation(order.products.Where(x => x.IsRestaurant).ToList(), ord);
                 List<ProductInOrder> proInOrd = CreateListProductInOrder(order.products.Where(x => !x.IsRestaurant).ToList(), ord);
 
                 context.Customers.Add(cus);
-                
+
                 context.SaveChanges();
                 ord.fk_Client = cus.Id;
                 context.Orders.Add(ord);
                 context.SaveChanges();
-                res.ForEach(x=>x.fk_Order_Id = ord.Id);
-                proInOrd.ForEach(x=>x.fk_Order_id = ord.Id);
+                res.ForEach(x => x.fk_Order_Id = ord.Id);
+                proInOrd.ForEach(x => x.fk_Order_id = ord.Id);
                 context.Reservations.AddRange(res);
+                context.SaveChanges();
                 context.ProductInOrders.AddRange(proInOrd);
                 context.SaveChanges();
             }
@@ -104,6 +130,10 @@ namespace IHFF.Repositories
         //omdat luke erom vraagt
         public List<ProductVm> GetProductsForCart(List<ProductVm> cart)
         {
+            if (cart == null)
+            {
+                return null;
+            }
             using (DatabaseEntities context = new DatabaseEntities())
             {
                 var cartItems = (from c in cart
@@ -130,6 +160,8 @@ namespace IHFF.Repositories
                                      Description = e.Type_Id == 1 ? r.Description_EN :
                                                 e.Type_Id == 2 ? m.Plot_EN :
                                                 cul.Description_EN,
+                                     IsDiscountable = p.Discountable,
+                                     Price = p.Price
                                  }).ToList();
                 return cartItems;
             }

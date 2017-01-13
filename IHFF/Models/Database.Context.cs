@@ -39,9 +39,12 @@ namespace IHFF.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<CultureView> CultureViews { get; set; }
         public virtual DbSet<MoviesView> MoviesViews { get; set; }
         public virtual DbSet<RestaurantView> RestaurantViews { get; set; }
+        public virtual DbSet<MoviesMetProductid> MoviesMetProductids { get; set; }
+        public virtual DbSet<RestaurantsMetProductId> RestaurantsMetProductIds { get; set; }
     }
 }

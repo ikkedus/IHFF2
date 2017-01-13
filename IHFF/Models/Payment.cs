@@ -13,7 +13,6 @@ namespace IHFF
         public string PaymentOption { get; set; }
         public double Total { get; set; }
         public int products { get; set; }
-
         public int status { get; set; }
         public int OrderId { get; internal set; }
     }
