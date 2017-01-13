@@ -184,11 +184,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MovieInfoController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\PSController.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Helpers\CustomHelpers.cs" />
@@ -237,6 +239,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovieInfoItem.cs" />
+    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\MoviesItem.cs" />
+    <Compile Include="Models\MoviesMetProductid.cs" />
     <Compile Include="Models\MoviesView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -264,12 +270,14 @@
     <Compile Include="Models\Restaurant.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RestaurantsMetProductId.cs" />
     <Compile Include="Models\RestaurantView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Times.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -277,6 +285,7 @@
     <Compile Include="Models\MovieVm.cs" />
     <Compile Include="Repositories\CultureRepository.cs" />
     <Compile Include="Repositories\ManageRepository.cs" />
+    <Compile Include="Repositories\MovieInfoRepository.cs" />
     <Compile Include="Repositories\MoviesRepository.cs" />
     <Compile Include="Repositories\OMDBRepository.cs" />
     <Compile Include="Models\OrderVm.cs" />
@@ -286,6 +295,7 @@
     <Compile Include="Models\PaymentDetails.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Repositories\PSRepository.cs" />
+    <Compile Include="Repositories\RestaurantRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -535,6 +545,7 @@
     <Content Include="Views\Manage\Culture\EditCulture.cshtml" />
     <Content Include="Views\Manage\Locations\Locations.cshtml" />
     <Content Include="Views\Program\Program.cshtml" />
+    <Content Include="Views\MovieInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

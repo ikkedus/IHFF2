@@ -8,11 +8,11 @@ namespace IHFF.Repositories
 {
     public class RestaurantRepository
     {
-        public List<Restaurant> getRestaurants()
+        public List<RestaurantsMetProductId> getRestaurants()
         {
             using (DatabaseEntities dbs = new DatabaseEntities())
             {
-                return dbs.Restaurants.ToList();
+                return dbs.RestaurantsMetProductIds.ToList();
             }
 
         }
