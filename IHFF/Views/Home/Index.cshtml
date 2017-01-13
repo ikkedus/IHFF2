@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<IHFF.Models.Highlight>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -12,7 +14,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner slider" >
+    <div class="carousel-inner slider">
         <div class="item active">
             <img src="https://images3.alphacoders.com/584/584427.jpg" alt="">
         </div>
@@ -38,54 +40,33 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="highlight">
-            <img src="http://www.pensionzeeenduinzicht.nl/wp-content/uploads/2013/08/Grote-Kerk-Haarlem-300x228.jpg" class="img-thumbnail" alt="Haarlem Centrum" />
-            <h2>International Haarlem Film Festival</h2>
-            <p>
-                Haarlem’s alive! Bursting with festivals and events for young and old. Besides activities at museums, theatres and restaurants venues.
-            </p>
-            <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="highlight">
-            <h2>Stempels Brasserie</h2>
-            <p>
-                The Brasserie is a pleasant place to relax at any time of the day.
-                Whether it's for breakfast, a perfect cup of coffee, lunch, a glass of wine with a snack, or a real brasserie dinner. It's all possible at the stylish former home of the Johan Enschedé family or, weather permitting, outside on the lovely terrace with unique view of the St. Bavokerk church and the Klokhuisplein square.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="highlight">
-            <h2>Tylers Museum</h2>
-            <p>
-                In Teylers Museum you’ll discover the wonders of art and science. Since 1784 the museum has welcomed the public to view paintings, drawings, fossils, minerals, instruments and books.
-                The museum’s interior itself, with the monumental Oval Room as jewel in the crown, is a first grade tourist attraction.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="highlight">
-            <h2>Wall-E</h2>
-            <p>
-                In a distant, but not so unrealistic, future where mankind has abandoned earth because it has become covered with trash from products sold by the powerful multi-national Buy N Large corporation, WALL-E, a garbage collecting robot has been left to clean up the mess. Mesmerized with trinkets of Earth's history and show tunes...
-            </p>
-            <p><a class="btn btn-default" href=""></a></p>
-        </div>
-    </div>
-    <div class="col-md-8">
-        <div class="highlight">
-            <h2>Combine the magic of the movies with the passion of  Food, with the Food&Film Ticket</h2>
-            <p>
-                Besides visiting a movie, want to go to a Restaurant? <br>Enjoy the best restaurants in Haarlem!
-            </p>
-            <p><a class="btn btn-default" href=""></a></p>
-        </div>
-    </div>
-</div>
+    @{
+        var i = 0;
+    }
+    @foreach (var item in Model)
+    {
+        i++;
+        if (i == 0 || (i % 3 == 0))
+        {
+            @Html.Raw("<div class=\"row\">")
+                }
+                <div class="col-md-4">
+                    <div class="highlight">
+                        <img src="@item.Poster" class="img-thumbnail" alt="" />
+                        <h2>@item.Title</h2>
+                        <p>
+                            @if (Culture.ToUpper().Contains("NL"))
+                    {
+                                @item.Description_NL
+                            }
+                            else
+                            {
+                                @item.Description_EN
+                            }
+                        <p><a class="btn btn-default" href="@item.Link">Learn more</a></p>
+                    </div>
+                </div>
+                if ((i % 3 == 0) || i == Model.Count())
+                {@Html.Raw("</div>")}
+                }
+            </div>

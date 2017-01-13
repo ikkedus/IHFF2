@@ -19,9 +19,6 @@
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                 <a href="@Url.Action("index","Manage")"><i class="fa fa-dashboard"></i> Dashboard</a>
                             </li>
-                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Pages" ? "active" : "")">
-                                <a href="@Url.Action("Pages","Manage")"><i class="fa fa-edit"></i> Pages</a>
-                            </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Movies" ? "active" : "")">
                                 <a href="@Url.Action("movies","Manage")"><i class="fa fa-video-camera"></i> Movies</a>
                             </li>
@@ -41,7 +38,7 @@
                                 <a href="@Url.Action("Sales","Manage")"><i class="fa fa-line-chart"></i> Sales</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Highlights" ? "active" : "")">
-                                <a href="@Url.Action("index","Manage")"><i class="fa fa-lightbulb-o"></i> Highlights</a>
+                                <a href="@Url.Action("Highlights","Manage")"><i class="fa fa-lightbulb-o"></i> Highlights</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Users" ? "active" : "")">
                                 <a href="@Url.Action("index","Manage")"><i class="fa fa-user-circle-o"></i> Users</a>

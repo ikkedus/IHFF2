@@ -41,14 +41,16 @@ namespace IHFF.Controllers
             return View("Culture/Culture", mr.GetCultureItems());
         }
 
-        public ActionResult EditCulture(Culture culture)
+        public ActionResult EditCulture(Culture oldculture)
         {
-            return View("Culture/EditCulture", culture);
+            return View("Culture/EditCulture", oldculture);
         }
 
         [HttpPost]
-        public ActionResult EditCulture()
+        public ActionResult EditCulture(Culture newculture, int Id)
         {
+            mr.DeleteCultureItem(mr.GetCultureItem(newculture.Id));
+            mr.SaveNewCulture(newculture);
             return View("Culture/Culture", mr.GetCultureItems());
         }
 
@@ -81,8 +83,10 @@ namespace IHFF.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditLocation()
+        public ActionResult EditLocation(Location location, int id)
         {
+            mr.DeleteLocationItem(mr.GetLocationItem(location.Id));
+            mr.SaveNewLocation(location);
             return View("Locations/Locations", mr.GetLocationItems());
         }
 
@@ -125,6 +129,7 @@ namespace IHFF.Controllers
             mr.DeletePage(page);
             return View("Pages/pages", mr.GetPages());
         }
+<<<<<<< HEAD
         public ActionResult Movies()
         {
             return View("Movies/Movies", mr.GetMovies());
@@ -157,6 +162,43 @@ namespace IHFF.Controllers
         {
             mr.DeleteMovies(movies);
             return View("Movies/Movies", mr.GetMovies());
+=======
+
+        public ActionResult Highlights()
+        {
+            return View("Highlights/Highlights", mr.GetHighlights());
+        }
+
+        public ActionResult AddHighlight()
+        {
+            return View("Highlights/AddHighlight");
+        }
+
+        [HttpPost]
+        public ActionResult AddHighlight(Highlight highlight)
+        {
+            mr.SaveHighlight(highlight);
+            return View("Highlights/Highlights", mr.GetHighlights());
+        }
+
+        public ActionResult DeleteHighlight(Highlight highlight)
+        {
+            mr.DeleteHighlight(highlight);
+            return View("Highlights/Highlights", mr.GetHighlights());
+        }
+
+        public ActionResult EditHighlight(Highlight highlight)
+        {
+            return View("Highlights/EditHighlight", highlight);
+        }
+
+        [HttpPost]
+        public ActionResult EditHighlight(Highlight highlight, int id)
+        {
+            mr.DeleteHighlight(mr.GetHighlight(highlight.Id));
+            mr.SaveHighlight(highlight);
+            return View("Highlights/Highlights", mr.GetHighlights());
+>>>>>>> refs/remotes/origin/Jeroen
         }
     }
 }
