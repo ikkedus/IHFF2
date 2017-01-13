@@ -129,7 +129,7 @@ namespace IHFF.Controllers
             mr.DeletePage(page);
             return View("Pages/pages", mr.GetPages());
         }
-<<<<<<< HEAD
+ 
         public ActionResult Movies()
         {
             return View("Movies/Movies", mr.GetMovies());
@@ -162,8 +162,8 @@ namespace IHFF.Controllers
         {
             mr.DeleteMovies(movies);
             return View("Movies/Movies", mr.GetMovies());
-=======
 
+        }
         public ActionResult Highlights()
         {
             return View("Highlights/Highlights", mr.GetHighlights());
@@ -198,7 +198,7 @@ namespace IHFF.Controllers
             mr.DeleteHighlight(mr.GetHighlight(highlight.Id));
             mr.SaveHighlight(highlight);
             return View("Highlights/Highlights", mr.GetHighlights());
->>>>>>> refs/remotes/origin/Jeroen
+ 
         }
     }
 }

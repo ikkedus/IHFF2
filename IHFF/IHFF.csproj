@@ -229,6 +229,9 @@
     <Compile Include="Models\EventType.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Highlight.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Location.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -242,7 +245,9 @@
     <Compile Include="Models\MovieInfoItem.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\MoviesItem.cs" />
-    <Compile Include="Models\MoviesMetProductid.cs" />
+    <Compile Include="Models\MoviesMetProductid.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MoviesView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -270,11 +275,10 @@
     <Compile Include="Models\Restaurant.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RestaurantsMetProductId.cs" />
-    <Compile Include="Models\RestaurantView.cs">
+    <Compile Include="Models\RestaurantsMetProductId.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\RestaurantView.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Times.cs" />
@@ -552,6 +556,10 @@
     <Content Include="Views\Manage\Pages\CreatePage.cshtml" />
     <Content Include="Views\Manage\Pages\EditPage.cshtml" />
     <Content Include="Views\Manage\Pages\Pages.cshtml" />
+    <Content Include="Views\Manage\Locations\EditLocation.cshtml" />
+    <Content Include="Views\Manage\Highlights\AddHighlight.cshtml" />
+    <Content Include="Views\Manage\Highlights\EditHighlight.cshtml" />
+    <Content Include="Views\Manage\Highlights\Highlights.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

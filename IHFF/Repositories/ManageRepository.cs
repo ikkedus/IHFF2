@@ -76,7 +76,7 @@ namespace IHFF.Repositories
         {
             return db.Pages.SingleOrDefault(x => x.Title == pagetitel);
         }
-<<<<<<< HEAD
+ 
         public void SaveNewMovie(Movy movie)
         {
             db.Movies.Add(movie);
@@ -97,7 +97,7 @@ namespace IHFF.Repositories
             db.SaveChanges();
         }
 
-=======
+ 
 
         public List<Highlight> GetHighlights()
         {
@@ -120,6 +120,6 @@ namespace IHFF.Repositories
             db.Highlights.Remove(highlight);
             db.SaveChanges();
         }
->>>>>>> refs/remotes/origin/Jeroen
+ 
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DatabaseEntitities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DatabaseEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cultures">
           <Key>
             <PropertyRef Name="Id" />
@@ -166,16 +166,6 @@
           <Property Name="SmallimageOne" Type="nvarchar(max)" />
           <Property Name="SmallimageTwo" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -312,7 +302,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="OpenHours" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Poster" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="DatabaseEntititiesStoreContainer">
+        <EntityContainer Name="DatabaseEntitiesStoreContainer">
           <EntitySet Name="Cultures" EntityType="Self.Cultures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
@@ -328,7 +318,6 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CultureView" EntityType="Self.CultureView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -401,44 +390,19 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
     FROM [dbo].[RestaurantView] AS [RestaurantView]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DatabaseEntitities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cultures" EntityType="DatabaseEntitities.Culture" />
-          <EntitySet Name="Customers" EntityType="DatabaseEntitities.Customer" />
-          <EntitySet Name="Events" EntityType="DatabaseEntitities.Event" />
-          <EntitySet Name="EventTimes" EntityType="DatabaseEntitities.EventTime" />
-          <EntitySet Name="EventTypes" EntityType="DatabaseEntitities.EventType" />
-          <EntitySet Name="Highlights" EntityType="DatabaseEntitities.Highlight" />
-          <EntitySet Name="Locations" EntityType="DatabaseEntitities.Location" />
-          <EntitySet Name="LocationTypes" EntityType="DatabaseEntitities.LocationType" />
-          <EntitySet Name="Movies" EntityType="DatabaseEntitities.Movy" />
-          <EntitySet Name="Orders" EntityType="DatabaseEntitities.Order" />
-          <EntitySet Name="Pages" EntityType="DatabaseEntitities.Page" />
-          <EntitySet Name="ProductInOrders" EntityType="DatabaseEntitities.ProductInOrder" />
-          <EntitySet Name="Products" EntityType="DatabaseEntitities.Product" />
-          <EntitySet Name="Reservations" EntityType="DatabaseEntitities.Reservation" />
-          <EntitySet Name="Restaurants" EntityType="DatabaseEntitities.Restaurant" />
-          <EntitySet Name="sysdiagrams" EntityType="DatabaseEntitities.sysdiagram" />
-          <EntitySet Name="Users" EntityType="DatabaseEntitities.User" />
-          <EntitySet Name="CultureViews" EntityType="DatabaseEntitities.CultureView" />
-          <EntitySet Name="MoviesMetProductids" EntityType="DatabaseEntitities.MoviesMetProductid" />
-          <EntitySet Name="MoviesViews" EntityType="DatabaseEntitities.MoviesView" />
-          <EntitySet Name="RestaurantsMetProductIds" EntityType="DatabaseEntitities.RestaurantsMetProductId" />
-          <EntitySet Name="RestaurantViews" EntityType="DatabaseEntitities.RestaurantView" />
-          <EntitySet Name="MoviesMetProductids" EntityType="DatabaseEntitities.MoviesMetProductid" />
-          <EntitySet Name="RestaurantsMetProductIds" EntityType="DatabaseEntitities.RestaurantsMetProductId" />
-        </EntityContainer>
+      <Schema Namespace="DatabaseEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Culture">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Openinghours1_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Openinghours2_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -500,10 +464,10 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Street" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Streetnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contact" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Streetnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Maps" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -519,16 +483,16 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Director" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Banner" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Actors" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Banner" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Actors" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Release" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Trailer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="poster" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Trailer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="poster" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -545,9 +509,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Key>
             <PropertyRef Name="Title" />
           </Key>
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Infor_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Infor_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Infor_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Infor_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ProductInOrder">
@@ -564,7 +528,7 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="fk_EventId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Discountable" Type="Boolean" Nullable="false" />
@@ -583,33 +547,23 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpenHours" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
-          <Property Name="Salt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="CultureView">
           <Key>
@@ -621,9 +575,9 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           </Key>
           <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MoviesMetProductid">
@@ -645,16 +599,16 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="productId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Director" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Banner" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Actors" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Banner" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Actors" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Release" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Trailer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="poster" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Trailer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="poster" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="MoviesView">
           <Key>
@@ -673,16 +627,16 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           </Key>
           <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Director" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Banner" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Actors" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Banner" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Actors" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Release" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Trailer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="poster" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Trailer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="poster" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="RestaurantsMetProductId">
           <Key>
@@ -699,12 +653,12 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="productId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpenHours" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -722,385 +676,304 @@ warning 6002: The table/view 'iHFF1617S_B6.dbo.RestaurantView' does not have a p
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Event_Id" Type="Int32" Nullable="false" />
           <Property Name="Special" Type="Boolean" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_EN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_NL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpenHours" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Poster" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="MoviesMetProductid">
-          <Key>
-            <PropertyRef Name="productId" />
-            <PropertyRef Name="Price" />
-            <PropertyRef Name="id" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Plot_EN" />
-            <PropertyRef Name="Plot_NL" />
-            <PropertyRef Name="Director" />
-            <PropertyRef Name="Banner" />
-            <PropertyRef Name="Actors" />
-            <PropertyRef Name="Release" />
-            <PropertyRef Name="Duration" />
-            <PropertyRef Name="Trailer" />
-            <PropertyRef Name="poster" />
-          </Key>
-          <Property Name="productId" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Plot_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Director" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Banner" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Actors" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Release" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Trailer" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="poster" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="RestaurantsMetProductId">
-          <Key>
-            <PropertyRef Name="productId" />
-            <PropertyRef Name="Price" />
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Description_EN" />
-            <PropertyRef Name="Description_NL" />
-            <PropertyRef Name="OpenHours" />
-            <PropertyRef Name="Poster" />
-            <PropertyRef Name="Address" />
-          </Key>
-          <Property Name="productId" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Description_NL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OpenHours" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SmallimageOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SmallimageTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        </Schema>
+        <EntityContainer Name="iHFF1617S_B6Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cultures" EntityType="Self.Culture" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="EventTimes" EntityType="Self.EventTime" />
+          <EntitySet Name="EventTypes" EntityType="Self.EventType" />
+          <EntitySet Name="Highlights" EntityType="Self.Highlight" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="LocationTypes" EntityType="Self.LocationType" />
+          <EntitySet Name="Movies" EntityType="Self.Movy" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Pages" EntityType="Self.Page" />
+          <EntitySet Name="ProductInOrders" EntityType="Self.ProductInOrder" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+          <EntitySet Name="Restaurants" EntityType="Self.Restaurant" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="CultureViews" EntityType="Self.CultureView" />
+          <EntitySet Name="MoviesMetProductids" EntityType="Self.MoviesMetProductid" />
+          <EntitySet Name="MoviesViews" EntityType="Self.MoviesView" />
+          <EntitySet Name="RestaurantsMetProductIds" EntityType="Self.RestaurantsMetProductId" />
+          <EntitySet Name="RestaurantViews" EntityType="Self.RestaurantView" />
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseEntititiesStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="DatabaseEntitiesStoreContainer" CdmEntityContainer="iHFF1617S_B6Entities">
           <EntitySetMapping Name="Cultures">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Culture">
+            <EntityTypeMapping TypeName="DatabaseEntities.Culture">
               <MappingFragment StoreEntitySet="Cultures">
-                <ScalarProperty Name="Openinghours2_EN" ColumnName="Openinghours2_EN" />
-                <ScalarProperty Name="Openinghours1_EN" ColumnName="Openinghours1_EN" />
-                <ScalarProperty Name="Openinghours2_NL" ColumnName="Openinghours2_NL" />
-                <ScalarProperty Name="Openinghours1_NL" ColumnName="Openinghours1_NL" />
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="Openinghours1_NL" ColumnName="Openinghours1_NL" />
+                <ScalarProperty Name="Openinghours2_NL" ColumnName="Openinghours2_NL" />
+                <ScalarProperty Name="Openinghours1_EN" ColumnName="Openinghours1_EN" />
+                <ScalarProperty Name="Openinghours2_EN" ColumnName="Openinghours2_EN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Customer">
+            <EntityTypeMapping TypeName="DatabaseEntities.Customer">
               <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="Createdon" ColumnName="Createdon" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="lastName" ColumnName="lastName" />
-                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Createdon" ColumnName="Createdon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Events">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Event">
+            <EntityTypeMapping TypeName="DatabaseEntities.Event">
               <MappingFragment StoreEntitySet="Events">
-                <ScalarProperty Name="Special" ColumnName="Special" />
-                <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
-                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+                <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTimes">
-            <EntityTypeMapping TypeName="DatabaseEntitities.EventTime">
+            <EntityTypeMapping TypeName="DatabaseEntities.EventTime">
               <MappingFragment StoreEntitySet="EventTimes">
-                <ScalarProperty Name="Day" ColumnName="Day" />
-                <ScalarProperty Name="IsContinus" ColumnName="IsContinus" />
-                <ScalarProperty Name="fk_Location" ColumnName="fk_Location" />
-                <ScalarProperty Name="fk_EventId" ColumnName="fk_EventId" />
-                <ScalarProperty Name="end_Time" ColumnName="end_Time" />
-                <ScalarProperty Name="start_Time" ColumnName="start_Time" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="start_Time" ColumnName="start_Time" />
+                <ScalarProperty Name="end_Time" ColumnName="end_Time" />
+                <ScalarProperty Name="fk_EventId" ColumnName="fk_EventId" />
+                <ScalarProperty Name="fk_Location" ColumnName="fk_Location" />
+                <ScalarProperty Name="IsContinus" ColumnName="IsContinus" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTypes">
-            <EntityTypeMapping TypeName="DatabaseEntitities.EventType">
+            <EntityTypeMapping TypeName="DatabaseEntities.EventType">
               <MappingFragment StoreEntitySet="EventType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Highlights">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Highlight">
+            <EntityTypeMapping TypeName="DatabaseEntities.Highlight">
               <MappingFragment StoreEntitySet="Highlights">
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Location">
+            <EntityTypeMapping TypeName="DatabaseEntities.Location">
               <MappingFragment StoreEntitySet="Locations">
-                <ScalarProperty Name="Maps" ColumnName="Maps" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Streetnumber" ColumnName="Streetnumber" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Streetnumber" ColumnName="Streetnumber" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Maps" ColumnName="Maps" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LocationTypes">
-            <EntityTypeMapping TypeName="DatabaseEntitities.LocationType">
+            <EntityTypeMapping TypeName="DatabaseEntities.LocationType">
               <MappingFragment StoreEntitySet="LocationType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Movies">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Movy">
+            <EntityTypeMapping TypeName="DatabaseEntities.Movy">
               <MappingFragment StoreEntitySet="Movies">
-                <ScalarProperty Name="poster" ColumnName="poster" />
-                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Release" ColumnName="Release" />
-                <ScalarProperty Name="Actors" ColumnName="Actors" />
-                <ScalarProperty Name="Banner" ColumnName="Banner" />
-                <ScalarProperty Name="Director" ColumnName="Director" />
-                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
-                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
+                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Banner" ColumnName="Banner" />
+                <ScalarProperty Name="Actors" ColumnName="Actors" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="poster" ColumnName="poster" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Order">
+            <EntityTypeMapping TypeName="DatabaseEntities.Order">
               <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
-                <ScalarProperty Name="Paymentmethod" ColumnName="Paymentmethod" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="fk_Client" ColumnName="fk_Client" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fk_Client" ColumnName="fk_Client" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Paymentmethod" ColumnName="Paymentmethod" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pages">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Page">
+            <EntityTypeMapping TypeName="DatabaseEntities.Page">
               <MappingFragment StoreEntitySet="Page">
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Infor_EN" ColumnName="Infor_EN" />
-                <ScalarProperty Name="Infor_NL" ColumnName="Infor_NL" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Infor_NL" ColumnName="Infor_NL" />
+                <ScalarProperty Name="Infor_EN" ColumnName="Infor_EN" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductInOrders">
-            <EntityTypeMapping TypeName="DatabaseEntitities.ProductInOrder">
+            <EntityTypeMapping TypeName="DatabaseEntities.ProductInOrder">
               <MappingFragment StoreEntitySet="ProductInOrder">
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="fk_Order_id" ColumnName="fk_Order_id" />
-                <ScalarProperty Name="fk_Product_id" ColumnName="fk_Product_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fk_Product_id" ColumnName="fk_Product_id" />
+                <ScalarProperty Name="fk_Order_id" ColumnName="fk_Order_id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Product">
+            <EntityTypeMapping TypeName="DatabaseEntities.Product">
               <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="Discountable" ColumnName="Discountable" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="fk_EventId" ColumnName="fk_EventId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="fk_EventId" ColumnName="fk_EventId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discountable" ColumnName="Discountable" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Reservation">
+            <EntityTypeMapping TypeName="DatabaseEntities.Reservation">
               <MappingFragment StoreEntitySet="Reservations">
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
-                <ScalarProperty Name="fk_Order_Id" ColumnName="fk_Order_Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fk_Order_Id" ColumnName="fk_Order_Id" />
+                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Restaurants">
-            <EntityTypeMapping TypeName="DatabaseEntitities.Restaurant">
+            <EntityTypeMapping TypeName="DatabaseEntities.Restaurant">
               <MappingFragment StoreEntitySet="Restaurants">
-                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
-                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DatabaseEntitities.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
+                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DatabaseEntitities.User">
+            <EntityTypeMapping TypeName="DatabaseEntities.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Salt" ColumnName="Salt" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CultureViews">
-            <EntityTypeMapping TypeName="DatabaseEntitities.CultureView">
+            <EntityTypeMapping TypeName="DatabaseEntities.CultureView">
               <MappingFragment StoreEntitySet="CultureView">
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MoviesMetProductids">
-            <EntityTypeMapping TypeName="DatabaseEntitities.MoviesMetProductid">
+            <EntityTypeMapping TypeName="DatabaseEntities.MoviesMetProductid">
               <MappingFragment StoreEntitySet="MoviesMetProductid">
-                <ScalarProperty Name="poster" ColumnName="poster" />
-                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Release" ColumnName="Release" />
-                <ScalarProperty Name="Actors" ColumnName="Actors" />
-                <ScalarProperty Name="Banner" ColumnName="Banner" />
-                <ScalarProperty Name="Director" ColumnName="Director" />
-                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
-                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
+                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Banner" ColumnName="Banner" />
+                <ScalarProperty Name="Actors" ColumnName="Actors" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="poster" ColumnName="poster" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MoviesViews">
-            <EntityTypeMapping TypeName="DatabaseEntitities.MoviesView">
+            <EntityTypeMapping TypeName="DatabaseEntities.MoviesView">
               <MappingFragment StoreEntitySet="MoviesView">
-                <ScalarProperty Name="poster" ColumnName="poster" />
-                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Release" ColumnName="Release" />
-                <ScalarProperty Name="Actors" ColumnName="Actors" />
-                <ScalarProperty Name="Banner" ColumnName="Banner" />
-                <ScalarProperty Name="Director" ColumnName="Director" />
-                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
-                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
+                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Banner" ColumnName="Banner" />
+                <ScalarProperty Name="Actors" ColumnName="Actors" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="poster" ColumnName="poster" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RestaurantsMetProductIds">
-            <EntityTypeMapping TypeName="DatabaseEntitities.RestaurantsMetProductId">
+            <EntityTypeMapping TypeName="DatabaseEntities.RestaurantsMetProductId">
               <MappingFragment StoreEntitySet="RestaurantsMetProductId">
-                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
-                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
+                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RestaurantViews">
-            <EntityTypeMapping TypeName="DatabaseEntitities.RestaurantView">
+            <EntityTypeMapping TypeName="DatabaseEntities.RestaurantView">
               <MappingFragment StoreEntitySet="RestaurantView">
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Special" ColumnName="Special" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-<<<<<<< HEAD
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MoviesMetProductids">
-            <EntityTypeMapping TypeName="DatabaseEntitities.MoviesMetProductid">
-              <MappingFragment StoreEntitySet="MoviesMetProductid">
-                <ScalarProperty Name="poster" ColumnName="poster" />
-                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Release" ColumnName="Release" />
-                <ScalarProperty Name="Actors" ColumnName="Actors" />
-                <ScalarProperty Name="Banner" ColumnName="Banner" />
-                <ScalarProperty Name="Director" ColumnName="Director" />
-                <ScalarProperty Name="Plot_NL" ColumnName="Plot_NL" />
-                <ScalarProperty Name="Plot_EN" ColumnName="Plot_EN" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="productId" ColumnName="productId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RestaurantsMetProductIds">
-            <EntityTypeMapping TypeName="DatabaseEntitities.RestaurantsMetProductId">
-              <MappingFragment StoreEntitySet="RestaurantsMetProductId">
-                <ScalarProperty Name="SmallimageTwo" ColumnName="SmallimageTwo" />
-                <ScalarProperty Name="SmallimageOne" ColumnName="SmallimageOne" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Poster" ColumnName="Poster" />
-                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
-                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
-                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Special" ColumnName="Special" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="productId" ColumnName="productId" />
-=======
->>>>>>> refs/remotes/origin/Jeroen
+                <ScalarProperty Name="Description_EN" ColumnName="Description_EN" />
+                <ScalarProperty Name="Description_NL" ColumnName="Description_NL" />
+                <ScalarProperty Name="OpenHours" ColumnName="OpenHours" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
