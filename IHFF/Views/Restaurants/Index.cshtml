@@ -1,11 +1,15 @@
 ﻿@model IEnumerable<IHFF.Models.Restaurant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Restaurants";
 }
 
 
 <script>
+    
+    var currentId;
+    
+
     function MapsLocation(location) {
         var str1 = "https://maps.google.com/maps?q=";
         var str2 = "&t=&z=14&ie=UTF8&iwloc=&output=embed";
@@ -14,29 +18,88 @@
 
     }
 
-        $(document).ready(function () {
-            $("#result").dialog({
-                autoOpen: false,
-                title: 'Title',
-                width: 500,
-                height: 'auto',
-                modal: true
-            });
-        });
-    
-function openPopup() {
-    $("#result").dialog("open");
-}
 
-$(function () {
-    $("#dialog").dialog();
-});
+    $(document).ready(function () {
+        $("#result").dialog({
+            autoOpen: false,
+            title: 'Persoonlijk Programma',
+            width: 500,
+            height: 'auto',
+        });
+    });
+
+    $(document).ready(function () {
+        $("#OrderRestaurant").dialog({
+            autoOpen: false,
+            title: 'Reservering maken',
+            width: 500,
+            height: 'auto',
+        });
+    });
+
+    function openPopup() {
+        $("#OrderRestaurant").dialog("open");
+    }
+
+    function FillPopupInfo(identity, name, poster) {
+        //alert(identity + name + poster);
+        var posterContainer = document.getElementById("poster");
+        posterContainer.innerHTML = "test";
+        var a = "<img style=\"width: 230px; height: 150px;margin: 10px;margin-top: 25px;\" src=";
+        var b = ">";
+
+        currentId = identity;
+        
+        posterContainer.innerHTML = a+poster+b;
+        document.getElementById("name").innerHTML = name;
+        //document.getElementById("poster").innerHTML='<img src="' + poster +'/>';
+
+    }
+
+    //$("#confirmReservationButton").click(function () {
+    //    AddReservationToCart(currentId, $("#aantal").val, $("#date").val);
+    //});
+
+    function confirmReservation() {
+        var aantal = document.getElementById("aantal").value;
+        var datum = document.getElementById("date").value;
+        AddReservationToCart(currentId, aantal, datum);
+    }
+
+    $(function () {
+        $("#dialog").dialog();
+    });
 
 </script>
 
 <div class="row">
     <div class="col-md-9">
-        <div id="result" style="display:none;"></div>
+        <div id="result" style="display:none;">
+            Dit is het persoonlijke programma
+        </div>
+        <div id="OrderRestaurant" style="display:none">
+            <div id="name">
+
+            </div>
+            <div id="poster">
+
+            </div>
+            
+            <table>
+                <tr>
+                    <td>Aantal personen</td>
+                    <td><input type="number" id="aantal" /></td>
+                </tr>
+                <tr>
+                    <td>Datum</td>
+                    <td><input type="datetime-local" id="date"/></td>
+                </tr>
+            </table>
+            <div style="float: right">
+                <a class="blueBtn" id="confirmReservationButton" onclick="confirmReservation()">Confirm</a>
+            </div>
+
+        </div>
 
 
         @foreach (var item in Model)
@@ -54,7 +117,7 @@ $(function () {
                                         <h3>
                                             <div class="title" onclick="MapsLocation('@item.Address')">
                                                 @Html.DisplayFor(modelItem => item.Name)
-                                               
+
                                             </div>
                                         </h3>
                                         <p>
@@ -75,9 +138,12 @@ $(function () {
                                         @Html.DisplayFor(modelItem => item.OpenHours)
                                     </div>
                                     <div class="col-md-6 alignbottom">
-                                        @Html.ActionLink("More...", "Details", new { id = item.Id }, new {@class = "blueBtn"})
-                                        @Html.ActionLink("Add to program", "AddToProgram", new { id = item.Id }, new { @class = "yellowBtn" }) 
-                                        @Html.ActionLink("Order now", "OrderNow", new { id = item.Id }, new { @class = "blueBtn" })
+                                        
+                                        @Html.ActionLink("More...", "Details", new { id = item.Id }, new { @class = "blueBtn" })
+                                        @Html.ActionLink("Add to program", "AddToProgram", new { id = item.Id }, new { @class = "yellowBtn" })
+                                        <a class="blueBtn" onclick="openPopup(); FillPopupInfo(@item.Id, '@item.Name', '@item.Poster')">
+                                            Order Now
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -85,18 +151,17 @@ $(function () {
                     </div>
                 </div>
             </div>
-        }
+            }
     </div>
     <div class="col-md-3">
-        <iframe style="position:fixed" id="maps" width="25%" height="375" frameborder="0" scrolling="no" marginheight="0" src="https://maps.google.com/maps?q=Haarlem&t=&z=14&ie=UTF8&iwloc=&output=embed" marginwidth="0"><a class="addmaps" href="http://www.webdesign-muenchen.me" id="get-map-data" mce_href="http://maps.google.com/maps/">webdesign münchen</a>
-        <style>
-            #gmap_canvas img {
-                max-width: none !important;
-                background: none !important;
-            }
-        </style></iframe>
+        <iframe style="position:fixed" id="maps" width="25%" height="375" frameborder="0" scrolling="no" marginheight="0" src="https://maps.google.com/maps?q=Haarlem&t=&z=14&ie=UTF8&iwloc=&output=embed" marginwidth="0">
+            <a class="addmaps" href="http://www.webdesign-muenchen.me" id="get-map-data" mce_href="http://maps.google.com/maps/">webdesign münchen</a>
+            <style>
+                #gmap_canvas img {
+                    max-width: none !important;
+                    background: none !important;
+                }
+            </style>
+        </iframe>
     </div>
 </div>
-
-
-

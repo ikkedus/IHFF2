@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
         
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -34,13 +35,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies, "Index", "Movie/index")</li>
+                    <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Movies,"index", "Movie/index")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.culture, "Index", "Culture")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.Food, "Index", "Restaurants")</li>
                     <li>@Html.ActionLink(IHFF.App_GlobalResources.Resources.PS, "Index", "PS")</li>
                     <li>@Html.ActionLink("Info", "Info", "Page")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" id="openCart" class="fa fa-2x fa-shopping-cart">
+
+                        </a>
+                    </li>
                     <li>
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -77,6 +83,13 @@
 
 
     @RenderSection("scripts", required: false)
-   
+   <script>
+       $(document).ready(function () {
+           $('#openCart').click(function (e) {
+               e.preventDefault();
+               ShowShoppingCart();
+           });
+       });
+   </script>
 </body>
 </html>

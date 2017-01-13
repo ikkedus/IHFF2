@@ -36,10 +36,25 @@
                             @time.Location
                             @time.day
                         }</p>
+                        @Html.ActionLink("Back", "index", "Movie", new { id = item.id }, new { @class = "blueBtn" })
+
+                        <a href="#" data-id="@item.id" class="orderNow yellowBtn">Order now</a>
+
+                        @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id }, new { @class = "blueBtn" })
                     </div>
                 </div>
             </div>
         </div>
     </div>
 }
+<script>
+    $(document).ready(function () {
+        $('.orderNow').click(function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            var amount = prompt("Hoeveel tickets");
+            AddProductToCart(id, amount);
+        });
+    });
+</script>
 

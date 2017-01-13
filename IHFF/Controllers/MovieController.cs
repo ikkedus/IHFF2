@@ -16,6 +16,12 @@ namespace IHFF.Controllers
         {
             return View(repo.getMovies());
         }
+        public ActionResult Sorted(DayOfWeek day)
+        {
+            var movies = repo.getMovies();
+            movies = movies.Where(x=>x.times.Any(y=>y.day == day)).ToList();
+            return View("index",movies);
+        }
     }
 
 

@@ -2,11 +2,11 @@
 
 <header class="row header">
     <h1 class="text-center">
-        <button class="btn btn-primary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Woensdag ,"index","MovieInfo")</button>
-        <button class="btn btn-primary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Donderdag, "index", "MovieInfo")</button>
-        <button class="btn btn-primary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Vrijdag, "index", "MovieInfo")</button>
-        <button class="btn btn-primary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Zaterdag, "index", "MovieInfo")</button>
-        <button class="btn btn-primary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Zondag, "index", "MovieInfo")</button>
+        <button class="btn btn-secondary btn-lg" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Woensdag, "Sorted", new {day = DayOfWeek.Wednesday } )</button>
+        <button class="btn btn-secondary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Donderdag, "Sorted", new { day = DayOfWeek.Thursday })</button>
+        <button class="btn btn-secondary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Vrijdag, "Sorted", new { day = DayOfWeek.Friday })</button>
+        <button class="btn btn-secondary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Zaterdag, "Sorted", new { day = DayOfWeek.Saturday })</button>
+        <button class="btn btn-secondary btn-lg round" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Zondag, "Sorted", new { day = DayOfWeek.Sunday } )</button>
     </h1>
 </header>
 
@@ -30,27 +30,29 @@
                                 </p>
                             </div>
                             <div class="col-md-4">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8">
+                                <br />
+                                <br />
+                                <br />
                                 @foreach (var time in item.times)
                                 {
-                                    @time.Start  
+                                    @time.Start
                                     @time.End
                                     @time.Location
                                     @time.day
                                 }
-
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
                             </div>
                             <div class="col-md-4 alignbottom">
                                
                                     @Html.ActionLink("More...", "index","MovieInfo", new { id = item.id }, new { @class = "blueBtn"})
 
-                                    @Html.ActionLink("Order Now", "Order Now", new { id = item.id }, new { @class = "yellowBtn" })
+                                    <a href="#"  data-id="@item.id" class = "orderNow yellowBtn">Order now</a>
 
                                     @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id }, new { @class = "blueBtn" })
-</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -58,3 +60,13 @@
         </div>
     </div>
 }
+<script>
+    $(document).ready(function () {
+        $('.orderNow').click(function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            var amount = prompt("Hoeveel tickets");
+            AddProductToCart(id, amount);
+        });
+    });
+</script>

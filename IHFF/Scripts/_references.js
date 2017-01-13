@@ -1,4 +1,5 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="jquery-ui-1.12.1.js" />
 /// <reference path="../content/charts.js" />
 /// <reference path="addtocart.js" />
 /// <reference path="ai.0.15.0-build58334.js" />

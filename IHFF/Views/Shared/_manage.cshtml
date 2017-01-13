@@ -20,10 +20,13 @@
                                 <a href="@Url.Action("index","Manage")"><i class="fa fa-dashboard"></i> Dashboard</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Pages" ? "active" : "")">
-                                <a href="@Url.Action("index","Manage")"><i class="fa fa-edit"></i> Pages</a>
+                                <a href="@Url.Action("Pages","Manage")"><i class="fa fa-edit"></i> Pages</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Movies" ? "active" : "")">
-                                <a href="@Url.Action("index","Manage")"><i class="fa fa-video-camera"></i> Movies</a>
+                                <a href="@Url.Action("movies","Manage")"><i class="fa fa-video-camera"></i> Movies</a>
+                            </li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Locations" ? "active" : "")">
+                                <a href="@Url.Action("locations","Manage")"><i class="fa fa-check-square-o"></i> Locations</a>
                             </li>
                             <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Restaurants" ? "active" : "")">
                                 <a href="@Url.Action("index","Manage")"><i class="fa fa-cutlery"></i> Restaurants</a>

@@ -25,12 +25,12 @@ namespace IHFF.Controllers
 
         public ActionResult AddToProgram()
         {
+
             return View("Index"); 
         }
 
         public ActionResult OrderNow()
         {
-            // ProductVm reservering = new ProductVm();
             return View();
         }
 

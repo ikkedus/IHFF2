@@ -4,7 +4,7 @@
         url: "/payment/AddProductToCart",
         data: { id: id, amount: amount}
     }).done(function (msg) {
-        alert("Data Saved: " + msg);
+        ShowShoppingCart();
     });
 }
 function AddReservationToCart(id, amount, date) {
@@ -13,6 +13,25 @@ function AddReservationToCart(id, amount, date) {
         url: "/payment/AddReservationToCart",
         data: { id: id, amount: amount, date: date}
     }).done(function (msg) {
-    alert("Data Saved: " + msg);
+        ShowShoppingCart();
 });
 }
+function Explosion() {
+    $.ajax({
+        method: "POST",
+        url: "/payment/DeleteCart",
+        data: {}
+    }).done(function () {
+        $('.modal').modal('hide')
+    });
+}
+function ShowShoppingCart(){
+    $.ajax({
+        method: "POST",
+        url: "/payment/GetCart",
+        data: {}
+    }).done(function (msg) {
+        $('.modal-content').html(msg);
+        $('.modal').modal();
+    });
+};
