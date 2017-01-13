@@ -1,6 +1,26 @@
 ﻿@model IHFF.Models.MovieInfoItem
 
 
+<div id="ProgramRestaurant" style="display:none">
+    <div id="programName">
+    </div>
+    <div id="programPoster">
+    </div>
+    <table>
+        <tr>
+            <td>Aantal personen</td>
+            <td><input type="number" id="programAantal" /></td>
+        </tr>
+        <tr>
+            <td>Datum</td>
+            <td><input type="datetime-local" id="programDate" /></td>
+        </tr>
+    </table>
+    <div style="float: right">
+        <a class="blueBtn" id="confirmReservationButton" onclick="confirmProgram()">Confirm</a>
+    </div>
+</div>
+
     <div class="container-fluid moviecollum">
         <div class="row">
             <div class="col-md-12 banner">
@@ -41,7 +61,10 @@
 
                         <a href="#" data-id="@Model.ProductId" class="orderNow yellowBtn">Order now</a>
 
-                        @Html.ActionLink("Add to Program", "Add to Program", new { id = Model.id }, new { @class = "blueBtn" })
+                        <a class="blueBtn" onclick="openProgramDialog(); fillProgramDialogInfo(@Model.ProductId, '@Model.name', '@Model.banner')">
+                            Add to program
+                        </a>
+
                     </div>
                 </div>
             </div>

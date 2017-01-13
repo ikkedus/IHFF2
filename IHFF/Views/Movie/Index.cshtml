@@ -1,5 +1,25 @@
 ﻿@model IEnumerable<IHFF.Models.MoviesItem>
 
+<div id="ProgramRestaurant" style="display:none">
+    <div id="programName">
+    </div>
+    <div id="programPoster">
+    </div>
+    <table>
+        <tr>
+            <td>Aantal personen</td>
+            <td><input type="number" id="programAantal" /></td>
+        </tr>
+        <tr>
+            <td>Datum</td>
+            <td><input type="datetime-local" id="programDate" /></td>
+        </tr>
+    </table>
+    <div style="float: right">
+        <a class="blueBtn" id="confirmReservationButton" onclick="confirmProgram()">Confirm</a>
+    </div>
+</div>
+
 <header class="row header">
     <h1 class="text-center">
         <button class="btn btn-secondary btn-lg" href="">@Html.ActionLink(@IHFF.App_GlobalResources.Resources.Woensdag, "Sorted", new {day = DayOfWeek.Wednesday } )</button>
@@ -56,7 +76,9 @@
 
                                     <a href="#"  data-id="@item.productId" class = "orderNow yellowBtn">Order now</a>
 
-                                    @Html.ActionLink("Add to Program", "Add to Program", new { id = item.id }, new { @class = "blueBtn" })
+                                <a class="blueBtn" onclick="openProgramDialog(); fillProgramDialogInfo(@item.productId, '@item.name', '@item.poster')">
+                                    Add to program
+                                </a>
                             </div>
                         </div>
                     </div>
