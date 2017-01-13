@@ -12,15 +12,18 @@ namespace IHFF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class RestaurantView
+    public partial class RestaurantsMetProductId
     {
+        public int productId { get; set; }
+        public int Price { get; set; }
         public int Id { get; set; }
-        public int Event_Id { get; set; }
-        public bool Special { get; set; }
         public string Name { get; set; }
         public string Description_EN { get; set; }
         public string Description_NL { get; set; }
         public string OpenHours { get; set; }
         public string Poster { get; set; }
+        public string Address { get; set; }
+        public string SmallimageOne { get; set; }
+        public string SmallimageTwo { get; set; }
     }
 }

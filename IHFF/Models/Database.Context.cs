@@ -30,6 +30,7 @@ namespace IHFF.Models
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<EventTime> EventTimes { get; set; }
         public virtual DbSet<EventType> EventTypes { get; set; }
+        public virtual DbSet<Highlight> Highlights { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<LocationType> LocationTypes { get; set; }
         public virtual DbSet<Movy> Movies { get; set; }
@@ -41,7 +42,9 @@ namespace IHFF.Models
         public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<CultureView> CultureViews { get; set; }
+        public virtual DbSet<MoviesMetProductid> MoviesMetProductids { get; set; }
         public virtual DbSet<MoviesView> MoviesViews { get; set; }
+        public virtual DbSet<RestaurantsMetProductId> RestaurantsMetProductIds { get; set; }
         public virtual DbSet<RestaurantView> RestaurantViews { get; set; }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<IHFF.Models.Highlight>
+
+@{
+    ViewBag.Title = "Highlights";
+    Layout = "~/Views/Shared/_manage.cshtml";
+}
+
+<h2>Highlights</h2>
+
+<p>
+    @Html.ActionLink("Create New Highlight", "AddHighlight")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_EN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_NL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_EN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_NL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poster)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditHighlight", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteHighlight", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

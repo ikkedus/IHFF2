@@ -76,5 +76,27 @@ namespace IHFF.Repositories
         {
             return db.Pages.SingleOrDefault(x => x.Title == pagetitel);
         }
+
+        public List<Highlight> GetHighlights()
+        {
+            return db.Highlights.ToList();
+        }
+
+        public Highlight GetHighlight(int highlightid)
+        {
+            return db.Highlights.SingleOrDefault(x => x.Id == highlightid);
+        }
+
+        public void SaveHighlight(Highlight highlight)
+        {
+            db.Highlights.Add(highlight);
+            db.SaveChanges();
+        }
+
+        public void DeleteHighlight(Highlight highlight)
+        {
+            db.Highlights.Remove(highlight);
+            db.SaveChanges();
+        }
     }
 }
